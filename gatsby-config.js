@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/daily-office',
   siteMetadata: {
     title: `Daily Office`,
     description: `The ACNA Daily Office. Morning, evening, and night prayer.`,
