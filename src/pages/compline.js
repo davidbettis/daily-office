@@ -67,58 +67,58 @@ One or more of the following, or some other suitable Psalm, is sung or said.
 <b>Psalm 4</b>  <i>Cum invocarem</i>
 
 <div class="psalm-verse">
-1 Hear me when I call, O God of my righteousness; *<br/>
-<div class="psalm-verse-indented">
+<span class="verse">1</span> Hear me when I call, O God of my righteousness; *<br/>
+<div class="psalm-verse-response">
 you set me free when I was in trouble;<br/>
 have mercy upon me, and hear my prayer.
 </div>
 </div>
 
 <div class="psalm-verse">
-2	O you children of men, how long will you blaspheme my honor *
-<div class="psalm-verse-indented">
+<span class="verse">2</span>	O you children of men, how long will you blaspheme my honor *
+<div class="psalm-verse-response">
 And have such pleasure in vanity, and seek after falsehood?
 </div>
 </div>
 
 <div class="psalm-verse">
-3	Know this also, that the LORD has chosen for himself the one that is godly *
-<div class="psalm-verse-indented">
+<span class="verse">3</span>	Know this also, that the LORD has chosen for himself the one that is godly *
+<div class="psalm-verse-response">
 when I call upon the LORD, he will hear me.
 </div>
 </div>
 
 <div class="psalm-verse">
-4	Stand in awe, and sin not; *
-<div class="psalm-verse-indented">
+<span class="verse">4</span>	Stand in awe, and sin not; *
+<div class="psalm-verse-response">
 commune with your own heart upon your bed, and be still.
 </div>
 </div>
 
 <div class="psalm-verse">
-5	Offer the sacrifice of righteousness *
-<div class="psalm-verse-indented">
+<span class="verse">5</span>	Offer the sacrifice of righteousness *
+<div class="psalm-verse-response">
 and put your trust in the LORD.
 </div>
 </div>
 
 <div class="psalm-verse">
-6	There are many who say, “Who will show us any good?” *
-<div class="psalm-verse-indented">
+<span class="verse">6</span>	There are many who say, “Who will show us any good?” *
+<div class="psalm-verse-response">
 		LORD, lift up the light of your countenance upon us.
 </div>
 </div>
 
 <div class="psalm-verse">
-7	You have put gladness in my heart, *
-<div class="psalm-verse-indented">
+<span class="verse">7</span>	You have put gladness in my heart, *
+<div class="psalm-verse-response">
 more than when others' grain and wine and oil increased.
 </div>
 </div>
 
 <div class="psalm-verse">
-8	I will lay myself down in peace, and take my rest; *
-<div class="psalm-verse-indented">
+<span class="verse">8</span>	I will lay myself down in peace, and take my rest; *
+<div class="psalm-verse-response">
 for you, LORD, only, make me dwell in safety.
 </div>
 </div>
@@ -128,43 +128,43 @@ for you, LORD, only, make me dwell in safety.
 <p>
 <b>Psalm 31:1-6</b>  <i>In te, Domine, speravi</i>
 <div class="psalm-verse">
-1	In you, O LORD, have I put my trust; *
-<div class="psalm-verse-indented">
+<span class="verse">1</span>	In you, O LORD, have I put my trust; *
+<div class="psalm-verse-response">
 let me never be put to confusion; deliver me in your righteousness.
 </div>
 </div>
 
 <div class="psalm-verse">
-2	Bow down your ear to me; *
-<div class="psalm-verse-indented">
+<span class="verse">2</span>	Bow down your ear to me; *
+<div class="psalm-verse-response">
 make haste to deliver me.
 </div>
 </div>
 
 <div class="psalm-verse">
-3	And be my strong rock, and house of defense, *
-<div class="psalm-verse-indented">
+<span class="verse">3</span>	And be my strong rock, and house of defense, *
+<div class="psalm-verse-response">
 		that you may save me.
 </div>
 </div>
 
 <div class="psalm-verse">
-4	For you are my strong rock and my castle; *
-<div class="psalm-verse-indented">
+<span class="verse">4</span>	For you are my strong rock and my castle; *
+<div class="psalm-verse-response">
 be also my guide, and lead me for your Name’s sake.
 </div>
 </div>
 
 <div class="psalm-verse">
-5	Draw me out of the net that they have laid secretly for me, *
-<div class="psalm-verse-indented">
+<span class="verse">5</span>	Draw me out of the net that they have laid secretly for me, *
+<div class="psalm-verse-response">
 for you are my strength.
 </div>
 </div>
 
 <div class="psalm-verse">
-6	Into your hands I commend my spirit, *
-<div class="psalm-verse-indented">
+<span class="verse">6</span>	Into your hands I commend my spirit, *
+<div class="psalm-verse-response">
 for you have redeemed me, O LORD, O God of truth.
 </div>
 </div>
@@ -173,116 +173,116 @@ for you have redeemed me, O LORD, O God of truth.
 <p>
 <b>Psalm 91</b> <i>Qui habitat</i>
 <div class="psalm-verse">
-1	Whoever dwells under the defense of the Most High *
-<div class="psalm-verse-indented">
+<span class="verse">1</span>	Whoever dwells under the defense of the Most High *
+<div class="psalm-verse-response">
 shall abide under the shadow of the Almighty.
 </div>
 </div>
 
 <div class="psalm-verse">
-2	I will say unto the LORD,
+<span class="verse">2</span>	I will say unto the LORD,
 “You are my refuge and my stronghold, *
-<div class="psalm-verse-indented">
+<div class="psalm-verse-response">
 my God in whom I will trust.”
 </div>
 </div>
 
 <div class="psalm-verse">
-3	For he shall deliver you from the snare of the hunter *
-<div class="psalm-verse-indented">
+<span class="verse">3</span>	For he shall deliver you from the snare of the hunter *
+<div class="psalm-verse-response">
 and from the deadly pestilence.
 </div>
 </div>
 
 <div class="psalm-verse">
-4	He shall defend you under his wings,
+<span class="verse">4</span>	He shall defend you under his wings,
 and you shall be safe under his feathers; *
-<div class="psalm-verse-indented">
+<div class="psalm-verse-response">
 his faithfulness and truth shall be your shield and buckler.
 </div>
 </div>
 
 <div class="psalm-verse">
-5	You shall not be afraid of any terror by night, *
-<div class="psalm-verse-indented">
+<span class="verse">5</span>	You shall not be afraid of any terror by night, *
+<div class="psalm-verse-response">
 nor of the arrow that flies by day;
 </div>
 </div>
 
 <div class="psalm-verse">
-6	Of the pestilence that walks in the darkness, *
-<div class="psalm-verse-indented">
+<span class="verse">6</span>	Of the pestilence that walks in the darkness, *
+<div class="psalm-verse-response">
 nor of the sickness that destroys at noonday.
 </div>
 </div>
 
 <div class="psalm-verse">
-7	A thousand shall fall beside you, and ten thousand at your right hand, *
-<div class="psalm-verse-indented">
+<span class="verse">7</span>	A thousand shall fall beside you, and ten thousand at your right hand, *
+<div class="psalm-verse-response">
 but it shall not come near you.
 </div>
 </div>
 
 <div class="psalm-verse">
-8	Indeed, with your eyes you shall behold *
-<div class="psalm-verse-indented">
+<span class="verse">8</span>	Indeed, with your eyes you shall behold *
+<div class="psalm-verse-response">
 and see the reward of the ungodly.
 </div>
 </div>
 
 <div class="psalm-verse">
-9	For you, LORD, are my refuge; *
-<div class="psalm-verse-indented">
+<span class="verse">9</span>	For you, LORD, are my refuge; *
+<div class="psalm-verse-response">
 You have set your house of defense very high. 
 </div>
 </div>
 
 <div class="psalm-verse">
-10	There shall no evil happen unto you, *
-<div class="psalm-verse-indented">
+<span class="verse">10</span>	There shall no evil happen unto you, *
+<div class="psalm-verse-response">
 neither shall any plague come near your dwelling.
 </div>
 </div>
 
 <div class="psalm-verse">
-11	For he shall give his angels charge over you, *
-<div class="psalm-verse-indented">
+<span class="verse">11</span>	For he shall give his angels charge over you, *
+<div class="psalm-verse-response">
 to keep you in all your ways.
 </div>
 </div>
 
 <div class="psalm-verse">
-12	They shall bear you in their hands, *
-<div class="psalm-verse-indented">
+<span class="verse">12</span>	They shall bear you in their hands, *
+<div class="psalm-verse-response">
 That you not hurt your foot against a stone.
 </div>
 </div>
 
 <div class="psalm-verse">
-13	You shall tread upon the lion and adder; *
-<div class="psalm-verse-indented">
+<span class="verse">13</span>	You shall tread upon the lion and adder; *
+<div class="psalm-verse-response">
 the young lion and the serpent you shall trample under your feet.
 </div>
 </div>
 
 <div class="psalm-verse">
-14	Because he has set his love upon me, therefore I will deliver him; *
-<div class="psalm-verse-indented">
+<span class="verse">14</span>	Because he has set his love upon me, therefore I will deliver him; *
+<div class="psalm-verse-response">
 I have set him up, because he has known my Name.
 </div>
 </div>
 
 <div class="psalm-verse">
-15	He shall call upon me, and I will hear him; *
-<div class="psalm-verse-indented">
+<span class="verse">15</span>	He shall call upon me, and I will hear him; *
+<div class="psalm-verse-response">
 indeed, I am with him in trouble;
 I will deliver him and bring him to honor.
 </div>
 </div>
 
 <div class="psalm-verse">
-16	With long life I will satisfy him, *
-<div class="psalm-verse-indented">
+<span class="verse">16</span>	With long life I will satisfy him, *
+<div class="psalm-verse-response">
 and show him my salvation.
 </div>
 </div>
@@ -291,29 +291,29 @@ and show him my salvation.
 <p>
 <b>Psalm 134</b>  <i>Ecce nunc</i>
 <div class="psalm-verse">
-1	Behold now, praise the LORD, *
-<div class="psalm-verse-indented">
+<span class="verse">1</span>	Behold now, praise the LORD, *
+<div class="psalm-verse-response">
 		all you servants of the LORD.
 </div>
 </div>
 
 <div class="psalm-verse">
-2	You that stand by night in the house of the LORD, *
-<div class="psalm-verse-indented">
+<span class="verse">2</span>	You that stand by night in the house of the LORD, *
+<div class="psalm-verse-response">
 		even in the courts of the house of our God.
 </div>
 </div>
 
 <div class="psalm-verse">
-3	Lift up your hands in the sanctuary* 
-<div class="psalm-verse-indented">
+<span class="verse">3</span>	Lift up your hands in the sanctuary* 
+<div class="psalm-verse-response">
 		and sing praises unto the LORD.
 </div>
 </div>
 
 <div class="psalm-verse">
-4	The LORD who made heaven and earth * 
-<div class="psalm-verse-indented">
+<span class="verse">4</span>	The LORD who made heaven and earth * 
+<div class="psalm-verse-response">
 		give you blessing out of Zion.
 </div>
 </div>
@@ -429,8 +429,7 @@ Silence may be kept, and free intercessions and thanksgivings may be offered.
 <p class="instructions">The Officiant and People say or sing the Song of Simeon (Luke 2:29-32) with this Antiphon</p>
 
 <p>
-Guide us waking, O Lord, and guard us sleeping; that awake <br/>
-we may watch with Christ, and asleep we may rest in peace.
+Guide us waking, O Lord, and guard us sleeping; that awake we may watch with Christ, and asleep we may rest in peace.
 </p>
 
 <p>

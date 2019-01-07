@@ -1,5 +1,7 @@
 TODO list:
 
+* Add morning prayer
+* Add evening prayer
 * Move office-specific CSS outside of global CSS
 * Add option for traditional / contemporary Lord's prayer
 * Compline: Conditionally add allelius in Lent
