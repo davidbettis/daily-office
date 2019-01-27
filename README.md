@@ -7,3 +7,8 @@ TODO list:
 * Compline: Conditionally add allelius in Lent
 * Compline: Conditionally add allelius in Easter
 * Add an option to pick psalsm on each day
+* Add preferences for various reading plans / configurations
+
+### Credits
+
+* Favicon is a scaled down edition of https://en.wikipedia.org/wiki/File:Christian_cross.svg, which is in the public domain
