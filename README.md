@@ -1,4 +1,10 @@
-TODO list:
+### Summary
+
+This is a static website to vend the Daily Office. The Daily Office is an
+hitoric devotional, which walks the reader through a set of readings from the
+Bible and various prayers.
+
+### TODO
 
 * Add morning prayer
 * Add evening prayer
@@ -6,6 +12,7 @@ TODO list:
 * Add option for traditional / contemporary Lord's prayer
 * Add an option to pick psalsm on each day
 * Add preferences for various reading plans / configurations
+* Add unit testing for AlleluiaComponent. All that date stuff... gosh
 
 ### Credits
 
