@@ -13,6 +13,8 @@ const IndexPage = () => (
     <ul>
     <li><span role="img" aria-label="night">🌃</span> <Link to="/compline/">Compline</Link> (night prayer)</li>
     </ul>
+
+    <p>Source for this project can be found on Github! https://github.com/davidbettis/daily-office</p>
   </Layout>
 )
 
