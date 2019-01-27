@@ -5,6 +5,7 @@ export class CollectComponent extends React.Component {
         super();
 
 	this.isSaturday = new Date().getDay() === 6;
+	
     }
 
     render() {

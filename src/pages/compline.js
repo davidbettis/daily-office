@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import DateComponent from '../components/date'
 import CollectComponent from '../components/collect'
+import AlleluiaComponent from '../components/alleluia'
 
 const Compline = () => (
   <Layout>
@@ -51,12 +52,14 @@ const Compline = () => (
     </p>
     
     <p>
+    <p>
     <div class="officiant">O God, make speed to save us.</div>
     <div class="people">O Lord, make haste to help us.</div>
     <div class="officiant">Glory be to the Father, and to the Son, and to the Holy Spirit;</div>
     <div class="people">as it was in the beginning, is now, and ever shall be, world without end. Amen.</div>
+    </p>
     
-    <span class="instructions">Except in Lent, add </span><span class="people"> Alleluia.</span> 
+    <AlleluiaComponent notLent={true} />
     </p>
     
     <p class="instructions">
@@ -412,9 +415,7 @@ const Compline = () => (
     Guide us waking, O Lord, and guard us sleeping; that awake we may watch with Christ, and asleep we may rest in peace.
     </p>
     
-    <p>
-    In Easter Season, add    Alleluia, alleluia, alleluia.
-    </p>
+    <AlleluiaComponent forEaster={true} />
     
     <p>
     Lord, now let your servant depart in peace, *
@@ -443,10 +444,7 @@ const Compline = () => (
     Guide us waking, O Lord, and guard us sleeping; that awake we may watch with Christ, and asleep we may rest in peace.
     </p>
     
-    <p>
-    <div class="instructions">In Easter Season, add</div>
-    Alleluia, alleluia, alleluia.
-    </p>
+    <AlleluiaComponent forEaster={true} />
     
     <p>
     <div class="officiant">Let us bless the Lord.</div>
