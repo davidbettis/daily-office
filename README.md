@@ -7,17 +7,19 @@ prayers.
 
 # TODO
 
+## For all sections
+* Move office-specific CSS outside of global CSS
+* Add option for traditional / contemporary Lord's prayer
+
 ## Morning Prayer 
 
-* Display collects on a per-day basis 
 * Conditional Pascha Nostrum during 1st week of Easter
-* What psalms for "The Psalm or Psalms Appointed" ?
 * The Lessons
-** Get the lectionary in JSON form 
 ** Is it possible to bring in Bible passages? Is there a public domain edition of the Bible out there?
 * "During Lent the Benedictus es, Domine usually replaces the Te Deum and may be used at other times."
 * "From Easter Day through the Day of Pentecost “Alleluia, alleluia” may be added to the preceding versicle and response."
 * Opening sentences of scripture vary throughout the church year
+* Consistent way to choose variable texts, like opening/closings
 
 Morning prayer is found here: https://s3.amazonaws.com/acna/2__Morning%20Prayer%2C%209.26.18.pdf
 
@@ -27,10 +29,7 @@ Morning prayer is found here: https://s3.amazonaws.com/acna/2__Morning%20Prayer%
 Evening prayer is found here: https://s3.amazonaws.com/acna/4__Evening%20Prayer%2C%209.26.18.pdf
 
 ## Compline
-* Move office-specific CSS outside of global CSS
-* Add option for traditional / contemporary Lord's prayer
-* Add an option to pick psalsm on each day
-* Add preferences for various reading plans / configurations
+* Add an option to pick psalms on each day
 * Add unit testing for AlleluiaComponent. All that date stuff... gosh
 
 Compline is found here: https://s3.amazonaws.com/acna/5__Compline.%209.26.18.pdf
