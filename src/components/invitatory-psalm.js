@@ -49,7 +49,6 @@ For the LORD is a great God *<br/>
 and a great King above all gods.<br/>
 In his hand are all the depths of the earth *<br/>
 and the heights of the hills are his also.<br/>
-Morning Prayer, 9.26.18 2<br/>
 The sea is his, and he made it, *<br/>
 and his hands prepared the dry land.<br/>
 O come, let us worship and fall down, *<br/>
