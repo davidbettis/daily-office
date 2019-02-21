@@ -17,10 +17,10 @@ import MissionPrayer from '../components/mission-prayer'
 import Prayer from '../components/prayer'
 import Psalter from '../components/psalter'
 
-const Morning = () => (
+const Evening = () => (
   <Layout>
-    <SEO title="Morning Prayer" />
-    <h1>Morning Prayer</h1>
+    <SEO title="Evening Prayer" />
+    <h1>Evening Prayer</h1>
 
     <DateComponent /> 
 
@@ -32,21 +32,34 @@ const Morning = () => (
 
     <Invitatory />
 
-    <InvitatoryPsalm />
+    <b>Phos hilaron</b> <i>O Gladsome Light</i>
+    <p>
+    O gladsome light,<br/>
+    pure brightness of the everliving Father in heaven, *<br/>
+    O Jesus Christ, holy and blessed!<br/>
+    Now as we come to the setting of the sun,<br/>
+    and our eyes behold the vesper light, *<br/>
+    we sing your praises, O God: Father, Son, and Holy Spirit.<br/>
+    You are worthy at all times to be praised by happy voices, *<br/>
+    O Son of God, O Giver of Life,<br/>
+    and to be glorified through all the worlds.<br/>
+    </p>
 
     <p class="section">Psalms Appointed</p>
 
-    <Psalter morning={true} />
+    <Psalter evening={true} />
 
     <p class="section">The Lessons</p>
 
-    <Lesson lectionary='morning' postFirstReading='te-deum-laudamus' postSecondReading='benedictus' />
+    <Lesson lectionary='evening'
+            postFirstReading='magnificat'
+            postSecondReading='nunc-dimittis' />
 
     <ApostlesCreed />
 
     <Prayer />
 
-    <DailyCollect morning={true}  />
+    <DailyCollect evening={true} />
 
     <MissionPrayer />
 
@@ -56,15 +69,16 @@ const Morning = () => (
     <p><div class="instructions">Officiant and People</div></p>
     <p><GeneralThanksgiving /></p>
 
-    <p>
-    <div class="officiant">Let us bless the Lord.</div>
-    <div class="people">Thanks be to God.</div>
-    </p>
+    <div>
+      <p>
+        <div class="officiant">Let us bless the Lord.</div>
+        <div class="people">Thanks be to God.</div>
+      </p>
+    </div>
 
     <p class="instructions">Officiant and People</p>
 
-    <p><Closing /></p>
-
+    <Closing />
     </div>
 
     <p class="footnote">
@@ -74,4 +88,4 @@ const Morning = () => (
   </Layout>
 )
 
-export default Morning
+export default Evening

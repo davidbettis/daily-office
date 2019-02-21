@@ -2,6 +2,11 @@ import React from 'react'
 
 const ApostlesCreed = () => (
     <div>
+    <p class="section">The Apostles’ Creed</p>
+
+    <p class="instructions">Officiant and People together, all standing</p>
+
+    <p>
     I believe in God, the Father almighty,<br/>
     creator of heaven and earth.<br/>
     I believe in Jesus Christ, his only Son, our Lord.<br/>
@@ -20,6 +25,7 @@ const ApostlesCreed = () => (
     the forgiveness of sins,<br/>
     the resurrection of the body,<br/>
     and the life everlasting. Amen.
+    </p>
     </div>
 );
 

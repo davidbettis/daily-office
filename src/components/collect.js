@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class CollectComponent extends React.Component {
+export class Collect extends React.Component {
     constructor() {
         super();
 
@@ -37,4 +37,4 @@ export class CollectComponent extends React.Component {
     }
 }
 
-export default CollectComponent
+export default Collect

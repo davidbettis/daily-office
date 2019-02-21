@@ -1,9 +1,9 @@
 import React from 'react';
 
-// MorningCollectsComponent prints out a closing verse of scripture
-export class MorningCollectsComponent extends React.Component {
+// Closing prints out a closing verse of scripture
+export class Closing extends React.Component {
 
-    // Constructs a new MorningCollectsComponent
+    // Constructs a new Closing
     constructor(props) {
         super(props);
 
@@ -18,7 +18,7 @@ export class MorningCollectsComponent extends React.Component {
     }
 
     render() {
-        var day = new Date().getDay();
+        var day = new Date().getDate(); // day of the month
         var selected = this.texts[day % this.texts.length];
         return (
             <div>
@@ -30,4 +30,4 @@ export class MorningCollectsComponent extends React.Component {
     }
 }
 
-export default MorningCollectsComponent
+export default Closing

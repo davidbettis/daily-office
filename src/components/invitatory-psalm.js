@@ -7,9 +7,9 @@ import React from 'react';
 // - Choose antiphons randomly
 // - Add Jubliate?
 // - support Pascha Nostrum during the first week of Easter - or all of Eastertide (with no antiphons)
-export class InvitatoryPsalmComponent extends React.Component {
+export class InvitatoryPsalm extends React.Component {
 
-    // Constructs a new InvitatoryPsalmComponent
+    // Constructs a new InvitatoryPsalm
     //    props.morning: standard texts for morning
     constructor(props) {
         super(props);
@@ -74,4 +74,4 @@ that they should not enter into my rest.<br/>
     }
 }
 
-export default InvitatoryPsalmComponent
+export default InvitatoryPsalm

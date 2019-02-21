@@ -1,10 +1,10 @@
 import React from 'react';
 import * as DateEaster from 'date-easter'
 
-// AlleluiaComponent prints out alleluias according to Easter or Lent
-export class AlleluiaComponent extends React.Component {
+// Alleluia prints out alleluias according to Easter or Lent
+export class Alleluia extends React.Component {
 
-    // Constructs a new AlleluiaComponent
+    // Constructs a new Alleluia
     //    props.forEaster: print out 3 alleluias for easter
     //    props.notLent:   when not in lent, print out 1 alleluia
     constructor(props) {
@@ -53,4 +53,4 @@ export class AlleluiaComponent extends React.Component {
     }
 }
 
-export default AlleluiaComponent
+export default Alleluia

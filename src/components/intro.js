@@ -1,47 +1,54 @@
 import React from 'react';
-import * as DateEaster from 'date-easter'
 
-// IntroComponent prints out a verse of scripture to open the office
+// Intro prints out a verse of scripture to open the office
 //
 // TODO:
 //
 // 1. Pick a random text
 // 2. Include the season-specific introduction openers
-// 3. Support for evening
-export class IntroComponent extends React.Component {
+export class Intro extends React.Component {
 
-    // Constructs a new IntroComponent
-    //    props.morning: standard texts for morning
+    // Constructs a new Intro
+    //    props.morning: standard texts for morning - one of morning or evening must be provided
+    //    props.evening: standard texts for morning - one of morning or evening must be provided
     constructor(props) {
         super(props);
 
-        this.state = {
-            morning: props.morning
+        if (this.props.morning) {
+            this.texts = [
+                {'text': 'Grace to you and peace from God our Father and the Lord Jesus Christ.',
+                 'scripture': 'Philippians 1:2'},
+                {'text': 'I was glad when they said to me, “Let us go to the house of the LORD!”',
+                 'scripture': 'Psalm 122:1'},
+                {'text': 'Let the words of my mouth and the meditation of my heart be acceptable in your sight, O LORD, my rock and my redeemer.',
+                 'scripture': 'Psalm 19:14'}
+            ];
+        } else if (this.props.evening) {
+            this.texts = [
+                {'text': 'Jesus spoke to them, saying, “I am the light of the world. Whoever follows me will not walk in darkness, but will have the light of life.”',
+                 'scripture': 'John 8:12'},
+                {'text': 'O Lord, I love the habitation of your house and the place where your glory dwells.',
+                 'scripture': 'Psalm 26:8'},
+                {'text': 'Let my prayer be set forth in your sight as incense, the lifting up of my hands as the evening sacrifice.',
+                 'scripture': 'Psalm 141:2'}
+            ];
+        } else {
+            throw "Intro error: please specify morning or evening";
         }
-
-        this.morningTexts = [
-            {'text': 'Grace to you and peace from God our Father and the Lord Jesus Christ.',
-             'scripture': 'Philippians 1:2'},
-            {'text': 'I was glad when they said to me, “Let us go to the house of the LORD!”',
-             'scripture': 'Psalm 122:1'},
-            {'text': 'Let the words of my mouth and the meditation of my heart be acceptable in your sight, O LORD, my rock and my redeemer.',
-             'scripture': 'Psalm 19:14'}
-        ];
     }
 
     render() {
-        if (this.state.morning) {
-            return (
-                <div>
-                    <span>
-                        { this.morningTexts[0]['text'] }<br/>
-                        <i>{ this.morningTexts[0]['scripture'] }</i>
-                    </span>
-                </div>);
-        } else {
-            return (<div>Unknown introduction!</div>);
-        }
+        var day = new Date().getDate(); // day of the month
+        var selected = this.texts[day % this.texts.length];
+        
+        return (
+            <div>
+                <span>
+                    { selected['text'] }<br/>
+                    <i>{ selected['scripture'] }</i>
+                </span>
+            </div>);
     }
 }
 
-export default IntroComponent
+export default Intro
