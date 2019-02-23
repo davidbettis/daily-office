@@ -1,11 +1,10 @@
 import React from 'react';
+import * as dayOfYear from 'day-of-year'
 
 // Intro prints out a verse of scripture to open the office
 //
 // TODO:
-//
-// 1. Pick a random text
-// 2. Include the season-specific introduction openers
+// 1. Include the season-specific introduction openers
 export class Intro extends React.Component {
 
     // Constructs a new Intro
@@ -37,8 +36,8 @@ export class Intro extends React.Component {
     }
 
     render() {
-        var day = new Date().getDate(); // day of the month
-        var selected = this.texts[day % this.texts.length];
+        var doy = dayOfYear();
+        var selected = this.texts[doy % this.texts.length];
         
         return (
             <div>

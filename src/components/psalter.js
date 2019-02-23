@@ -1,4 +1,5 @@
 import React from 'react';
+import * as dayOfYear from 'day-of-year'
 
 // Psalter prints out a psalm to read according to the current day and the series provided
 export class Psalter extends React.Component {
@@ -17,16 +18,12 @@ export class Psalter extends React.Component {
             '3, 4', '7', '10', '15, 16', '17', '18:21-50v', '20, 21', '23, 24', '27', '31', '33', '35', '38', '37:19-42v', '39, 41', '44', '46', '49', '51', '55', '58, 60', '63, 64', '65, 67', '68:19-36', '69:19-38v', '70, 72', '73', '77', '79, 82', '78:19-40v', '80', '84', '85', '88', '89:19-52v', '91', '94', '97, 98', '102', '104', '105:23-45v', '106:19-48v', '107:23-43', '109', '113, 114', '116, 117', '119:25-48', '119:73-88', '119:105-128', '119:153-176', '120, 121', '124, 125, 126', '129, 130, 131', '134, 135', '137, 138', '141, 142', '143', '145', '147', '149, 150'
         ];
 
-        var now = new Date();
-        var start = new Date(now.getFullYear(), 0, 0);
-        var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
-        var oneDay = 1000 * 60 * 60 * 24;
-        var dayOfYear = Math.floor(diff / oneDay);
+        var doy = dayOfYear();
 
         if (props.series === 'morning') {
-            this.psalm = morningPsalms[dayOfYear % morningPsalms.length];
+            this.psalm = morningPsalms[doy % morningPsalms.length];
         } else if (props.series === 'evening') {
-            this.psalm = eveningPsalms[dayOfYear % eveningPsalms.length];
+            this.psalm = eveningPsalms[doy % eveningPsalms.length];
         } else {
             throw "Psalter error: series must specify one of ['morning','evening']";
         }

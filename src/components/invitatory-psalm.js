@@ -1,10 +1,10 @@
 import React from 'react';
+import * as dayOfYear from 'day-of-year'
 
 // InvitatoryPsalm is for the psalm read after the morning invitatory
 //
 // TODO:
 // - Conditionally add Lent text
-// - Choose antiphons randomly
 // - Add Jubliate?
 // - support Pascha Nostrum during the first week of Easter - or all of Eastertide (with no antiphons)
 export class InvitatoryPsalm extends React.Component {
@@ -24,19 +24,21 @@ export class InvitatoryPsalm extends React.Component {
         ];
     }
 
-    antiphon() {
+    antiphon(i) {
+        var antiphon = this.antiphons[i % this.antiphons.length];
         return (
 <p>
-<div class="officiant">{ this.antiphons[0]['call'] }</div>
-<div class="people">{ this.antiphons[0]['response'] }</div>
+<div class="officiant">{ antiphon['call'] }</div>
+<div class="people">{ antiphon['response'] }</div>
 </p>
         );
     }
 
     render() {
+        var doy = dayOfYear();
         return (
 <div>
-{ this.antiphon() }
+{ this.antiphon(doy) }
 
 <b>Venite</b> <i>O Come</i><br/>
 <i>Psalm 95:1-7; 8-11</i><br/>
@@ -68,7 +70,7 @@ Of whom I swore in my wrath *<br/>
 that they should not enter into my rest.<br/>
 </p>
 
-{ this.antiphon() }
+{ this.antiphon(doy) }
 </div>
 );
     }
