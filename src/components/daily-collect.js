@@ -4,12 +4,11 @@ import React from 'react';
 export class DailyCollect extends React.Component {
 
     // Constructs a new DailyCollect
-    //      props.morning: use collects for morning - one of morning or evening must be specified
-    //      props.evening: use collects for evening - one of morning or evening must be specified
+    //      props.collects: 'morning' or 'evening'
     constructor(props) {
         super(props);
 
-        if (this.props.morning) {
+        if (this.props.collects === 'morning') {
             this.collects = [
                 // Sunday
                 'A Collect for Strength to Await Christ’s Return. O God our King, by the resurrection of your Son Jesus Christ on the first day of the week, you conquered sin, put death to flight, and gave us the hope of everlasting life: Redeem all our days by this victory; forgive our sins, banish our fears, make us bold to praise you and to do your will; and steel us to wait for the consummation of your kingdom on the last great Day; through the same Jesus Christ our Lord. Amen.',
@@ -26,7 +25,7 @@ export class DailyCollect extends React.Component {
                 // Saturday
                 'A Collect for Sabbath Rest. Almighty God, who after the creation of the world rested from all your works and sanctified a day of rest for all your creatures: Grant that we, putting away all earthly anxieties, may be duly prepared for the service of your sanctuary, and that our rest here upon earth may be a preparation for the eternal rest promised to your people in heaven; through Jesus Christ our Lord. Amen.'
             ]
-        } else if (this.props.evening) {
+        } else if (this.props.collects === 'evening') {
             this.collects = [
                 // Sunday
                 'A Collect for Resurrection Hope.  Lord God, whose Son our Savior Jesus Christ triumphed over the powers of death and prepared for us our place in the new Jerusalem: Grant that we, who have this day given thanks for his resurrection, may praise you in that City of which he is the light, and where he lives and reigns for ever and ever. Amen.',

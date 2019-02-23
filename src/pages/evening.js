@@ -26,59 +26,59 @@ const Evening = () => (
 
     <div class="prayer">
 
-    <p><Intro morning={true} /></p>
+        <p><Intro texts='evening' /></p>
 
-    <Confession />
+        <Confession />
 
-    <Invitatory />
+        <Invitatory />
 
-    <b>Phos hilaron</b> <i>O Gladsome Light</i>
-    <p>
-    O gladsome light,<br/>
-    pure brightness of the everliving Father in heaven, *<br/>
-    O Jesus Christ, holy and blessed!<br/>
-    Now as we come to the setting of the sun,<br/>
-    and our eyes behold the vesper light, *<br/>
-    we sing your praises, O God: Father, Son, and Holy Spirit.<br/>
-    You are worthy at all times to be praised by happy voices, *<br/>
-    O Son of God, O Giver of Life,<br/>
-    and to be glorified through all the worlds.<br/>
-    </p>
+        <b>Phos hilaron</b> <i>O Gladsome Light</i>
+        <p>
+        O gladsome light,<br/>
+        pure brightness of the everliving Father in heaven, *<br/>
+        O Jesus Christ, holy and blessed!<br/>
+        Now as we come to the setting of the sun,<br/>
+        and our eyes behold the vesper light, *<br/>
+        we sing your praises, O God: Father, Son, and Holy Spirit.<br/>
+        You are worthy at all times to be praised by happy voices, *<br/>
+        O Son of God, O Giver of Life,<br/>
+        and to be glorified through all the worlds.<br/>
+        </p>
 
-    <p class="section">Psalms Appointed</p>
+        <p class="section">Psalms Appointed</p>
 
-    <Psalter evening={true} />
+        <Psalter series='evening' />
 
-    <p class="section">The Lessons</p>
+        <p class="section">The Lessons</p>
 
-    <Lesson lectionary='evening'
-            postFirstReading='magnificat'
-            postSecondReading='nunc-dimittis' />
+        <Lesson lectionary='evening'
+                postFirstReading='magnificat'
+                postSecondReading='nunc-dimittis' />
 
-    <ApostlesCreed />
+        <ApostlesCreed />
 
-    <Prayer />
+        <Prayer />
 
-    <DailyCollect evening={true} />
+        <DailyCollect collects='evening' />
 
-    <MissionPrayer />
+        <MissionPrayer />
 
-    <p class="instructions">Free intercessions and thanksgivings may be offered.</p>
+        <p class="instructions">Free intercessions and thanksgivings may be offered.</p>
 
-    <p class="section">The General Thanksgiving</p>
-    <p><div class="instructions">Officiant and People</div></p>
-    <p><GeneralThanksgiving /></p>
+        <p class="section">The General Thanksgiving</p>
+        <p><div class="instructions">Officiant and People</div></p>
+        <p><GeneralThanksgiving /></p>
 
-    <div>
-      <p>
-        <div class="officiant">Let us bless the Lord.</div>
-        <div class="people">Thanks be to God.</div>
-      </p>
-    </div>
+        <div>
+          <p>
+            <div class="officiant">Let us bless the Lord.</div>
+            <div class="people">Thanks be to God.</div>
+          </p>
+        </div>
 
-    <p class="instructions">Officiant and People</p>
+        <p class="instructions">Officiant and People</p>
 
-    <Closing />
+        <Closing />
     </div>
 
     <p class="footnote">

@@ -9,12 +9,11 @@ import React from 'react';
 export class Intro extends React.Component {
 
     // Constructs a new Intro
-    //    props.morning: standard texts for morning - one of morning or evening must be provided
-    //    props.evening: standard texts for morning - one of morning or evening must be provided
+    //    props.texts: 'morning' or 'evening'
     constructor(props) {
         super(props);
 
-        if (this.props.morning) {
+        if (this.props.texts === 'morning') {
             this.texts = [
                 {'text': 'Grace to you and peace from God our Father and the Lord Jesus Christ.',
                  'scripture': 'Philippians 1:2'},
@@ -23,7 +22,7 @@ export class Intro extends React.Component {
                 {'text': 'Let the words of my mouth and the meditation of my heart be acceptable in your sight, O LORD, my rock and my redeemer.',
                  'scripture': 'Psalm 19:14'}
             ];
-        } else if (this.props.evening) {
+        } else if (this.props.texts === 'evening') {
             this.texts = [
                 {'text': 'Jesus spoke to them, saying, “I am the light of the world. Whoever follows me will not walk in darkness, but will have the light of life.”',
                  'scripture': 'John 8:12'},
@@ -33,7 +32,7 @@ export class Intro extends React.Component {
                  'scripture': 'Psalm 141:2'}
             ];
         } else {
-            throw "Intro error: please specify morning or evening";
+            throw "Intro error: unknown texts reference; please specify one of ['morning','evening']";
         }
     }
 

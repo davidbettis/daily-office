@@ -7,12 +7,8 @@ import React from 'react';
 //      props.postFirstReading: after the first reading (see POST_READING options below)
 //      props.postSecondReading: after the second reading (see POST_READING options below)
 //
-// LECTIONARY:
-//      - morning: readings for morning prayer
-//      - evening: readings for evening prayer
-// 
+// LECTIONARY: morning, evening
 // POST_READING: te-deum-laudamus, benedictus, magnificat, nunc-dimittis
-//
 export class Lesson extends React.Component {
 
     constructor(props) {

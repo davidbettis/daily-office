@@ -1,6 +1,11 @@
 import React from 'react';
 
+// Psalter prints out a psalm to read according to the current day and the series provided
 export class Psalter extends React.Component {
+
+    // Construct a new Psalter
+    //
+    // props.series - 'morning' or 'evening' (60 day rotation split between morning and evening)
     constructor(props) {
         super(props);
 
@@ -18,12 +23,12 @@ export class Psalter extends React.Component {
         var oneDay = 1000 * 60 * 60 * 24;
         var dayOfYear = Math.floor(diff / oneDay);
 
-        if (props.morning) {
+        if (props.series === 'morning') {
             this.psalm = morningPsalms[dayOfYear % morningPsalms.length];
-        } else if (props.evening) {
+        } else if (props.series === 'evening') {
             this.psalm = eveningPsalms[dayOfYear % eveningPsalms.length];
         } else {
-            throw "Psalter error: must specify morning or evening";
+            throw "Psalter error: series must specify one of ['morning','evening']";
         }
     }
 

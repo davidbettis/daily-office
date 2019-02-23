@@ -25,46 +25,44 @@ const Morning = () => (
     <DateComponent /> 
 
     <div class="prayer">
+        <p><Intro texts='morning' /></p>
 
-    <p><Intro morning={true} /></p>
+        <Confession />
 
-    <Confession />
+        <Invitatory />
 
-    <Invitatory />
+        <InvitatoryPsalm />
 
-    <InvitatoryPsalm />
+        <p class="section">Psalms Appointed</p>
 
-    <p class="section">Psalms Appointed</p>
+        <Psalter series='morning' />
 
-    <Psalter morning={true} />
+        <p class="section">The Lessons</p>
 
-    <p class="section">The Lessons</p>
+        <Lesson lectionary='morning' postFirstReading='te-deum-laudamus' postSecondReading='benedictus' />
 
-    <Lesson lectionary='morning' postFirstReading='te-deum-laudamus' postSecondReading='benedictus' />
+        <ApostlesCreed />
 
-    <ApostlesCreed />
+        <Prayer />
 
-    <Prayer />
+        <DailyCollect collects='morning'  />
 
-    <DailyCollect morning={true}  />
+        <MissionPrayer />
 
-    <MissionPrayer />
+        <p class="instructions">Free intercessions and thanksgivings may be offered.</p>
 
-    <p class="instructions">Free intercessions and thanksgivings may be offered.</p>
+        <p class="section">The General Thanksgiving</p>
+        <p><div class="instructions">Officiant and People</div></p>
+        <p><GeneralThanksgiving /></p>
 
-    <p class="section">The General Thanksgiving</p>
-    <p><div class="instructions">Officiant and People</div></p>
-    <p><GeneralThanksgiving /></p>
+        <p>
+        <div class="officiant">Let us bless the Lord.</div>
+        <div class="people">Thanks be to God.</div>
+        </p>
 
-    <p>
-    <div class="officiant">Let us bless the Lord.</div>
-    <div class="people">Thanks be to God.</div>
-    </p>
+        <p class="instructions">Officiant and People</p>
 
-    <p class="instructions">Officiant and People</p>
-
-    <p><Closing /></p>
-
+        <p><Closing /></p>
     </div>
 
     <p class="footnote">
