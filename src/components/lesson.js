@@ -1,4 +1,5 @@
 import React from 'react';
+import Seasons from '../helpers/seasons'
 
 // Lesson is a set of scripture chunks to read as part of the office.
 //
@@ -8,7 +9,10 @@ import React from 'react';
 //      props.postSecondReading: after the second reading (see POST_READING options below)
 //
 // LECTIONARY: morning, evening
-// POST_READING: te-deum-laudamus, benedictus, magnificat, nunc-dimittis
+// POST_READING: te-deum-laudamus, benedictus, benedictus-es-domine, magnificat, nunc-dimittis
+//
+// TODO
+// Don't say "word of the Lord" after aprophyal texts
 export class Lesson extends React.Component {
 
     constructor(props) {
@@ -32,8 +36,8 @@ export class Lesson extends React.Component {
         this.firstReading = readings[0];
         this.secondReading = readings[1];
 
-        this.postFirstReading = this.postReading(props.postFirstReading)
-        this.postSecondReading = this.postReading(props.postSecondReading)
+        this.postFirstReading = this.postReading(props.postFirstReading);
+        this.postSecondReading = this.postReading(props.postSecondReading);
     }
 
     render() {
@@ -810,9 +814,15 @@ export class Lesson extends React.Component {
 
     postReading(reading) {
         if (reading === 'te-deum-laudamus') {
-            return this.teDeumLaudamus();
+            if (Seasons.inLent(new Date().getTime())) {
+                return this.benedictusEsDomine();
+            } else {
+                return this.teDeumLaudamus();
+            }
         } else if (reading === 'benedictus') {
             return this.benedictus();
+        } else if (reading === 'benedictus-es-domine') {
+            return this.benedictusEsDomine();
         } else if (reading === 'magnificat') {
             return this.magnificat();
         } else if (reading === 'nunc-dimittis') {
@@ -888,6 +898,29 @@ export class Lesson extends React.Component {
             and to guide our feet into the way of peace.<br/>
             Glory be to the Father, and to the Son, and to the Holy Spirit; *<br/>
             as it was in the beginning, is now, and ever shall be, world without end. Amen.
+            </p>
+            </div>
+        );
+    }
+
+    benedictusEsDomine() {
+        return (
+            <div>
+            <p>
+            <b>Benedictus es, Domine</b> <i>A Song of Praise</i><br/>
+            <i>Song of the Three Young Men, 29-34</i><br/>
+            Glory to you, Lord God of our fathers; *<br/>
+            you are worthy of praise; glory to you.<br/>
+            Glory to you for the radiance of your holy Name; *<br/>
+            we will praise you and highly exalt you for ever.<br/>
+            Glory to you in the splendor of your temple; *<br/>
+            on the throne of your majesty, glory to you.<br/>
+            Glory to you, seated between the Cherubim; *<br/>
+            we will praise you and highly exalt you for ever.<br/>
+            Glory to you, beholding the depths; *<br/>
+            in the high vault of heaven, glory to you.<br/>
+            Glory to you, Father, Son, and Holy Spirit; *<br/>
+            we will praise you and highly exalt you for ever.<br/>
             </p>
             </div>
         );

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as DateEaster from 'date-easter'
+import Seasons from '../helpers/seasons'
 
 // Alleluia prints out alleluias according to Easter or Lent
 export class Alleluia extends React.Component {
@@ -10,21 +10,11 @@ export class Alleluia extends React.Component {
     constructor(props) {
         super(props);
 
-        // Easter season starts on easter and lasts for 50 days
-        // "Eastertide is the period of fifty days from Easter Sunday to Pentecost Sunday."
-        // https://en.wikipedia.org/wiki/Eastertide
         var currentDate = new Date();
         var currentTime = currentDate.getTime(); // epoch ms
-        var currentYear = currentDate.getFullYear();
-        var easter = DateEaster.easter(currentYear);
-        var easterTime = new Date(easter.year, easter.month, easter.day, 0, 0, 0).getTime(); // epoch ms
-        var easterTimeEnd = easterTime + (50 * 86400000); // epoch in ms
-        var inEaster = (currentTime >= easterTime && currentTime < easterTimeEnd);
 
-        // Lent starts on Ash Wednesday, which is "exactly 46 days before Easter Sunday"
-        // https://en.wikipedia.org/wiki/Ash_Wednesday#Dates
-        var lentTime = easterTime - (46 * 86400000); // epoch in ms
-        var inLent = (currentTime >= lentTime && currentTime < easterTime);
+        var inEaster = Seasons.inEaster(currentTime);
+        var inLent = Seasons.inLent(currentTime);
 
         this.state = {
             forEaster: props.forEaster,
