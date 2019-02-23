@@ -15,7 +15,7 @@ prayers.
 
 * Conditional Pascha Nostrum during 1st week of Easter
 * The Lessons
-** Is it possible to bring in Bible passages? Is there a public domain edition of the Bible out there?
+    * Is it possible to bring in Bible passages? Is there a public domain edition of the Bible out there?
 * "During Lent the Benedictus es, Domine usually replaces the Te Deum and may be used at other times."
 * "From Easter Day through the Day of Pentecost “Alleluia, alleluia” may be added to the preceding versicle and response."
 * Opening sentences of scripture vary throughout the church year
