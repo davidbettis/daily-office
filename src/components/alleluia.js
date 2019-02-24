@@ -13,7 +13,7 @@ export class Alleluia extends React.Component {
         var currentDate = new Date();
         var currentTime = currentDate.getTime(); // epoch ms
 
-        var inEaster = Seasons.inEaster(currentTime);
+        var inEaster = Seasons.inEastertide(currentTime);
         var inLent = Seasons.inLent(currentTime);
 
         this.state = {

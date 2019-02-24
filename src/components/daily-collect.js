@@ -43,7 +43,7 @@ export class DailyCollect extends React.Component {
                 'A Collect for the Eve of Worship.  O God, the source of eternal light: Shed forth your unending day upon us who watch for you, that our lips may praise you, our lives may bless you, and our worship on the morrow give you glory; through Jesus Christ our Lord. Amen.'
             ];
         } else {
-            throw "DailyCollect error: must specify morning or evening";
+            throw new Error("DailyCollect error: must specify morning or evening");
         }
     }
 

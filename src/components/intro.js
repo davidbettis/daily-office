@@ -31,7 +31,7 @@ export class Intro extends React.Component {
                  'scripture': 'Psalm 141:2'}
             ];
         } else {
-            throw "Intro error: unknown texts reference; please specify one of ['morning','evening']";
+            throw new Error("Intro error: unknown texts reference; please specify one of ['morning','evening']");
         }
     }
 

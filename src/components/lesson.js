@@ -24,7 +24,7 @@ export class Lesson extends React.Component {
         } else if (this.props.lectionary === 'evening') {
             lectionary = this.eveningLectionary();
         } else {
-            throw "Lesson error: lectionary must be one of ['morning','evening']";
+            throw new Error("Lesson error: lectionary must be one of ['morning','evening']");
         }
 
         var now = new Date();
@@ -828,7 +828,7 @@ export class Lesson extends React.Component {
         } else if (reading === 'nunc-dimittis') {
             return this.nuncDimittis();
         } else {
-            throw "Lesson error: post-reading reading " + reading + " not found";
+            throw new Error("Lesson error: reading " + reading + " not found");
         }
     }
 

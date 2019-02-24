@@ -25,7 +25,7 @@ export class Psalter extends React.Component {
         } else if (props.series === 'evening') {
             this.psalm = eveningPsalms[doy % eveningPsalms.length];
         } else {
-            throw "Psalter error: series must specify one of ['morning','evening']";
+            throw new Error("Psalter error: series must specify one of ['morning','evening']");
         }
     }
 

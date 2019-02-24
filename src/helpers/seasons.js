@@ -3,9 +3,6 @@ import * as DateEaster from 'date-easter'
 // Class to compare the current time against church seasons (e.g. Lent, Eastertide, etc.)
 // TODO unit tests
 export class Seasons {
-    constructor(props) {
-    }
-
     static inLent(epochTimeMS) {
         // Lent starts on Ash Wednesday, which is "exactly 46 days before Easter Sunday"
         // https://en.wikipedia.org/wiki/Ash_Wednesday#Dates
