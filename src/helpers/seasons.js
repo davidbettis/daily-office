@@ -4,11 +4,12 @@ import * as DateEaster from 'date-easter'
 // TODO unit tests
 export class Seasons {
     static inLent(epochTimeMS) {
+        var time = epochTimeMS ? epochTimeMS : new Date().getTime();
         // Lent starts on Ash Wednesday, which is "exactly 46 days before Easter Sunday"
         // https://en.wikipedia.org/wiki/Ash_Wednesday#Dates
         var easterTime = this.getEasterEpochTime();
         var lentTime = easterTime - (46 * 86400000); // epoch in ms
-        return (epochTimeMS >= lentTime && epochTimeMS < easterTime);
+        return (time >= lentTime && time < easterTime);
     }
 
     static getEasterEpochTime() {
@@ -18,12 +19,13 @@ export class Seasons {
     }
 
     static inEastertide(epochTimeMS) { // date is epoch time in MS
+        var time = epochTimeMS ? epochTimeMS : new Date().getTime();
         // Easter season starts on easter and lasts for 50 days
         // "Eastertide is the period of fifty days from Easter Sunday to Pentecost Sunday."
         // https://en.wikipedia.org/wiki/Eastertide
         var easterTime = this.getEasterEpochTime();
         var easterTimeEnd = easterTime + (50 * 86400000); // epoch in ms
-        return (epochTimeMS >= easterTime && epochTimeMS < easterTimeEnd);
+        return (time >= easterTime && time < easterTimeEnd);
     }
 }
 

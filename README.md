@@ -13,12 +13,10 @@ prayers.
 
 ## Morning Prayer 
 
-* Conditional Pascha Nostrum during 1st week of Easter
 * The Lessons
     * Is it possible to bring in Bible passages? Is there a public domain edition of the Bible out there?
 * "From Easter Day through the Day of Pentecost “Alleluia, alleluia” may be added to the preceding versicle and response."
-* Opening sentences of scripture vary throughout the church year
-* Consistent way to choose variable texts, like opening/closings
+* Opening sentences of scripture that vary according to the calendar
 
 ## Evening Prayer
 
