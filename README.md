@@ -20,20 +20,16 @@ prayers.
 * Opening sentences of scripture vary throughout the church year
 * Consistent way to choose variable texts, like opening/closings
 
-Morning prayer is found here: https://s3.amazonaws.com/acna/2__Morning%20Prayer%2C%209.26.18.pdf
-
 ## Evening Prayer
-* Not scoped yet.
-
-Evening prayer is found here: https://s3.amazonaws.com/acna/4__Evening%20Prayer%2C%209.26.18.pdf
 
 ## Compline
 * Add an option to pick psalms on each day
 * Add unit testing for AlleluiaComponent. All that date stuff... gosh
 
-Compline is found here: https://s3.amazonaws.com/acna/5__Compline.%209.26.18.pdf
-
 # Credits
 
 * Service order is from the ACNA: http://anglicanchurch.net/?/main/texts_for_common_prayer
+    * Morning prayer is found here: https://s3.amazonaws.com/acna/2__Morning%20Prayer%2C%209.26.18.pdf
+    * Evening prayer is found here: https://s3.amazonaws.com/acna/4__Evening%20Prayer%2C%209.26.18.pdf
+    * Compline is found here: https://s3.amazonaws.com/acna/5__Compline.%209.26.18.pdf
 * Favicon is a scaled down edition of https://en.wikipedia.org/wiki/File:Christian_cross.svg, which is in the public domain
