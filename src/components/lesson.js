@@ -1,5 +1,6 @@
 import React from 'react';
 import Seasons from '../helpers/seasons'
+import ESV from '../helpers/esv'
 
 // Lesson is a set of scripture chunks to read as part of the office.
 //
@@ -40,23 +41,29 @@ export class Lesson extends React.Component {
         this.postSecondReading = this.postReading(props.postSecondReading);
     }
 
+    reading(text) {
+        var reading = (<p>A reading from { text }. { ESV.link(text, "(ESV)") }</p>);
+
+        var after = "";
+        if (!ESV.isApocryphal(text)) {
+            after = (<p><div class="officiant">The Word of the Lord.</div><div class="people">Thanks be to God.</div></p>);
+        }
+
+        return (
+            <div>
+                { reading }
+                { after }
+            </div>
+        );
+    }
+
     render() {
         return (
             <div>
-                <p>A reading from { this.firstReading }.</p>
-                <p>
-                    <div class="officiant">The Word of the Lord.</div>
-                    <div class="people">Thanks be to God.</div>
-                </p>
-
+                { this.reading(this.firstReading) }
                 { this.postFirstReading }
 
-                <p>A reading from { this.secondReading }.</p>
-                <p>
-                    <div class="officiant">The Word of the Lord.</div>
-                    <div class="people">Thanks be to God.</div>
-                </p>
-
+                { this.reading(this.secondReading) }
                 { this.postSecondReading }
             </div>
         );

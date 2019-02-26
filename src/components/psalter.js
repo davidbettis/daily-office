@@ -1,5 +1,6 @@
 import React from 'react';
 import * as dayOfYear from 'day-of-year'
+import ESV from '../helpers/esv'
 
 // Psalter prints out a psalm to read according to the current day and the series provided
 export class Psalter extends React.Component {
@@ -32,7 +33,7 @@ export class Psalter extends React.Component {
     render() {
         return (
         <div>
-        <p>Psalm { this.psalm }</p>
+        <p>Psalm { this.psalm } { ESV.link("Psalm+" + this.psalm, "(ESV)") }</p>
 
         <p>
         <div class="officiant">Glory be to the Father, and to the Son, and to the Holy Spirit; *</div>
