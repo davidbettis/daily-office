@@ -31,3 +31,7 @@ prayers.
     * Evening prayer is found here: https://s3.amazonaws.com/acna/4__Evening%20Prayer%2C%209.26.18.pdf
     * Compline is found here: https://s3.amazonaws.com/acna/5__Compline.%209.26.18.pdf
 * Favicon is a scaled down edition of https://en.wikipedia.org/wiki/File:Christian_cross.svg, which is in the public domain
+
+# Development
+
+To start a development server, run: gatsby develop

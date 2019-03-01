@@ -3,3 +3,6 @@ default:
 
 clean:
 	rm -rf public
+
+server:
+	gatsby develop
