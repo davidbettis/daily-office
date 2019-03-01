@@ -1,13 +1,18 @@
 # Summary
 
-This is a static website to vend the Daily Office as prescribed by the ACNA
+This project is to support the Daily Office as prescribed by the ACNA
 (http://anglicanchurch.net/).  The Daily Office is an historic devotional,
-which walks the reader through a set of readings from the Bible and various
+walking the reader through a set of readings from the Bible and various
 prayers.
+
+I originally started this project because I wanted to be able to easily go
+through the Daily Office liturgies on my phone. My hope is that individuals and
+churches might use this as a starting point to provide web-enabled editions of
+their own liturgies.
 
 # Technical Overview
 
-This project is written in React. It uses Gatsby, which is a static site generator.
+This project is written in React. It uses Gatsby, a static site generator.
 
 # TODO List
 
@@ -15,6 +20,7 @@ This project is written in React. It uses Gatsby, which is a static site generat
 * Move office-specific CSS outside of global CSS
 * Add option for traditional / contemporary Lord's prayer; how to add preferences? How does that work in React?
 * Inline the scripts from the psalm and the lessons using the API from esv.org (https://api.esv.org/). This would be a fun opportunity to experiment with AWS Lambda - or running a microservice on EC2!
+* Add afternoon prayer?
 
 ## Morning Prayer 
 * The Lessons
