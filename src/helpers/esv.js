@@ -17,7 +17,7 @@ export class ESV {
             var shortener = /†.*$/;
             var shortenedText = text.replace(shortener, "").trim();
             var link = "http://esv.to/" + shortenedText;
-            return (<a href={ link } target="_new">{ linkText }</a>);
+            return (<a href={ link } target="_blank" rel="noopener noreferrer">{ linkText }</a>);
         }
         return "";
     }
