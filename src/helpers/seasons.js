@@ -8,6 +8,8 @@ export class Seasons {
         // Lent starts on Ash Wednesday, which is "exactly 46 days before Easter Sunday"
         // https://en.wikipedia.org/wiki/Ash_Wednesday#Dates
         var easterTime = this.getEasterEpochTime();
+        // FIXME this doesn't take into account daylight savings time, which ends during lent. ha.
+        // TODO migrate to Luxon or another Javascript library to make this adjustment
         var lentTime = easterTime - (46 * 86400000); // epoch in ms
         return (time >= lentTime && time < easterTime);
     }
