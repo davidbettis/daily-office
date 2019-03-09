@@ -45,21 +45,21 @@ exports[`Header renders correctly 1`] = `
           <a
             href="/morning"
           >
-            Morning Prayer
+            Morning
           </a>
         </li>
         <li>
           <a
             href="/evening"
           >
-            Evening Prayer
+            Evening
           </a>
         </li>
         <li>
           <a
             href="/compline"
           >
-            Night Prayer
+            Night
           </a>
         </li>
         <li>
