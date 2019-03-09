@@ -37,6 +37,40 @@ exports[`Header renders correctly 1`] = `
         Default Starter
       </a>
     </h1>
+    <div
+      class="navigation"
+    >
+      <ul>
+        <li>
+          <a
+            href="/morning"
+          >
+            Morning Prayer
+          </a>
+        </li>
+        <li>
+          <a
+            href="/evening"
+          >
+            Evening Prayer
+          </a>
+        </li>
+        <li>
+          <a
+            href="/compline"
+          >
+            Night Prayer
+          </a>
+        </li>
+        <li>
+          <a
+            href="/about"
+          >
+            What's this all about?
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;

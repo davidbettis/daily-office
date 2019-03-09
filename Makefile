@@ -9,3 +9,7 @@ test:
 
 server:
 	gatsby develop
+
+# if the DOM structure changes a lot, run this command
+update-snapshot:
+	npm test -- --updateSnapshot
