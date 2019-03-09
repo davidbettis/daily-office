@@ -669,3 +669,24 @@ li {
     font-weight: bold;
     font-size: 15pt;
 }
+
+.navigation {
+    padding-top: 5pt;
+}
+
+.navigation > ul {
+    margin: 0;
+}
+
+.navigation > ul > li {
+    display: inline;
+    padding-right: 13px;
+    margin: 0;
+}
+
+@media only screen and (max-width: 625px) {
+    .navigation > ul > li {
+        display: block;
+        margin-left: 3px;
+    }
+}
