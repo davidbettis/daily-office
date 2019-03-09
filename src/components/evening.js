@@ -72,7 +72,6 @@ const EveningComponent = () => (
         </div>
 
         <p class="instructions">Officiant and People</p>
-
         <Closing />
     </div>
 

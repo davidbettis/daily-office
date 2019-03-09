@@ -22,10 +22,10 @@ export class Closing extends React.Component {
         var selected = this.texts[day % this.texts.length];
         return (
             <div>
-                <span>
+                <p>
                     { selected['text'] } <i>Amen.</i><br/>
                     <i>{ selected['scripture'] }</i>
-                </span>
+                </p>
             </div>);
     }
 }

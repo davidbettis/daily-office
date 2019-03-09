@@ -52,7 +52,7 @@ const MorningComponent = () => (
         </p>
 
         <p class="instructions">Officiant and People</p>
-        <p><Closing /></p>
+        <Closing />
     </div>
 
     <p class="footnote">

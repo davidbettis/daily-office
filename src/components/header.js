@@ -29,9 +29,9 @@ const Header = ({ siteTitle }) => (
       </h1>
       <div class="navigation">
         <ul>
-          <li><Link to="/morning">Morning Prayer</Link></li>
-          <li><Link to="/evening">Evening Prayer</Link></li>
-          <li><Link to="/compline">Night Prayer</Link></li>
+          <li><Link to="/morning">Morning</Link></li>
+          <li><Link to="/evening">Evening</Link></li>
+          <li><Link to="/compline">Night</Link></li>
           <li><Link to="/about">What's this all about?</Link></li>
         </ul>
       </div>
