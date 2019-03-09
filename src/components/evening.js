@@ -77,7 +77,7 @@ const EveningComponent = () => (
     </div>
 
     <p class="footnote">
-    <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>The Daily Office</a> as established by the <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>Anglican Church in North America (ACNA)</a>. Last revised 9/26/18.
+      <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>The Daily Office</a> as established by the <a href='http://anglicanchurch.net'>Anglican Church in North America (ACNA)</a>. Last revised 9/26/18.
     </p>
 
   </div>

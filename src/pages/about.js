@@ -19,6 +19,17 @@ const AboutPage = () => (
     <h1>How do you do it?</h1>
 
     <p>If you would like to create our own liturgy, the source for this project can be found on <a href="https://github.com/davidbettis/daily-office">Github</a>.</p>
+
+    <h1>Copyright</h1>
+
+    <h3>ACNA Liturgy</h3>
+
+    <p>The liturgy for the daily office is from the <a href="http://anglicanchurch.net/?/main/texts_for_common_prayer">ACNA Texts for Common Prayer</a>. Although Texts for Common Prayer is copyrighted, many of the texts herein are in the public domain. Nothing in the copyright is designed to prohibit congregations from the free use of the texts in the form published.</p>
+
+    <h3>Scripture</h3>
+
+    <p>Unless otherwise indicated, all Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), copyright © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved. You may not copy or download more than 500 consecutive verses of the ESV Bible or more than one half of any book of the ESV Bible.</p>
+
   </Layout>
 )
 
