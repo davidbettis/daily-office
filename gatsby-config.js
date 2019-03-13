@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: '/daily-office',
   siteMetadata: {
     title: `Daily Office`,
-    description: `The ACNA Daily Office. Morning, evening, and night prayer.`,
+    description: `The Daily Office. Morning, evening, and night prayer.`,
     author: `David Bettis`,
   },
   plugins: [

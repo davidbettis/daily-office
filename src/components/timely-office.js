@@ -18,7 +18,7 @@ export class TimelyOffice extends React.Component {
         // evening is 4pm (16:00) - 9pm (21:00)
         // compline is 9pm (21:00) - midnight
 
-        if (hour >= 16 && hour < 20) {
+        if (hour >= 16 && hour <= 20) {
             return (<EveningComponent />);
         } else if (hour >= 21) {
             return (<ComplineComponent />);
