@@ -30,7 +30,7 @@ def get_esv_text(passage):
         'include-footnotes': False,
         'include-verse-numbers': False,
         'include-short-copyright': False,
-        'include-passage-references': True
+        'include-passage-references': False
     }
 
     headers = {

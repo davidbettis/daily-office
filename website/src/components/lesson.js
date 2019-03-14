@@ -29,21 +29,48 @@ export class Lesson extends React.Component {
         }
 
         var now = new Date();
-        var month = now.getMonth() + 1; // month, 1-12
-        var day = now.getDate(); // day, 1-31
+        this.year = now.getFullYear();
+        this.month = now.getMonth() + 1; // month, 1-12
+        this.day = now.getDate(); // day, 1-31
 
-        var readings = lectionary[month][day];
+        var readings = lectionary[this.month][this.day];
 
-        this.firstReading = readings[0];
-        this.secondReading = readings[1];
-
-        this.postFirstReading = this.postReading(props.postFirstReading);
-        this.postSecondReading = this.postReading(props.postSecondReading);
+        this.state = {
+            firstScriptureRef: readings[0],
+            secondScriptureRef: readings[1],
+            firstReading: '',
+            secondReading: '',
+            postFirstReading: this.postReading(props.postFirstReading),
+            postSecondReading: this.postReading(props.postSecondReading)
+        };
     }
 
-    reading(text) {
-        var reading = (<p>A reading from { text }. { ESV.link(text, "(ESV)") }</p>);
+    componentDidMount() {
+        var date = this.year + '-' + String(this.month).padStart(2, '0') + '-' + String(this.day).padStart(2, '0');
+        fetch('https://pd0vgs56hb.execute-api.us-east-1.amazonaws.com/default/daily-office-get-scripture?date=' + date, {
+            method: "GET",
+            credentials: "same-origin"
+        }).then(results => {
+            return results.json();
+        }).then(data => {
 
+            if (this.props.lectionary === 'morning') {
+                this.setState({
+                    firstReading: data.body.morning[0],
+                    secondReading: data.body.morning[1]
+                });
+            }
+
+            if (this.props.lectionary === 'evening') {
+                this.setState({
+                    firstReading: data.body.evening[0],
+                    secondReading: data.body.evening[1]
+                });
+            }
+        })
+    }
+
+    reading(text, fullText) {
         var after = "";
         if (!ESV.isApocryphal(text)) {
             after = (<p><div class="officiant">The Word of the Lord.</div><div class="people">Thanks be to God.</div></p>);
@@ -51,7 +78,10 @@ export class Lesson extends React.Component {
 
         return (
             <div>
-                { reading }
+                <p>A reading from { text }. { ESV.link(text, "(ESV)") }</p>
+
+                <p>{ fullText }</p>
+
                 { after }
             </div>
         );
@@ -60,11 +90,11 @@ export class Lesson extends React.Component {
     render() {
         return (
             <div>
-                { this.reading(this.firstReading) }
-                { this.postFirstReading }
+                { this.reading(this.state.firstScriptureRef, this.state.firstReading) }
+                { this.state.postFirstReading }
 
-                { this.reading(this.secondReading) }
-                { this.postSecondReading }
+                { this.reading(this.state.secondScriptureRef, this.state.secondReading) }
+                { this.state.postSecondReading }
             </div>
         );
     }
