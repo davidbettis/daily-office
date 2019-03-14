@@ -21,19 +21,24 @@ export class Psalter extends React.Component {
 
         var doy = dayOfYear();
 
+        var psalm;
         if (props.series === 'morning') {
-            this.psalm = morningPsalms[doy % morningPsalms.length];
+            psalm = morningPsalms[doy % morningPsalms.length];
         } else if (props.series === 'evening') {
-            this.psalm = eveningPsalms[doy % eveningPsalms.length];
+            psalm = eveningPsalms[doy % eveningPsalms.length];
         } else {
             throw new Error("Psalter error: series must specify one of ['morning','evening']");
         }
+
+        this.state = {
+            psalm: psalm
+        };
     }
 
     render() {
         return (
         <div>
-        <p>Psalm { this.psalm } { ESV.link("Psalm+" + this.psalm, "(ESV)") }</p>
+        <p>Psalm { this.state.psalm } { ESV.link("Psalm+" + this.state.psalm, "(ESV)") }</p>
 
         <p>
         <div class="officiant">Glory be to the Father, and to the Son, and to the Holy Spirit; *</div>

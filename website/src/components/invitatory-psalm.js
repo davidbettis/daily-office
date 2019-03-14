@@ -13,18 +13,20 @@ export class InvitatoryPsalm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.antiphons = [
-            {'call': 'The earth is the Lord\'s for he made it:',
-             'response': 'O come let us adore him.'},
-            {'call': 'Worship the Lord in the beauty of holiness:',
-             'response': 'O come let us adore him.'},
-            {'call': 'The mercy of the Lord is everlasting:',
-             'response': 'O come let us adore him.'}
-        ];
+        this.state = {
+            antiphons: [
+                {'call': 'The earth is the Lord\'s for he made it:',
+                 'response': 'O come let us adore him.'},
+                {'call': 'Worship the Lord in the beauty of holiness:',
+                 'response': 'O come let us adore him.'},
+                {'call': 'The mercy of the Lord is everlasting:',
+                 'response': 'O come let us adore him.'}
+            ]
+        };
     }
 
     antiphon(i) {
-        var antiphon = this.antiphons[i % this.antiphons.length];
+        var antiphon = this.state.antiphons[i % this.state.antiphons.length];
         return (
 <p>
 <div class="officiant">{ antiphon['call'] }</div>

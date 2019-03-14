@@ -4,13 +4,15 @@ export class Collect extends React.Component {
     constructor() {
         super();
 
-        this.isSaturday = new Date().getDay() === 6;
+        this.state = {
+            isSaturday: new Date().getDay() === 6
+        };
     }
 
     render() {
         return (
           <div>
-            {this.isSaturday === true &&
+            {this.state.isSaturday === true &&
                 <p>
                 <i>A collect for Saturdays.</i> We give you thanks, O God, for revealing your Son Jesus Christ to us by the light of his resurrection: Grant that as we sing your glory at the close of this day, our joy may abound in the morning as we celebrate the Paschal mystery; through Jesus Christ our Lord.  <i>Amen.</i>
                 </p>

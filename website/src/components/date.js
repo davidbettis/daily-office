@@ -8,7 +8,9 @@ export class DateComponent extends React.Component {
             weekday: 'long',
             year: 'numeric',
             month: 'long',
-            day: 'numeric' };
+            day: 'numeric'
+        };
+
         this.state = {
             date: new Date().toLocaleString('en-US', dateOptions)
         }
