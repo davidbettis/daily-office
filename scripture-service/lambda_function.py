@@ -55,7 +55,11 @@ def get_texts(lectionary, month, day):
 # Main hook for where Lambda gets run. event is the input to the function
 #
 # event.date date to get scripture in ISO format, e.g. 2019-03-01
+# event.office the office to retrieve. must be 'morning' or 'evening'
 def lambda_handler(event, context):
+    
+    # Event input validation
+    
     # Get the date
     try:
         date = event['date']
@@ -64,21 +68,35 @@ def lambda_handler(event, context):
     except KeyError as e:
         return {'statusCode': 400}
 
+    # Get the office type (morning/evening)
+    try:
+        office = event['office']
+    except KeyError as e:
+        return {'statusCode': 400}
+
+    # Extract year/month/day
     pieces = date.split("-")
     year = str(int(pieces[0]))
     month = str(int(pieces[1]))
     day = str(int(pieces[2]))
     
-    # Get the verses
-    morningTexts = get_texts(MORNING_LECTIONARY, month, day)
-    eveningTexts = get_texts(EVENING_LECTIONARY, month, day)
+    body = {}
 
-    # TODO cache these in Elasticache
+    # Construct the output
+
+    if office == 'morning':
+        body['morning'] = get_texts(MORNING_LECTIONARY, month, day)
+    elif office == 'evening':
+        body['evening'] = get_texts(EVENING_LECTIONARY, month, day)
+    else:
+        LOGGER.info('Unknown office type: ' + office)
+        return {'statusCode': 404}
+
+    # TODO cache these on disk
+    # TODO cache these on Elasticache
 
     return {
         'statusCode': 200,
-        'body': {
-            "morning": morningTexts,
-            "evening": eveningTexts
-        }
+        'body': body
     }
+

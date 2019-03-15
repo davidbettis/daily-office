@@ -19,11 +19,12 @@ export class Lesson extends React.Component {
     constructor(props) {
         super(props);
 
-        var lectionary;
-        if (this.props.lectionary === 'morning') {
-            lectionary = MorningLectionary;
-        } else if (this.props.lectionary === 'evening') {
-            lectionary = EveningLectionary;
+        var lectionary = this.props.lectionary;
+        var lectionaryMap;
+        if (lectionary === 'morning') {
+            lectionaryMap = MorningLectionary;
+        } else if (lectionary === 'evening') {
+            lectionaryMap = EveningLectionary;
         } else {
             throw new Error("Lesson error: lectionary must be one of ['morning','evening']");
         }
@@ -33,9 +34,10 @@ export class Lesson extends React.Component {
         this.month = now.getMonth() + 1; // month, 1-12
         this.day = now.getDate(); // day, 1-31
 
-        var readings = lectionary[this.month][this.day];
+        var readings = lectionaryMap[this.month][this.day];
 
         this.state = {
+            lectionary: lectionary,
             firstScriptureRef: readings[0],
             secondScriptureRef: readings[1],
             firstReading: '',
@@ -45,23 +47,31 @@ export class Lesson extends React.Component {
         };
     }
 
+    scriptureServiceEndpoint(date, office) {
+        // TODO make this configurable
+        return 'https://pd0vgs56hb.execute-api.us-east-1.amazonaws.com'
+            + '/default/daily-office-get-scripture?'
+            + 'date=' + date + '&office=' + office;
+    }
+
     componentDidMount() {
-        var date = this.year + '-' + String(this.month).padStart(2, '0') + '-' + String(this.day).padStart(2, '0');
-        fetch('https://pd0vgs56hb.execute-api.us-east-1.amazonaws.com/default/daily-office-get-scripture?date=' + date, {
+        var date = this.year + '-'
+            + String(this.month).padStart(2, '0') + '-'
+            + String(this.day).padStart(2, '0');
+
+        fetch(this.scriptureServiceEndpoint(date, this.state.lectionary), {
             method: "GET",
             credentials: "same-origin"
         }).then(results => {
             return results.json();
         }).then(data => {
-
-            if (this.props.lectionary === 'morning') {
+            if (this.state.lectionary === 'morning') {
                 this.setState({
                     firstReading: data.body.morning[0],
                     secondReading: data.body.morning[1]
                 });
             }
-
-            if (this.props.lectionary === 'evening') {
+            if (this.state.lectionary === 'evening') {
                 this.setState({
                     firstReading: data.body.evening[0],
                     secondReading: data.body.evening[1]
