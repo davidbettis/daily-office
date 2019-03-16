@@ -94,7 +94,7 @@ export class InvitatoryPsalm extends React.Component {
                 <p>
                 O come, let us sing unto the LORD; *<br/>
                 let us heartily rejoice in the strength of our salvation.<br/>
-                Let us come before his presence with thanksgiving<br/>
+                Let us come before his presence with thanksgiving *<br/>
                 and show ourselves glad in him with psalms.<br/>
                 For the LORD is a great God *<br/>
                 and a great King above all gods.<br/>
