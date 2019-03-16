@@ -14,12 +14,6 @@ LOGGER.setLevel(logging.INFO)
 
 API_URL = 'https://api.esv.org/v3/passage/text/'
 
-with open('morning-lectionary.json') as f:
-    MORNING_LECTIONARY = json.load(f)
-
-with open('evening-lectionary.json') as f:
-    EVENING_LECTIONARY = json.load(f)
-
 # Query the ESV API to retrieve the passage.
 #
 # passage, fuzzy string describing the passage, e.g. Ps+23, "Psalm 23"
@@ -49,7 +43,8 @@ def get_esv_text(passage):
 def get_texts(lectionary, month, day):
     texts = []
     for ref in lectionary[month][day]:
-        texts.append(get_esv_text(ref))
+        full_ref = re.sub('†.*$', '', ref)
+        texts.append(get_esv_text(full_ref))
     return texts
 
 # Main hook for where Lambda gets run. event is the input to the function
@@ -85,9 +80,11 @@ def lambda_handler(event, context):
     # Construct the output
 
     if office == 'morning':
-        body['morning'] = get_texts(MORNING_LECTIONARY, month, day)
+        with open('morning-lectionary.json') as f:
+            body['morning'] = get_texts(json.load(f), month, day)
     elif office == 'evening':
-        body['evening'] = get_texts(EVENING_LECTIONARY, month, day)
+        with open('evening-lectionary.json') as f:
+            body['evening'] = get_texts(json.load(f), month, day)
     else:
         LOGGER.info('Unknown office type: ' + office)
         return {'statusCode': 404}
