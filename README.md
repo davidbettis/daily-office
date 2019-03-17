@@ -31,6 +31,8 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 ## Website
 
 * scripture-service integration, only return the morning/evening content, as appropriate
+* pull in daily psalms from scripture-service and format them in a poetic way
+* add a deployment script to S3
 * Add option for traditional / contemporary Lord's prayer
 * (Morning Prayer) "From Easter Day through the Day of Pentecost “Alleluia, alleluia” may be added to the preceding versicle and response."
 * Opening sentences of scripture that vary according to the church calendar
@@ -41,7 +43,7 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 * Cache the ESV API's response on disk, so warm Lambda containers don't have to hit api.esv.org again
 * Cache the ESV API's response in Elasticache to prevent the ESV service from being overloaded; key will be the day of the year
 * Add support for different lectionaries
-* Is there an equivalent of Amazon's Odin for storing API keys? credentials.py seems awful
+* Is there a secure way to store API keys? credentials.py seems awful
 
 # Credits
 

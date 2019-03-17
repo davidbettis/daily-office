@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# TODO: parse apocrphya reference
+
 from botocore.vendored import requests
 import json
 import logging
