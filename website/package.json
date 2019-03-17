@@ -7,17 +7,17 @@
   "dependencies": {
     "date-easter": "^0.2.4",
     "day-of-year": "^0.1.0",
-    "gatsby": "^2.0.76",
-    "gatsby-image": "^2.0.20",
-    "gatsby-plugin-manifest": "^2.0.9",
-    "gatsby-plugin-offline": "^2.0.16",
-    "gatsby-plugin-react-helmet": "^3.0.2",
-    "gatsby-plugin-sharp": "^2.0.14",
-    "gatsby-source-filesystem": "^2.0.8",
-    "gatsby-transformer-sharp": "^2.1.8",
-    "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "gatsby": "^2.1.37",
+    "gatsby-image": "^2.0.34",
+    "gatsby-plugin-manifest": "^2.0.24",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.10",
+    "gatsby-plugin-sharp": "^2.0.29",
+    "gatsby-source-filesystem": "^2.0.27",
+    "gatsby-transformer-sharp": "^2.1.17",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
@@ -32,12 +32,12 @@
     "test": "jest"
   },
   "devDependencies": {
-    "babel-jest": "^24.1.0",
-    "babel-preset-gatsby": "^0.1.8",
+    "babel-jest": "^24.5.0",
+    "babel-preset-gatsby": "^0.1.9",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.3.1",
-    "prettier": "^1.15.2",
-    "react-test-renderer": "^16.8.3"
+    "jest": "^24.5.0",
+    "prettier": "^1.16.4",
+    "react-test-renderer": "^16.8.4"
   },
   "repository": {
     "type": "git",

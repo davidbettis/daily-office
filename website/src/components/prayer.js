@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LordsPrayer from '../components/lords-prayer'
+import LordsPrayer from './lords-prayer'
 
 const Prayer = () => (
     <div>

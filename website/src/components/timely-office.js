@@ -1,8 +1,8 @@
 import React from 'react'
 
-import MorningComponent from '../components/morning'
-import EveningComponent from '../components/evening'
-import ComplineComponent from '../components/compline'
+import MorningComponent from './morning'
+import EveningComponent from './evening'
+import ComplineComponent from './compline'
 
 // TimelyOffice renders the morning / evening / night component, according to the current time of the day.
 export class TimelyOffice extends React.Component {

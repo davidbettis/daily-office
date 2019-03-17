@@ -1,8 +1,8 @@
 import React from 'react'
 
-import AlleluiaComponent from '../components/alleluia'
-import CollectComponent from '../components/collect'
-import DateComponent from '../components/date'
+import AlleluiaComponent from './alleluia'
+import CollectComponent from './collect'
+import DateComponent from './date'
 
 const ComplineComponent = () => (
   <div>
