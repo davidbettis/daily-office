@@ -1,3 +1,4 @@
 credentials.py
-*.json
+morning-lectionary.json
+evening-lectionary.json
 build

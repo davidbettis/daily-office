@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 from botocore.vendored import requests
 import json
@@ -35,6 +36,10 @@ def get_esv_text(passage):
     passages = response.json()['passages']
     return passages[0].strip() if passages else 'Error: Passage not found'
 
+# Is the reference part of the apocrphya?
+def is_apocrypha(ref):
+    return ref.startsWith("Baruch") or ref.startsWith("Wisdom") or ref.startsWith("Judith") or ref.startsWith("Susanna") or ref.startsWith("1 Macc") or ref.startsWith("2 Macc")
+
 # Get texts for the lectionary entry on the provided month and day
 #
 # lectionary, a hash of month -> day -> [array of scripture references of size 2]
@@ -44,7 +49,10 @@ def get_texts(lectionary, month, day):
     texts = []
     for ref in lectionary[month][day]:
         full_ref = re.sub('†.*$', '', ref)
-        texts.append(get_esv_text(full_ref))
+        if (is_apocrypha(ref)):
+            texts.append("apocrypha text")
+        else:
+            texts.append(get_esv_text(full_ref))
     return texts
 
 # Main hook for where Lambda gets run. event is the input to the function
