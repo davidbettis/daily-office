@@ -9,7 +9,6 @@ import * as dayOfYear from 'day-of-year'
 export class InvitatoryPsalm extends React.Component {
 
     // Constructs a new InvitatoryPsalm
-    //    props.morning: standard texts for morning
     constructor(props) {
         super(props);
 
@@ -28,10 +27,12 @@ export class InvitatoryPsalm extends React.Component {
     antiphon(i) {
         var antiphon = this.state.antiphons[i % this.state.antiphons.length];
         return (
-<p>
-<div class="officiant">{ antiphon['call'] }</div>
-<div class="people">{ antiphon['response'] }</div>
-</p>
+<div>
+  <p>
+    <span class="officiant">{ antiphon['call'] }</span><br/>
+    <span class="people">{ antiphon['response'] }</span><br/>
+  </p>
+</div>
         );
     }
 
@@ -50,7 +51,7 @@ export class InvitatoryPsalm extends React.Component {
                 </p>
             );
         }
-        return (<p/>);
+        return (<p></p>);
     }
 
     paschaNostrum() {
@@ -91,7 +92,7 @@ export class InvitatoryPsalm extends React.Component {
 
                 <b>Venite</b> <i>O Come</i><br/>
                 <i>Psalm 95:1-7; 8-11</i><br/>
-                <p>
+                <p class="venite">
                 O come, let us sing unto the LORD; *<br/>
                 let us heartily rejoice in the strength of our salvation.<br/>
                 Let us come before his presence with thanksgiving *<br/>
@@ -116,4 +117,4 @@ export class InvitatoryPsalm extends React.Component {
     }
 }
 
-export default InvitatoryPsalm
+export default InvitatoryPsalm;

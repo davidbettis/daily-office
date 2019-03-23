@@ -19,4 +19,4 @@ const LordsPrayer = () => (
     </div>
 );
 
-export default LordsPrayer
+export default LordsPrayer;

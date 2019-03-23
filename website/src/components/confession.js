@@ -43,4 +43,4 @@ const Confession = () => (
     </div>
 );
 
-export default Confession
+export default Confession;

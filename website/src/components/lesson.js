@@ -274,4 +274,4 @@ export class Lesson extends React.Component {
     }
 }
 
-export default Lesson
+export default Lesson;

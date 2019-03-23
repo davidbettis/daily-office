@@ -49,4 +49,4 @@ export class Psalter extends React.Component {
     }
 }
 
-export default Psalter
+export default Psalter;

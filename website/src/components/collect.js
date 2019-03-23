@@ -39,4 +39,4 @@ export class Collect extends React.Component {
     }
 }
 
-export default Collect
+export default Collect;

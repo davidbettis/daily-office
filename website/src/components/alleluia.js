@@ -43,4 +43,4 @@ export class Alleluia extends React.Component {
     }
 }
 
-export default Alleluia
+export default Alleluia;

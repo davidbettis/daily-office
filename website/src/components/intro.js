@@ -45,12 +45,12 @@ export class Intro extends React.Component {
         
         return (
             <div>
-                <span>
+                <p>
                     { selected['text'] }<br/>
                     <i>{ selected['scripture'] }</i>
-                </span>
+                </p>
             </div>);
     }
 }
 
-export default Intro
+export default Intro;

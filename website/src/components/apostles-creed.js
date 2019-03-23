@@ -29,4 +29,4 @@ const ApostlesCreed = () => (
     </div>
 );
 
-export default ApostlesCreed
+export default ApostlesCreed;

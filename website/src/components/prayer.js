@@ -37,4 +37,4 @@ const Prayer = () => (
     </div>
 );
 
-export default Prayer
+export default Prayer;

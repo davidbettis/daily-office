@@ -7,10 +7,6 @@ import ComplineComponent from './compline'
 // TimelyOffice renders the morning / evening / night component, according to the current time of the day.
 export class TimelyOffice extends React.Component {
 
-    constructor(props) {
-        super(props);
-    };
-
     render() {
         var hour = new Date().getHours(); // 0-23
 
@@ -28,4 +24,4 @@ export class TimelyOffice extends React.Component {
     }
 }
 
-export default TimelyOffice
+export default TimelyOffice;

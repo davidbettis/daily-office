@@ -21,4 +21,4 @@ export class DateComponent extends React.Component {
     }
 }
 
-export default DateComponent
+export default DateComponent;

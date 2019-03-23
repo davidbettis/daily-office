@@ -23,4 +23,4 @@ const GeneralThanksgiving = () => (
     </div>
 );
 
-export default GeneralThanksgiving
+export default GeneralThanksgiving;

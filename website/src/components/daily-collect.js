@@ -58,4 +58,4 @@ export class DailyCollect extends React.Component {
     }
 }
 
-export default DailyCollect
+export default DailyCollect;

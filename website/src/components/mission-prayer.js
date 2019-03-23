@@ -8,4 +8,4 @@ const MissionPrayer = () => (
     coming of your kingdom; through Jesus Christ our Lord. Amen.</p></div>
 );
 
-export default MissionPrayer
+export default MissionPrayer;

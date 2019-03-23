@@ -21,7 +21,7 @@ const EveningComponent = () => (
 
     <div class="prayer">
 
-        <p><Intro texts='evening' /></p>
+        <Intro texts='evening' />
 
         <Confession />
 
@@ -65,13 +65,14 @@ const EveningComponent = () => (
         <p><GeneralThanksgiving /></p>
 
         <div>
-          <p>
-            <div class="officiant">Let us bless the Lord.</div>
-            <div class="people">Thanks be to God.</div>
-          </p>
+          <span class="officiant">Let us bless the Lord.</span><br/>
+          <span class="people">Thanks be to God.</span><br/>
         </div>
 
+        <br/>
+
         <p class="instructions">Officiant and People</p>
+
         <Closing />
     </div>
 
@@ -82,4 +83,4 @@ const EveningComponent = () => (
   </div>
 );
 
-export default EveningComponent
+export default EveningComponent;

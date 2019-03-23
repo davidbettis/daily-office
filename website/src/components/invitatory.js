@@ -18,4 +18,4 @@ const Invitatory = () => (
     </div>
 );
 
-export default Invitatory
+export default Invitatory;

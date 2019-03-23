@@ -32,4 +32,4 @@ export class Closing extends React.Component {
     }
 }
 
-export default Closing
+export default Closing;
