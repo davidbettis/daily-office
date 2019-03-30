@@ -5,7 +5,7 @@ import SEO from '../components/seo'
 
 const AboutPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`daily`, `office`, `prayer`, `christian`, `spirituality`]} />
+    <SEO title="About" keywords={[`daily`, `office`, `prayer`, `christian`, `spirituality`]} />
 
     <h1>What is the daily office?</h1>
 
