@@ -29,10 +29,13 @@ const MorningComponent = () => (
         <InvitatoryPsalm />
 
         <p class="section">Psalms Appointed</p>
-        <Psalter series='morning' />
+        <Psalter series='morning' date={new Date()} />
 
         <p class="section">The Lessons</p>
-        <Lesson lectionary='morning' postFirstReading='te-deum-laudamus' postSecondReading='benedictus' />
+        <Lesson lectionary='morning'
+                postFirstReading='te-deum-laudamus'
+                postSecondReading='benedictus'
+                date={new Date()} />
 
         <ApostlesCreed />
 

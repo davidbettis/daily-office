@@ -42,13 +42,14 @@ const EveningComponent = () => (
 
         <p class="section">Psalms Appointed</p>
 
-        <Psalter series='evening' />
+        <Psalter series='evening' date={new Date()} />
 
         <p class="section">The Lessons</p>
 
         <Lesson lectionary='evening'
                 postFirstReading='magnificat'
-                postSecondReading='nunc-dimittis' />
+                postSecondReading='nunc-dimittis'
+                date={new Date()} />
 
         <ApostlesCreed />
 

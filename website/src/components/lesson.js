@@ -11,6 +11,7 @@ import EveningLectionary from '../data/evening-lectionary.json'
 //      props.lectionary: lectionary to use for the two readings (see LECTIONARY options below)
 //      props.postFirstReading: after the first reading (see POST_READING options below)
 //      props.postSecondReading: after the second reading (see POST_READING options below)
+//      props.date: Date object for the lesson (keyed to particular day)
 //
 // LECTIONARY: morning, evening
 // POST_READING: te-deum-laudamus, benedictus, benedictus-es-domine, magnificat, nunc-dimittis
@@ -29,14 +30,15 @@ export class Lesson extends React.Component {
             throw new Error("Lesson error: lectionary must be one of ['morning','evening']");
         }
 
-        var now = new Date();
-        this.year = now.getFullYear();
-        this.month = now.getMonth() + 1; // month, 1-12
-        this.day = now.getDate(); // day, 1-31
+        if (!(props.date instanceof Date)) {
+            throw new Error("Lesson error: date must be a Date object");
+        }
 
-        var readings = lectionaryMap[this.month][this.day];
+        var date = props.date;
+        var readings = this.getReadings(lectionaryMap, date);
 
         this.state = {
+            date: date,
             lectionary: lectionary,
             firstScriptureRef: readings[0],
             secondScriptureRef: readings[1],
@@ -47,6 +49,23 @@ export class Lesson extends React.Component {
         };
     }
 
+    // Get the readings in lectionaryMap at the provided date.
+    getReadings(lectionaryMap, date) {
+        var month = date.getMonth() + 1; // month, 1-12
+        var day = date.getDate(); // day, 1-31
+
+        return lectionaryMap[month][day];
+    }
+
+    // Returns the Y-M-D version of the provided date (Date object).
+    ymd(date) {
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1; // month, 1-12
+        var day = date.getDate(); // day, 1-31
+
+        return year + '-' + String(month).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+    }
+
     scriptureServiceEndpoint(date, office) {
         // TODO make this configurable
         return 'https://pd0vgs56hb.execute-api.us-east-1.amazonaws.com'
@@ -55,11 +74,7 @@ export class Lesson extends React.Component {
     }
 
     componentDidMount() {
-        var date = this.year + '-'
-            + String(this.month).padStart(2, '0') + '-'
-            + String(this.day).padStart(2, '0');
-
-        fetch(this.scriptureServiceEndpoint(date, this.state.lectionary), {
+        fetch(this.scriptureServiceEndpoint(this.ymd(this.state.date), this.state.lectionary), {
             method: "GET",
             credentials: "same-origin"
         }).then(results => {
