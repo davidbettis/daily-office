@@ -7,7 +7,7 @@ import TimelyOffice from '../components/timely-office'
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`daily`, `office`, `prayer`, `christian`, `spirituality`]} />
+    <SEO title="🙏" keywords={[`daily`, `office`, `prayer`, `christian`, `spirituality`]} />
     <TimelyOffice date={new Date()} />
   </Layout>
 )
