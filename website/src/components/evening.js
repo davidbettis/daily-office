@@ -23,7 +23,7 @@ const EveningComponent = () => (
 
         <Intro texts='evening' />
 
-        <Confession />
+        <Confession intro="long" after="long" />
 
         <Invitatory />
 

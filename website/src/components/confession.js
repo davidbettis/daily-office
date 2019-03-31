@@ -1,14 +1,64 @@
 import React from 'react'
 
-const Confession = () => (
-    <div>
-    <p class="section">Confession of Sin</p>
-    <p class="instructions">The Officiant says to the People</p>
+const introShort = (
     <p>Let us humbly confess our sins to Almighty God.</p>
+);
 
-    <p>
-    <div class="instructions">Silence is kept. All kneeling the Officiant and People say</div>
-    </p>
+const introLong = (
+    <p>Dearly beloved, the Scriptures teach us to acknowledge our many sins and offenses, not concealing them from our heavenly Father, but confessing them with humble and obedient hearts that we may obtain forgiveness by his infinite goodness and mercy. We ought at all times humbly to acknowledge our sins before Almighty God, but especially when we come together in his presence to give thanks for the great benefits we have received at his hands, to declare his most worthy praise, to hear his holy Word, and to ask, for ourselves and others, those things necessary for our life and our salvation. Therefore, come with me to the throne of heavenly grace.</p>
+);
+
+const afterShort = (
+    <p>The Almighty and merciful Lord grant you absolution and remission of all your sins, true repentance, amendment of life, and the grace and consolation of his Holy Spirit. <i>Amen.</i></p>
+);
+
+const afterLong = (
+    <p>Almighty God, the Father of our Lord Jesus Christ, desires not the death of sinners, but that they may turn from their wickedness and live. He has empowered and commanded his ministers to pronounce to his people, being penitent, the absolution and remission of their sins. He pardons and absolves all who truly repent and genuinely believe his holy Gospel. For this reason, we beseech him to grant us true repentance and his Holy Spirit, that our present deeds may please him, the rest of our lives may be pure and holy, and that at the last we may come to his eternal joy; through Jesus Christ our Lord. <i>Amen.</i></p>
+);
+
+// Confession component
+export class Confession extends React.Component {
+    // Construct a new Confession component
+    //  props.intro: style for the intro. 'short' or 'long'
+    //  props.after: style for the after section. 'short' or 'long'
+    constructor(props) {
+        super(props);
+        this.state = {
+            intro: props.intro,
+            after: props.after
+        }
+    }
+
+    intro() {
+        if (this.state.intro === 'short') {
+            return introShort;
+        } else if (this.state.intro === 'long') {
+            return introLong;
+        } else {
+            throw Error("Unknown intro style: " + this.state.intro);
+        }
+    }
+
+    after() {
+        if (this.state.after === 'short') {
+            return afterShort;
+        } else if (this.state.after === 'long') {
+            return afterLong;
+        } else {
+            throw Error("Unknown after style: " + this.state.after);
+        }
+    }
+
+    render() {
+        return (
+<div>
+    <p class="section">Confession of Sin</p>
+
+    <p class="instructions">The Officiant says to the People</p>
+
+    { this.intro() }
+
+    <p class="instructions">Silence is kept. All kneeling the Officiant and People say</p>
 
     <p>
     Almighty and most merciful Father,<br/>
@@ -27,20 +77,19 @@ const Confession = () => (
      to the glory of your holy Name. <i>Amen.</i><br/>
     </p>
 
-    <p>
-    <div class="instructions">The Priest alone stands and says</div>
-    </p>
+    <p class="instructions">The Priest alone stands and says</p>
 
-    <p>The Almighty and merciful Lord grant you absolution and remission of all your sins, true repentance, amendment of life, and the grace and consolation of his Holy Spirit. Amen.</p>
+    { this.after() } 
 
-    <p>
-    <div class="instructions">A deacon or layperson remains kneeling and prays</div>
-    </p>
+    <p class="instructions">A deacon or layperson remains kneeling and prays</p>
 
     <p>
     Grant your faithful people, merciful Lord, pardon and peace; that we may be cleansed from all our sins, and serve you with a quiet mind; through Jesus Christ our Lord. Amen.
     </p>
+
     </div>
 );
+    }
+}
 
 export default Confession;

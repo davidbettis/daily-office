@@ -23,7 +23,7 @@ const MorningComponent = () => (
     <div class="prayer">
         <Intro texts='morning' />
 
-        <Confession />
+        <Confession intro="short" after="short" />
 
         <Invitatory />
         <InvitatoryPsalm />
