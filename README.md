@@ -1,14 +1,11 @@
 # Summary
 
-This project is to support the Daily Office as prescribed by the ACNA
-(http://anglicanchurch.net/).  The Daily Office is an historic Christian
-devotional, walking the reader through a set of Bible readings and various
-prayers.
+The Daily Office is an historic Christian devotional, according to the Anglican tradition.
 
 I originally started this project because I wanted to be able to easily go
-through the Daily Office on my phone. My hope is that individuals and churches
-might use this as a starting point to provide web-enabled editions of their own
-liturgies.
+through the ACNA's version ((http://anglicanchurch.net/) of the Daily Office on
+my phone. My hope is that individuals and churches might use this as a starting
+point to provide web-enabled editions of Christian liturgies.
 
 # Technical Overview
 
@@ -17,6 +14,14 @@ liturgies.
 `website/`
 
 The web site is written in React. It uses Gatsby, a static site generator.
+
+Check out the Makefile for a variety of developer convenience targets.
+
+* default: builds the project; output to upload is in "public"
+* clean: removes old build artifacts
+* server: runs a local development server on port 8080 (Gatsby default)
+* update-snapshot: React caches a skeleton of the DOM structure to run unit tests against; update that template
+* deploy: push the contents of "public" to an S3 bucket defined in the environment variable DAILYOFFICE_S3; to use run "DAILYOFFICE_S3='s3://my.bucket/dir' make deploy"
 
 ## Scripture Service
 
@@ -38,7 +43,6 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 
 ## Service
 
-* add verse support to the handful of apocryphal texts
 * Cache the ESV API's response on disk, so warm Lambda containers don't have to hit api.esv.org again
 * Cache the ESV API's response in Elasticache to prevent the ESV service from being overloaded; key will be the day of the year
 * Add support for different lectionaries
