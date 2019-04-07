@@ -1,4 +1,8 @@
-default: test
+default: release
+
+release: test build
+
+build:
 	gatsby build --prefix-paths
 
 clean:
@@ -14,5 +18,5 @@ server:
 update-snapshot:
 	npm test -- --updateSnapshot
 
-deploy:
+deploy: release
 	aws s3 sync public ${DAILYOFFICE_S3}

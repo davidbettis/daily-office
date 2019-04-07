@@ -3,7 +3,7 @@
 The Daily Office is an historic Christian devotional, according to the Anglican tradition.
 
 I originally started this project because I wanted to be able to easily go
-through the ACNA's version ((http://anglicanchurch.net/) of the Daily Office on
+through the ACNA's version (http://anglicanchurch.net/) of the Daily Office on
 my phone. My hope is that individuals and churches might use this as a starting
 point to provide web-enabled editions of Christian liturgies.
 
@@ -17,10 +17,12 @@ The web site is written in React. It uses Gatsby, a static site generator.
 
 Check out the Makefile for a variety of developer convenience targets.
 
-* default: builds the project; output to upload is in "public"
+* no arguments or 'release' - runs tests and builds the project; output to upload is in "public"
+* build: generates the output for the static site; output to upload is in "public"
+* test: runs automated unit tests
+* update-snapshot: React caches a skeleton of the DOM structure to run unit tests against; update that template
 * clean: removes old build artifacts
 * server: runs a local development server on port 8000 (Gatsby default)
-* update-snapshot: React caches a skeleton of the DOM structure to run unit tests against; update that template
 * deploy: push the contents of "public" to an S3 bucket defined in the environment variable DAILYOFFICE_S3; to use run "DAILYOFFICE_S3='s3://my.bucket/dir' make deploy"
 
 ## Scripture Service
