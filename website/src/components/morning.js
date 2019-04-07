@@ -14,58 +14,70 @@ import MissionPrayer from './mission-prayer'
 import Prayer from './prayer'
 import Psalter from './psalter'
 
-const MorningComponent = () => (
-  <div>
-    <h1>Morning Prayer</h1>
+export class MorningComponent extends React.Component {
 
-    <DateComponent /> 
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: props.date
+        };
+    }
 
-    <div className="prayer">
-        <Intro texts='morning' />
+    render() {
+        return (
+<div>
+  <h1>Morning Prayer</h1>
 
-        <Confession intro="short" after="short" />
+  <DateComponent date={this.state.date} /> 
 
-        <Invitatory />
-        <InvitatoryPsalm />
+  <div className="prayer">
+      <Intro texts='morning' />
 
-        <p className="section">Psalms Appointed</p>
-        <Psalter series='morning' date={new Date()} />
+      <Confession intro="short" after="short" />
 
-        <p className="section">The Lessons</p>
-        <Lesson lectionary='morning'
-                postFirstReading='te-deum-laudamus'
-                postSecondReading='benedictus'
-                date={new Date()} />
+      <Invitatory />
+      <InvitatoryPsalm />
 
-        <ApostlesCreed />
+      <p className="section">Psalms Appointed</p>
+      <Psalter series='morning' date={this.state.date} />
 
-        <Prayer />
-        <DailyCollect collects='morning'  />
-        <MissionPrayer />
+      <p className="section">The Lessons</p>
+      <Lesson lectionary='morning'
+              postFirstReading='te-deum-laudamus'
+              postSecondReading='benedictus'
+              date={this.state.date} />
 
-        <p className="instructions">Free intercessions and thanksgivings may be offered.</p>
+      <ApostlesCreed />
 
-        <p className="section">The General Thanksgiving</p>
-        <p className="instructions">Officiant and People</p>
+      <Prayer />
+      <DailyCollect collects='morning'  />
+      <MissionPrayer />
 
-        <GeneralThanksgiving />
+      <p className="instructions">Free intercessions and thanksgivings may be offered.</p>
 
-        <br/>
+      <p className="section">The General Thanksgiving</p>
+      <p className="instructions">Officiant and People</p>
 
-        <div>
-          <span className="officiant">Let us bless the Lord.</span><br/>
-          <span className="people">Thanks be to God.</span><br/><br/>
-        </div>
+      <GeneralThanksgiving />
 
-        <p className="instructions">Officiant and People</p>
+      <br/>
 
-        <Closing />
-    </div>
+      <div>
+        <span className="officiant">Let us bless the Lord.</span><br/>
+        <span className="people">Thanks be to God.</span><br/><br/>
+      </div>
 
-    <p className="footnote">
-      <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>The Daily Office</a> as established by the <a href='http://anglicanchurch.net'>Anglican Church in North America (ACNA)</a>. Last revised 9/26/18.
-    </p>
+      <p className="instructions">Officiant and People</p>
+
+      <Closing />
   </div>
-);
+
+  <p className="footnote">
+    <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>The Daily Office</a> as established by the <a href='http://anglicanchurch.net'>Anglican Church in North America (ACNA)</a>. Last revised 9/26/18.
+  </p>
+</div>
+        );
+    }
+}
 
 export default MorningComponent;

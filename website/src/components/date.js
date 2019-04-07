@@ -1,8 +1,8 @@
 import React from 'react';
 
 export class DateComponent extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         var dateOptions = {
             weekday: 'long',
@@ -12,7 +12,7 @@ export class DateComponent extends React.Component {
         };
 
         this.state = {
-            date: new Date().toLocaleString('en-US', dateOptions)
+            date: props.date.toLocaleString('en-US', dateOptions)
         }
     }
 

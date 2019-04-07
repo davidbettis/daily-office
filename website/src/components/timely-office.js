@@ -21,12 +21,14 @@ export class TimelyOffice extends React.Component {
         // evening is 4pm (16:00) - 9pm (21:00)
         // compline is 9pm (21:00) - midnight
 
+        var now = new Date();
+
         if (hour >= 16 && hour <= 20) {
-            return (<EveningComponent />);
+            return (<EveningComponent date={now} />);
         } else if (hour >= 21) {
-            return (<ComplineComponent />);
+            return (<ComplineComponent date={now} />);
         } else {
-            return (<MorningComponent />);
+            return (<MorningComponent date={now} />);
         }
     }
 }

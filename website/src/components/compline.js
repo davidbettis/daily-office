@@ -4,11 +4,21 @@ import AlleluiaComponent from './alleluia'
 import CollectComponent from './collect'
 import DateComponent from './date'
 
-const ComplineComponent = () => (
+export class ComplineComponent extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: props.date
+        };
+    }
+
+    render() {
+        return (
   <div>
     <h1>Night Prayer</h1>
 
-    <DateComponent /> 
+    <DateComponent date={this.state.date} /> 
 
     <div className="prayer">
 
@@ -462,6 +472,8 @@ const ComplineComponent = () => (
       <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>The Daily Office</a> as established by the <a href='http://anglicanchurch.net'>Anglican Church in North America (ACNA)</a>. Last revised 9/26/18.
     </p>
   </div>
-)
+        );
+    }
+}
 
 export default ComplineComponent;

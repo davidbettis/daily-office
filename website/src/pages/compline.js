@@ -8,7 +8,7 @@ import ComplineComponent from '../components/compline'
 const Compline = () => (
   <Layout>
     <SEO title="Night Prayer" keywords={[`daily`, `office`, `night`, `prayer`, `christian`, `spirituality`, `acna`, `anglican`]} />
-    <ComplineComponent />
+    <ComplineComponent date={new Date()} />
   </Layout>
 )
 

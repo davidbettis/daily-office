@@ -13,75 +13,87 @@ import MissionPrayer from './mission-prayer'
 import Prayer from './prayer'
 import Psalter from './psalter'
 
-const EveningComponent = () => (
-  <div>
-    <h1>Evening Prayer</h1>
+export class EveningComponent extends React.Component {
 
-    <DateComponent /> 
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: props.date
+        };
+    }
 
-    <div className="prayer">
+    render() {
+        return (
+<div>
+  <h1>Evening Prayer</h1>
 
-        <Intro texts='evening' />
+  <DateComponent date={this.state.date} /> 
 
-        <Confession intro="long" after="long" />
+  <div className="prayer">
 
-        <Invitatory />
+      <Intro texts='evening' />
 
-        <b>Phos hilaron</b> <i>O Gladsome Light</i>
-        <p>
-        O gladsome light,<br/>
-        pure brightness of the everliving Father in heaven, *<br/>
-        O Jesus Christ, holy and blessed!<br/>
-        Now as we come to the setting of the sun,<br/>
-        and our eyes behold the vesper light, *<br/>
-        we sing your praises, O God: Father, Son, and Holy Spirit.<br/>
-        You are worthy at all times to be praised by happy voices, *<br/>
-        O Son of God, O Giver of Life,<br/>
-        and to be glorified through all the worlds.<br/>
-        </p>
+      <Confession intro="long" after="long" />
 
-        <p className="section">Psalms Appointed</p>
+      <Invitatory />
 
-        <Psalter series='evening' date={new Date()} />
+      <b>Phos hilaron</b> <i>O Gladsome Light</i>
+      <p>
+      O gladsome light,<br/>
+      pure brightness of the everliving Father in heaven, *<br/>
+      O Jesus Christ, holy and blessed!<br/>
+      Now as we come to the setting of the sun,<br/>
+      and our eyes behold the vesper light, *<br/>
+      we sing your praises, O God: Father, Son, and Holy Spirit.<br/>
+      You are worthy at all times to be praised by happy voices, *<br/>
+      O Son of God, O Giver of Life,<br/>
+      and to be glorified through all the worlds.<br/>
+      </p>
 
-        <p className="section">The Lessons</p>
+      <p className="section">Psalms Appointed</p>
 
-        <Lesson lectionary='evening'
-                postFirstReading='magnificat'
-                postSecondReading='nunc-dimittis'
-                date={new Date()} />
+      <Psalter series='evening' date={this.state.date} />
 
-        <ApostlesCreed />
+      <p className="section">The Lessons</p>
 
-        <Prayer />
+      <Lesson lectionary='evening'
+              postFirstReading='magnificat'
+              postSecondReading='nunc-dimittis'
+              date={this.state.date} />
 
-        <DailyCollect collects='evening' />
+      <ApostlesCreed />
 
-        <MissionPrayer />
+      <Prayer />
 
-        <p className="instructions">Free intercessions and thanksgivings may be offered.</p>
+      <DailyCollect collects='evening' />
 
-        <p className="section">The General Thanksgiving</p>
-        <p className="instructions">Officiant and People</p>
-        <GeneralThanksgiving />
+      <MissionPrayer />
 
-        <div>
-          <span className="officiant">Let us bless the Lord.</span><br/>
-          <span className="people">Thanks be to God.</span><br/>
-        </div>
+      <p className="instructions">Free intercessions and thanksgivings may be offered.</p>
 
-        <br/>
+      <p className="section">The General Thanksgiving</p>
+      <p className="instructions">Officiant and People</p>
+      <GeneralThanksgiving />
 
-        <p className="instructions">Officiant and People</p>
+      <div>
+        <span className="officiant">Let us bless the Lord.</span><br/>
+        <span className="people">Thanks be to God.</span><br/>
+      </div>
 
-        <Closing />
-    </div>
+      <br/>
 
-    <p className="footnote">
-      <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>The Daily Office</a> as established by the <a href='http://anglicanchurch.net'>Anglican Church in North America (ACNA)</a>. Last revised 9/26/18.
-    </p>
+      <p className="instructions">Officiant and People</p>
 
+      <Closing />
   </div>
-);
+
+  <p className="footnote">
+    <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>The Daily Office</a> as established by the <a href='http://anglicanchurch.net'>Anglican Church in North America (ACNA)</a>. Last revised 9/26/18.
+  </p>
+
+</div>
+        );
+    }
+}
 
 export default EveningComponent;

@@ -8,7 +8,7 @@ import MorningComponent from '../components/morning'
 const Morning = () => (
   <Layout>
     <SEO title="Morning Prayer" keywords={[`daily`, `office`, `morning`, `prayer`, `christian`, `spirituality`, `acna`, `anglican`]} />
-    <MorningComponent /> 
+    <MorningComponent date={new Date()} /> 
   </Layout>
 )
 
