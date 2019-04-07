@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-import TimelyOffice from '../components/timely-office'
+import TimelyOffice from '../components/offices/timely-office'
 
 const IndexPage = () => (
   <Layout>

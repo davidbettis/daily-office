@@ -1,5 +1,5 @@
 import React from 'react';
-import Seasons from '../helpers/seasons'
+import Seasons from '../../helpers/seasons'
 
 // Alleluia prints out alleluias according to Easter or Lent
 export class Alleluia extends React.Component {

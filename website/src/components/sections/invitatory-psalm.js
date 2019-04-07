@@ -1,5 +1,5 @@
 import React from 'react';
-import Seasons from '../helpers/seasons'
+import Seasons from '../../helpers/seasons'
 import * as dayOfYear from 'day-of-year'
 
 // InvitatoryPsalm is for the psalm read after the morning invitatory

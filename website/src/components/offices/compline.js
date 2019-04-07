@@ -1,8 +1,8 @@
 import React from 'react'
 
-import AlleluiaComponent from './alleluia'
-import CollectComponent from './collect'
-import DateComponent from './date'
+import AlleluiaComponent from '../sections/alleluia'
+import CollectComponent from '../sections/collect'
+import DateComponent from '../sections/date'
 
 export class ComplineComponent extends React.Component {
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import Seasons from '../helpers/seasons'
-import ESV from '../helpers/esv'
+import Seasons from '../../helpers/seasons'
+import ESV from '../../helpers/esv'
 
-import MorningLectionary from '../data/morning-lectionary.json'
-import EveningLectionary from '../data/evening-lectionary.json'
+import MorningLectionary from '../../data/morning-lectionary.json'
+import EveningLectionary from '../../data/evening-lectionary.json'
 
 // Lesson is a set of scripture chunks to read as part of the office.
 //

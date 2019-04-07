@@ -1,6 +1,6 @@
 import React from 'react';
 import * as dayOfYear from 'day-of-year'
-import ESV from '../helpers/esv'
+import ESV from '../../helpers/esv'
 
 // 60 day rotation
 const MORNING_PSALMS = [

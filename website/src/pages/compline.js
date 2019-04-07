@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-import ComplineComponent from '../components/compline'
+import ComplineComponent from '../components/offices/compline'
 
 const Compline = () => (
   <Layout>

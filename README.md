@@ -19,7 +19,7 @@ Check out the Makefile for a variety of developer convenience targets.
 
 * default: builds the project; output to upload is in "public"
 * clean: removes old build artifacts
-* server: runs a local development server on port 8080 (Gatsby default)
+* server: runs a local development server on port 8000 (Gatsby default)
 * update-snapshot: React caches a skeleton of the DOM structure to run unit tests against; update that template
 * deploy: push the contents of "public" to an S3 bucket defined in the environment variable DAILYOFFICE_S3; to use run "DAILYOFFICE_S3='s3://my.bucket/dir' make deploy"
 
@@ -35,6 +35,7 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 
 ## Website
 
+* add an abbreviated version of the office that can be completed in under 30 minutes
 * pull in daily psalms from scripture-service and format them in a poetic way
 * add superscript verse numbers to the lessons
 * Add option for traditional / contemporary Lord's prayer

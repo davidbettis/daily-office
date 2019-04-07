@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-import MorningComponent from '../components/morning'
+import MorningComponent from '../components/offices/morning'
 
 const Morning = () => (
   <Layout>
