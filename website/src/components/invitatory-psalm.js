@@ -29,8 +29,8 @@ export class InvitatoryPsalm extends React.Component {
         return (
 <div>
   <p>
-    <span class="officiant">{ antiphon['call'] }</span><br/>
-    <span class="people">{ antiphon['response'] }</span><br/>
+    <span className="officiant">{ antiphon['call'] }</span><br/>
+    <span className="people">{ antiphon['response'] }</span><br/>
   </p>
 </div>
         );
@@ -92,7 +92,7 @@ export class InvitatoryPsalm extends React.Component {
 
                 <b>Venite</b> <i>O Come</i><br/>
                 <i>Psalm 95:1-7; 8-11</i><br/>
-                <p class="venite">
+                <p>
                 O come, let us sing unto the LORD; *<br/>
                 let us heartily rejoice in the strength of our salvation.<br/>
                 Let us come before his presence with thanksgiving *<br/>

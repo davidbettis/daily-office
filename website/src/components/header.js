@@ -27,7 +27,7 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-      <div class="navigation">
+      <div className="navigation">
         <ul>
           <li><Link to="/morning">Morning</Link></li>
           <li><Link to="/evening">Evening</Link></li>

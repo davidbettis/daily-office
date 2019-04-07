@@ -98,7 +98,7 @@ export class Lesson extends React.Component {
     reading(text, fullText) {
         var after = "";
         if (!ESV.isApocryphal(text)) {
-            after = (<p><div class="officiant">The Word of the Lord.</div><div class="people">Thanks be to God.</div></p>);
+            after = (<p><span className="officiant">The Word of the Lord.</span><br/><span className="people">Thanks be to God.</span></p>);
         }
 
         return (

@@ -52,13 +52,13 @@ export class Confession extends React.Component {
     render() {
         return (
 <div>
-    <p class="section">Confession of Sin</p>
+    <p className="section">Confession of Sin</p>
 
-    <p class="instructions">The Officiant says to the People</p>
+    <p className="instructions">The Officiant says to the People</p>
 
     { this.intro() }
 
-    <p class="instructions">Silence is kept. All kneeling the Officiant and People say</p>
+    <p className="instructions">Silence is kept. All kneeling the Officiant and People say</p>
 
     <p>
     Almighty and most merciful Father,<br/>
@@ -77,11 +77,11 @@ export class Confession extends React.Component {
      to the glory of your holy Name. <i>Amen.</i><br/>
     </p>
 
-    <p class="instructions">The Priest alone stands and says</p>
+    <p className="instructions">The Priest alone stands and says</p>
 
     { this.after() } 
 
-    <p class="instructions">A deacon or layperson remains kneeling and prays</p>
+    <p className="instructions">A deacon or layperson remains kneeling and prays</p>
 
     <p>
     Grant your faithful people, merciful Lord, pardon and peace; that we may be cleansed from all our sins, and serve you with a quiet mind; through Jesus Christ our Lord. Amen.

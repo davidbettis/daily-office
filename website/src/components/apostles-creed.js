@@ -2,9 +2,9 @@ import React from 'react'
 
 const ApostlesCreed = () => (
     <div>
-    <p class="section">The Apostles’ Creed</p>
+    <p className="section">The Apostles’ Creed</p>
 
-    <p class="instructions">Officiant and People together, all standing</p>
+    <p className="instructions">Officiant and People together, all standing</p>
 
     <p>
     I believe in God, the Father almighty,<br/>

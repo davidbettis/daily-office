@@ -27,7 +27,7 @@ export class Alleluia extends React.Component {
     render() {
         if (this.state.forEaster) {
             if (this.state.inEaster) {
-                return (<div><span class="people">Alleluia, alleluia, alleluia.</span></div>);
+                return (<div><span className="people">Alleluia, alleluia, alleluia.</span></div>);
             } else {
                 return (<div/>);
             }
@@ -35,7 +35,7 @@ export class Alleluia extends React.Component {
             if (this.state.inLent) {
                 return (<div/>);
             } else {
-                return (<div><span class="people">Alleluia.</span></div>);
+                return (<div><span className="people">Alleluia.</span></div>);
             }
         } else {
             return (<div/>);

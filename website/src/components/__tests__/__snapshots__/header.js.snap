@@ -38,7 +38,7 @@ exports[`Header renders correctly 1`] = `
       </a>
     </h1>
     <div
-      class="navigation"
+      className="navigation"
     >
       <ul>
         <li>

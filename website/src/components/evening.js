@@ -19,7 +19,7 @@ const EveningComponent = () => (
 
     <DateComponent /> 
 
-    <div class="prayer">
+    <div className="prayer">
 
         <Intro texts='evening' />
 
@@ -40,11 +40,11 @@ const EveningComponent = () => (
         and to be glorified through all the worlds.<br/>
         </p>
 
-        <p class="section">Psalms Appointed</p>
+        <p className="section">Psalms Appointed</p>
 
         <Psalter series='evening' date={new Date()} />
 
-        <p class="section">The Lessons</p>
+        <p className="section">The Lessons</p>
 
         <Lesson lectionary='evening'
                 postFirstReading='magnificat'
@@ -59,25 +59,25 @@ const EveningComponent = () => (
 
         <MissionPrayer />
 
-        <p class="instructions">Free intercessions and thanksgivings may be offered.</p>
+        <p className="instructions">Free intercessions and thanksgivings may be offered.</p>
 
-        <p class="section">The General Thanksgiving</p>
-        <p><div class="instructions">Officiant and People</div></p>
-        <p><GeneralThanksgiving /></p>
+        <p className="section">The General Thanksgiving</p>
+        <p className="instructions">Officiant and People</p>
+        <GeneralThanksgiving />
 
         <div>
-          <span class="officiant">Let us bless the Lord.</span><br/>
-          <span class="people">Thanks be to God.</span><br/>
+          <span className="officiant">Let us bless the Lord.</span><br/>
+          <span className="people">Thanks be to God.</span><br/>
         </div>
 
         <br/>
 
-        <p class="instructions">Officiant and People</p>
+        <p className="instructions">Officiant and People</p>
 
         <Closing />
     </div>
 
-    <p class="footnote">
+    <p className="footnote">
       <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>The Daily Office</a> as established by the <a href='http://anglicanchurch.net'>Anglican Church in North America (ACNA)</a>. Last revised 9/26/18.
     </p>
 
