@@ -19,7 +19,7 @@ const GeneralThanksgiving = () => (
     in holiness and righteousness all our days;<br/>
     Through Jesus Christ our Lord,<br/>
     to whom, with you and the Holy Spirit,<br/>
-    be honor and glory throughout all ages. Amen.<br/>
+    be honor and glory throughout all ages. Amen.<br/><br/>
     </div>
 );
 

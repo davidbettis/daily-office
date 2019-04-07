@@ -73,14 +73,13 @@ export class EveningComponent extends React.Component {
 
       <p className="section">The General Thanksgiving</p>
       <p className="instructions">Officiant and People</p>
+
       <GeneralThanksgiving />
 
-      <div>
+      <p>
         <span className="officiant">Let us bless the Lord.</span><br/>
         <span className="people">Thanks be to God.</span><br/>
-      </div>
-
-      <br/>
+      </p>
 
       <p className="instructions">Officiant and People</p>
 
