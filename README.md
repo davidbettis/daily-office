@@ -30,11 +30,8 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 
 ## Website
 
-* thread through a single date from morning/evening, all the way to individual child components
-* scripture-service integration, only return the morning/evening content, as appropriate
 * pull in daily psalms from scripture-service and format them in a poetic way
 * add superscript verse numbers to the lessons
-* add a deployment script to S3
 * Add option for traditional / contemporary Lord's prayer
 * (Morning Prayer) "From Easter Day through the Day of Pentecost “Alleluia, alleluia” may be added to the preceding versicle and response."
 * Opening sentences of scripture that vary according to the church calendar

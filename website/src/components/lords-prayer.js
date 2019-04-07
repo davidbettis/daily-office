@@ -15,7 +15,7 @@ const LordsPrayer = () => (
     but deliver us from evil.<br/>
     For thine is the kingdom,<br/>
     and the power, and the glory<br/>
-    for ever and ever. Amen.<br/>
+    for ever and ever. Amen.<br/><br/>
     </div>
 );
 
