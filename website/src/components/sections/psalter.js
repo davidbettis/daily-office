@@ -43,14 +43,14 @@ export class Psalter extends React.Component {
 
     render() {
         return (
-        <div>
-        <p>Psalm { this.state.psalm } { ESV.link("Psalm+" + this.state.psalm, "(ESV)") }</p>
-
-        <p>
-        <span className="officiant">Glory be to the Father, and to the Son, and to the Holy Spirit; *</span><br/>
-        <span className="people">As it was in the beginning, is now, and ever shall be, world without end. Amen.</span><br/>
-        </p>
-        </div>
+            <div>
+              <p className="section">Psalms Appointed</p>
+              <p>Psalm { this.state.psalm } { ESV.link("Psalm+" + this.state.psalm, "(ESV)") }</p>
+              <p>
+                <span className="officiant">Glory be to the Father, and to the Son, and to the Holy Spirit; *</span><br/>
+                <span className="people">As it was in the beginning, is now, and ever shall be, world without end. Amen.</span><br/>
+              </p>
+            </div>
         );
     }
 }

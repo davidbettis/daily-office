@@ -54,7 +54,7 @@ export class DailyCollect extends React.Component {
     render() {
         var day = new Date().getDay(); // day of the week; 0=Sunday, 1=Monday, ...
         var selectedCollect = this.state.collects[day];
-        return (<div><p>{ selectedCollect }</p></div>);
+        return (<div><p class="section">Daily Collect</p><p>{ selectedCollect }</p></div>);
     }
 }
 

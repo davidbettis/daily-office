@@ -24,6 +24,12 @@ export class Closing extends React.Component {
         var selected = this.state.texts[day % this.state.texts.length];
         return (
             <div>
+                <p class="section">Closing</p>
+                <p>
+                  <span className="officiant">Let us bless the Lord.</span><br/>
+                  <span className="people">Thanks be to God.</span><br/>
+                </p>
+                <p className="instructions">Officiant and People</p>
                 <p>
                     { selected['text'] } <i>Amen.</i><br/>
                     <i>{ selected['scripture'] }</i>

@@ -14,8 +14,6 @@ const Prayer = () => (
     <span className="officiant">Let us pray.</span><br/>
     </p>
 
-    <p className="instructions">Officiant and People</p>
-
     <LordsPrayer />
 
     <p>

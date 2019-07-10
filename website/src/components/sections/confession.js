@@ -77,14 +77,14 @@ export class Confession extends React.Component {
      to the glory of your holy Name. <i>Amen.</i><br/>
     </p>
 
-    <p className="instructions">The Priest alone stands and says</p>
+    <p className="instructions">The Officiant alone stands and says</p>
 
     { this.after() } 
 
-    <p className="instructions">A deacon or layperson remains kneeling and prays</p>
+    <p className="instructions">A participant remains kneeling and prays</p>
 
     <p>
-    Grant your faithful people, merciful Lord, pardon and peace; that we may be cleansed from all our sins, and serve you with a quiet mind; through Jesus Christ our Lord. Amen.
+    Grant your faithful people, merciful Lord, pardon and peace; that we may be cleansed from all our sins, and serve you with a quiet mind; through Jesus Christ our Lord. <i>Amen</i>.
     </p>
 
     </div>

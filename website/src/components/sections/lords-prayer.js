@@ -2,6 +2,7 @@ import React from 'react'
 
 const LordsPrayer = () => (
     <div>
+    <p className="instructions">Officiant and People</p>
     Our Father, who art in heaven,<br/>
     hallowed be thy Name,<br/>
     thy kingdom come,<br/>

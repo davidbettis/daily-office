@@ -5,10 +5,10 @@ import Closing from '../sections/closing'
 import Confession from '../sections/confession'
 import DateComponent from '../sections/date'
 import DailyCollect from '../sections/daily-collect'
+import FreePrayer from '../sections/free-prayer'
 import GeneralThanksgiving from '../sections/general-thanksgiving'
 import Intro from '../sections/intro'
 import Invitatory from '../sections/invitatory'
-import InvitatoryPsalm from '../sections/invitatory-psalm'
 import Lesson from '../sections/lesson'
 import MissionPrayer from '../sections/mission-prayer'
 import Prayer from '../sections/prayer'
@@ -32,43 +32,19 @@ export class MorningComponent extends React.Component {
 
   <div className="prayer">
       <Intro texts='morning' />
-
       <Confession intro="short" after="short" />
-
-      <Invitatory />
-      <InvitatoryPsalm />
-
-      <p className="section">Psalms Appointed</p>
+      <Invitatory texts="morning" />
       <Psalter series='morning' date={this.state.date} />
-
-      <p className="section">The Lessons</p>
       <Lesson lectionary='morning'
               postFirstReading='te-deum-laudamus'
               postSecondReading='benedictus'
               date={this.state.date} />
-
       <ApostlesCreed />
-
       <Prayer />
-      <DailyCollect collects='morning'  />
+      <DailyCollect collects='morning' />
       <MissionPrayer />
-
-      <p className="instructions">Free intercessions and thanksgivings may be offered.</p>
-
-      <p className="section">The General Thanksgiving</p>
-      <p className="instructions">Officiant and People</p>
-
+      <FreePrayer />
       <GeneralThanksgiving />
-
-      <br/>
-
-      <div>
-        <span className="officiant">Let us bless the Lord.</span><br/>
-        <span className="people">Thanks be to God.</span><br/><br/>
-      </div>
-
-      <p className="instructions">Officiant and People</p>
-
       <Closing />
   </div>
 

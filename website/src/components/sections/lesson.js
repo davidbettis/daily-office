@@ -115,6 +115,8 @@ export class Lesson extends React.Component {
     render() {
         return (
             <div>
+                <p className="section">The Lessons</p>
+
                 { this.reading(this.state.firstScriptureRef, this.state.firstReading) }
                 { this.state.postFirstReading }
 
