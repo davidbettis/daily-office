@@ -41,7 +41,9 @@ export class Lesson extends React.Component {
             date: date,
             lectionary: lectionary,
             firstScriptureRef: readings[0],
+            firstScriptureRefLink: ESV.link(readings[0], "(ESV)"),
             secondScriptureRef: readings[1],
+            secondScriptureRefLink: ESV.link(readings[1], "(ESV)"),
             firstReading: '',
             secondReading: '',
             postFirstReading: this.postReading(props.postFirstReading),
@@ -95,7 +97,7 @@ export class Lesson extends React.Component {
         })
     }
 
-    reading(text, fullText) {
+    reading(text, textLink, fullText) {
         var after = "";
         if (!ESV.isApocryphal(text)) {
             after = (<p><span className="officiant">The Word of the Lord.</span><br/><span className="people">Thanks be to God.</span></p>);
@@ -103,7 +105,7 @@ export class Lesson extends React.Component {
 
         return (
             <div>
-                <p>A reading from { text }. { ESV.link(text, "(ESV)") }</p>
+                <p>A reading from { text }. { textLink }</p>
 
                 <p>{ fullText }</p>
 
@@ -117,10 +119,10 @@ export class Lesson extends React.Component {
             <div>
                 <p className="section">The Lessons</p>
 
-                { this.reading(this.state.firstScriptureRef, this.state.firstReading) }
+                { this.reading(this.state.firstScriptureRef, this.state.firstScriptureRefLink, this.state.firstReading) }
                 { this.state.postFirstReading }
 
-                { this.reading(this.state.secondScriptureRef, this.state.secondReading) }
+                { this.reading(this.state.secondScriptureRef, this.state.secondScriptureRefLink, this.state.secondReading) }
                 { this.state.postSecondReading }
             </div>
         );

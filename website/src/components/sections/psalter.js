@@ -21,10 +21,14 @@ export class Psalter extends React.Component {
     constructor(props) {
         super(props);
 
+        var psalm = this.findPsalm(props.series, dayOfYear(props.date))
+        var psalmLink = ESV.link("Psalm+" + psalm, "(ESV)")
+
         this.state = {
             series: props.series,
             date: props.date,
-            psalm: this.findPsalm(props.series, dayOfYear(props.date))
+            psalm: psalm,
+            psalmLink: psalmLink
         };
     }
 
@@ -45,7 +49,7 @@ export class Psalter extends React.Component {
         return (
             <div>
               <p className="section">Psalms Appointed</p>
-              <p>Psalm { this.state.psalm } { ESV.link("Psalm+" + this.state.psalm, "(ESV)") }</p>
+              <p>Psalm { this.state.psalm } { this.state.psalmLink }</p>
               <p>
                 <span className="officiant">Glory be to the Father, and to the Son, and to the Holy Spirit; *</span><br/>
                 <span className="people">As it was in the beginning, is now, and ever shall be, world without end. Amen.</span><br/>
