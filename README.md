@@ -37,6 +37,7 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 
 ## Website
 
+* remember the brevity chosen in a cookie and default to that length
 * pull in daily psalms from scripture-service and format them in a poetic way
 * add superscript verse numbers to the lessons
 * Add option for traditional / contemporary Lord's prayer
