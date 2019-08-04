@@ -37,7 +37,6 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 
 ## Website
 
-* add an abbreviated version of the office that can be completed in under 30 minutes
 * pull in daily psalms from scripture-service and format them in a poetic way
 * add superscript verse numbers to the lessons
 * Add option for traditional / contemporary Lord's prayer
@@ -50,6 +49,10 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 * Cache the ESV API's response in Elasticache to prevent the ESV service from being overloaded; key will be the day of the year
 * Add support for different lectionaries
 * Is there a secure way to store API keys? credentials.py seems awful
+
+# Release Notes
+
+* 2019-08-04: added abbreviated versions of the office (short/medium/long)
 
 # Credits
 
