@@ -19,34 +19,43 @@ export class EveningComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            brevity: 'long',
             date: props.date
         };
+    }
+
+    updateBrevity(brevity) {
+        this.setState({brevity: brevity});
     }
 
     render() {
         return (
 <div>
+  <div style={{float: 'right'}}>
+    <span className={this.state.brevity === "short" ? "selected" : ""} onClick={() => this.updateBrevity('short')}>Short (~15 min)</span><br/>
+    <span className={this.state.brevity === "medium" ? "selected" : ""} onClick={() => this.updateBrevity('medium')}>Medium (~30 min)</span><br/>
+    <span className={this.state.brevity === "long" ? "selected" : ""} onClick={() => this.updateBrevity('long')}>Long (~45 min)</span>
+  </div>
+
   <h1>Evening Prayer</h1>
 
   <DateComponent date={this.state.date} /> 
 
   <div className="prayer">
-
       <Intro texts='evening' />
       <Confession intro="long" after="long" />
       <Invitatory texts="evening" />
       <Psalter series='evening' date={this.state.date} />
       <Lesson lectionary='evening'
-              postFirstReading='magnificat'
-              postSecondReading='nunc-dimittis'
+              postFirstReading={this.state.brevity === 'short' ? 'none' : 'magnificat'}
+              postSecondReading={this.state.brevity === 'short' ? 'none' : 'nunc-dimittis'}
               date={this.state.date} />
-
-      <ApostlesCreed />
-      <Prayer />
+      { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
+      { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
       <DailyCollect collects='evening' />
-      <MissionPrayer />
+      { this.state.brevity === 'long' ? <MissionPrayer /> : null }
       <FreePrayer />
-      <GeneralThanksgiving />
+      { this.state.brevity === 'long' ? <GeneralThanksgiving /> : null }
       <Closing />
   </div>
 

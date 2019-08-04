@@ -690,3 +690,7 @@ li {
         margin-left: 3px;
     }
 }
+
+.selected {
+    color: red;
+}
