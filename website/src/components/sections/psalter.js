@@ -40,7 +40,10 @@ export class Psalter extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        this.setState(newProps);
+        this.setState({
+            series: newProps.series,
+            date: newProps.date
+        });
     }
 
     render() {

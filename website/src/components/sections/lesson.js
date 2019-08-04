@@ -19,37 +19,20 @@ export class Lesson extends React.Component {
     constructor(props) {
         super(props);
 
-        var lectionary = this.props.lectionary;
-        var lectionaryMap;
-        if (lectionary === 'morning') {
-            lectionaryMap = MorningLectionary;
-        } else if (lectionary === 'evening') {
-            lectionaryMap = EveningLectionary;
-        } else {
-            throw new Error("Lesson error: lectionary must be one of ['morning','evening']");
-        }
-
         if (!(props.date instanceof Date)) {
             throw new Error("Lesson error: date must be a Date object");
         }
 
-        var date = props.date;
-        var readings = this.getReadings(lectionaryMap, date);
-
         this.state = {
-            date: date,
-            lectionary: lectionary,
-            firstScriptureRef: readings[0],
-            secondScriptureRef: readings[1],
-            firstReading: '',
-            secondReading: '',
+            date: props.date,
+            lectionary: props.lectionary,
             postFirstReading: props.postFirstReading,
             postSecondReading: props.postSecondReading
         };
     }
 
     // Get the readings in lectionaryMap at the provided date.
-    getReadings(lectionaryMap, date) {
+    getReadingReferences(lectionaryMap, date) {
         var month = date.getMonth() + 1; // month, 1-12
         var day = date.getDate(); // day, 1-31
 
@@ -95,16 +78,38 @@ export class Lesson extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        this.setState(newProps);
+        this.setState({
+            date: newProps.date,
+            lectionary: newProps.lectionary,
+            postFirstReading: newProps.postFirstReading,
+            postSecondReading: newProps.postSecondReading
+        });
+    }
+
+    getLectionaryMap() {
+        var lectionaryMap;
+        if (this.state.lectionary === 'morning') {
+            lectionaryMap = MorningLectionary;
+        } else if (this.state.lectionary === 'evening') {
+            lectionaryMap = EveningLectionary;
+        } else {
+            throw new Error("Lesson error: lectionary must be one of ['morning','evening']");
+        }
+        return lectionaryMap;
     }
 
     render() {
+        var lectionaryMap = this.getLectionaryMap();
+        var references = this.getReadingReferences(lectionaryMap, this.state.date);
+        var firstScriptureRef = references[0];
+        var secondScriptureRef = references[1];
+
         return (
             <div>
                 <p className="section">The Lessons</p>
-                <Reading text={this.state.firstScriptureRef} fullText={this.state.firstReading} />
+                <Reading text={firstScriptureRef} fullText={this.state.firstReading} />
                 <PostReading reading={this.state.postFirstReading} />
-                <Reading text={this.state.secondScriptureRef} fullText={this.state.secondReading} />
+                <Reading text={secondScriptureRef} fullText={this.state.secondReading} />
                 <PostReading reading={this.state.postSecondReading} />
             </div>
         );
@@ -117,7 +122,12 @@ function Reading(props) {
 
     var after = "";
     if (!ESV.isApocryphal(text)) {
-        after = (<p><span className="officiant">The Word of the Lord.</span><br/><span className="people">Thanks be to God.</span></p>);
+        after = (
+            <p>
+              <span className="officiant">The Word of the Lord.</span><br/>
+              <span className="people">Thanks be to God.</span>
+            </p>
+        );
     }
 
     var textLink = ESV.link(text, "(ESV)");
@@ -125,9 +135,7 @@ function Reading(props) {
     return (
         <div>
             <p>A reading from { text }. { textLink }</p>
-
             <p>{ fullText }</p>
-
             { after }
         </div>
     );
