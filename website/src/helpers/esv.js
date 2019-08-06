@@ -25,17 +25,6 @@ export class ESV {
         }
         return "";
     }
-
-    // Generate a link that opens a new tab to the provided scripture reference.
-    //  text - a reference to the scripture text (e.g. Psalm 3)
-    //  linkText - how should the link be displayed? (e.g. "link to ESV")
-    static link(text, linkText) {
-        var url = ESV.makeURL(text);
-        if (url !== "") {
-            return (<a href={ url } target="_blank" rel="noopener noreferrer">{ linkText }</a>);
-        }
-        return "";
-    }
 }
 
 export default ESV

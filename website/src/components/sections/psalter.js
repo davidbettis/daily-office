@@ -1,6 +1,6 @@
 import React from 'react';
 import * as dayOfYear from 'day-of-year'
-import ESV from '../../helpers/esv'
+import ESVLink from '../../helpers/esv-link'
 
 // 60 day rotation
 const MORNING_PSALMS = [
@@ -48,11 +48,10 @@ export class Psalter extends React.Component {
 
     render() {
         var psalm = this.findPsalm(this.state.series, dayOfYear(this.state.date))
-        var psalmLink = ESV.link("Psalm+" + psalm, "(ESV)")
         return (
             <div>
               <p className="section">Psalms Appointed</p>
-              <p>Psalm { psalm } { psalmLink }</p>
+              <p>Psalm { psalm } <ESVLink text={"Psalm+" + psalm} linkText="(ESV)" /></p>
               <p>
                 <span className="officiant">Glory be to the Father, and to the Son, and to the Holy Spirit; *</span><br/>
                 <span className="people">As it was in the beginning, is now, and ever shall be, world without end. Amen.</span><br/>

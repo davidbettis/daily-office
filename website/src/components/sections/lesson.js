@@ -1,6 +1,7 @@
 import React from 'react';
 import Seasons from '../../helpers/seasons'
 import ESV from '../../helpers/esv'
+import ESVLink from '../../helpers/esv-link'
 
 import MorningLectionary from '../../data/morning-lectionary.json'
 import EveningLectionary from '../../data/evening-lectionary.json'
@@ -130,11 +131,9 @@ function Reading(props) {
         );
     }
 
-    var textLink = ESV.link(text, "(ESV)");
-
     return (
         <div>
-            <p>A reading from { text }. { textLink }</p>
+            <p>A reading from { text }. <ESVLink text={text} linkText="(ESV)" /></p>
             <p>{ fullText }</p>
             { after }
         </div>
