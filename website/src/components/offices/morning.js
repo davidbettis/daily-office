@@ -32,9 +32,9 @@ export class MorningComponent extends React.Component {
         return (
 <div>
   <div style={{float: 'right'}}>
-    <span className={this.state.brevity === "short" ? "selected" : ""} onClick={() => this.updateBrevity('short')}>Short (~15 min)</span><br/>
-    <span className={this.state.brevity === "medium" ? "selected" : ""} onClick={() => this.updateBrevity('medium')}>Medium (~30 min)</span><br/>
-    <span className={this.state.brevity === "long" ? "selected" : ""} onClick={() => this.updateBrevity('long')}>Long (~45 min)</span>
+    <span className={this.state.brevity === "short" ? "duration-selected" : "duration"} onClick={() => this.updateBrevity('short')}>Short (~15 min)</span><br/>
+    <span className={this.state.brevity === "medium" ? "duration-selected" : "duration"} onClick={() => this.updateBrevity('medium')}>Medium (~30 min)</span><br/>
+    <span className={this.state.brevity === "long" ? "duration-selected" : "duration"} onClick={() => this.updateBrevity('long')}>Long (~45 min)</span>
   </div>
 
   <h1>Morning Prayer</h1>

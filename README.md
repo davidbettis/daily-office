@@ -64,6 +64,14 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 
 # Development
 
+## Initial setup
+
+* Install Node: https://nodejs.org/en/download/
+* Install gatsby: npm -g install gatsby
+* Install dependencies: cd website; npm install
+
+## Ongoing development
+
 To start a development server, run: gatsby develop
 
 To configure credentials for the scripture service: cd scripture-service; mv credentials.EDITME credentials.py

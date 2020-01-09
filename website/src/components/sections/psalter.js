@@ -53,7 +53,7 @@ export class Psalter extends React.Component {
               <p className="section">Psalms Appointed</p>
               <p>Psalm { psalm } <ESVLink text={"Psalm+" + psalm} linkText="(ESV)" /></p>
               <p>
-                <span className="officiant">Glory be to the Father, and to the Son, and to the Holy Spirit; *</span><br/>
+                <span className="officiant">☩ Glory be to the Father, and to the Son, and to the Holy Spirit; *</span><br/>
                 <span className="people">As it was in the beginning, is now, and ever shall be, world without end. Amen.</span><br/>
               </p>
             </div>

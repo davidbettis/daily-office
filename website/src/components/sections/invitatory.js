@@ -153,8 +153,10 @@ export class Invitatory extends React.Component {
             <span className="people">And our mouth shall proclaim your praise.</span><br/>
             <span className="officiant">O God, make speed to save us;</span><br/>
             <span className="people">O Lord, make haste to help us.</span><br/>
-            <span className="officiant">Glory be to the Father, and to the Son, and to the Holy Spirit;</span><br/>
+            <span className="officiant">☩ Glory be to the Father, and to the Son, and to the Holy Spirit;</span><br/>
             <span className="people">As it was in the beginning, is now, and ever shall be, world without end. Amen.</span><br/>
+            </p>
+            <p>
             <span className="officiant">Praise the Lord.</span><br/>
             <span className="people">The Lord’s name be praised.</span><br/>
             </p>

@@ -691,6 +691,11 @@ li {
     }
 }
 
-.selected {
+.duration-selected {
     color: red;
+    cursor: default;
+}
+
+.duration {
+    cursor: pointer;
 }
