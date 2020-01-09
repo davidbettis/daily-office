@@ -19,7 +19,7 @@ export class MorningComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            brevity: 'long',
+            brevity: 'short',
             date: props.date
         };
     }
