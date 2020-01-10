@@ -12,42 +12,19 @@ const EVENING_PSALMS = [
 ];
 
 // Psalter prints out a psalm to read according to the current day and the series provided
-export class Psalter extends React.Component {
+export class Psalter extends React.PureComponent {
+    render() {
+        var doy = dayOfYear(this.props.date)
 
-    // Construct a new Psalter
-    //
-    // props.series - 'morning' or 'evening' (60 day rotation split between morning and evening)
-    // props.date: Date object for the psalm (keyed to particular day)
-    constructor(props) {
-        super(props);
-        this.state = {
-            series: props.series,
-            date: props.date,
-        };
-    }
-
-    // Returns the psalm based on the provided series (morning/evening) and doy (day of the year)
-    findPsalm(series, doy) {
         var psalm;
-        if (series === 'morning') {
+        if (this.props.series === 'morning') {
             psalm = MORNING_PSALMS[doy % MORNING_PSALMS.length];
-        } else if (series === 'evening') {
+        } else if (this.props.series === 'evening') {
             psalm = EVENING_PSALMS[doy % EVENING_PSALMS.length];
         } else {
             throw new Error("Psalter error: series must specify one of ['morning','evening']");
         }
-        return psalm;
-    }
 
-    componentWillReceiveProps(newProps) {
-        this.setState({
-            series: newProps.series,
-            date: newProps.date
-        });
-    }
-
-    render() {
-        var psalm = this.findPsalm(this.state.series, dayOfYear(this.state.date))
         return (
             <div>
               <p className="section">Psalms Appointed</p>

@@ -20,7 +20,6 @@ export class EveningComponent extends React.Component {
         super(props);
         this.state = {
             brevity: 'short',
-            date: props.date
         };
     }
 
@@ -39,17 +38,17 @@ export class EveningComponent extends React.Component {
 
   <h1>Evening Prayer</h1>
 
-  <DateComponent date={this.state.date} /> 
+  <DateComponent date={this.props.date} /> 
 
   <div className="prayer">
       <Intro texts='evening' />
       <Confession intro="long" after="long" />
       <Invitatory texts="evening" />
-      <Psalter series='evening' date={this.state.date} />
+      <Psalter series='evening' date={this.props.date} />
       <Lesson lectionary='evening'
               postFirstReading={this.state.brevity === 'short' ? 'none' : 'magnificat'}
               postSecondReading={this.state.brevity === 'short' ? 'none' : 'nunc-dimittis'}
-              date={this.state.date} />
+              date={this.props.date} />
       { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
       { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
       <DailyCollect collects='evening' />

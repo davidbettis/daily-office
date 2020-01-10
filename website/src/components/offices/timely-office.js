@@ -5,31 +5,21 @@ import EveningComponent from './evening'
 import ComplineComponent from './compline'
 
 // TimelyOffice renders the morning / evening / night component, according to the current time of the day.
-export class TimelyOffice extends React.Component {
+function TimelyOffice(props) {
+    var hour = props.date.getHours(); // 0-23
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            date: props.date
-        };
-    }
+    // "morning" is midnight - 4:00pm
+    // evening is 4pm (16:00) - 9pm (21:00)
+    // compline is 9pm (21:00) - midnight
 
-    render() {
-        var hour = this.state.date.getHours(); // 0-23
+    var now = new Date();
 
-        // "morning" is midnight - 4:00pm
-        // evening is 4pm (16:00) - 9pm (21:00)
-        // compline is 9pm (21:00) - midnight
-
-        var now = new Date();
-
-        if (hour >= 16 && hour <= 20) {
-            return (<EveningComponent date={now} />);
-        } else if (hour >= 21) {
-            return (<ComplineComponent date={now} />);
-        } else {
-            return (<MorningComponent date={now} />);
-        }
+    if (hour >= 16 && hour <= 20) {
+        return (<EveningComponent date={now} />);
+    } else if (hour >= 21) {
+        return (<ComplineComponent date={now} />);
+    } else {
+        return (<MorningComponent date={now} />);
     }
 }
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Class to interact with esv.org
 export class ESV {
 
