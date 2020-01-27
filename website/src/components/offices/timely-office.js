@@ -12,14 +12,12 @@ function TimelyOffice(props) {
     // evening is 4pm (16:00) - 9pm (21:00)
     // compline is 9pm (21:00) - midnight
 
-    var now = new Date();
-
     if (hour >= 16 && hour <= 20) {
-        return (<EveningComponent date={now} />);
+        return (<EveningComponent date={props.date} />);
     } else if (hour >= 21) {
-        return (<ComplineComponent date={now} />);
+        return (<ComplineComponent date={props.date} />);
     } else {
-        return (<MorningComponent date={now} />);
+        return (<MorningComponent date={props.date} />);
     }
 }
 
