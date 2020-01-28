@@ -10,7 +10,7 @@ function ESVLink(props) {
 
     var url = ESV.makeURL(text);
     if (url !== "") {
-        return (<a href={ url } target="_blank" rel="noopener noreferrer">{ linkText }</a>);
+        return (<span><a href={ url } target="_blank" rel="noopener noreferrer">{ linkText }</a><span style={{display: 'none'}}>text={text}, linkText={linkText}</span></span>);
     }
     return "";
 }
