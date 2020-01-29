@@ -8,9 +8,9 @@ function ESVLink(props) {
     var text = props.text
     var linkText = props.linkText
 
-    var url = ESV.makeURL(text);
+    var url = "http://esv.to/" + text.replace(/†.*$/, "").trim();
     if (url !== "") {
-        return (<span><a href={ url } target="_blank" rel="noopener noreferrer">{ linkText }</a><span style={{display: 'none'}}>text={text}, linkText={linkText}</span></span>);
+        return (<span><a href={ url } target="_blank" rel="noopener noreferrer">{ linkText }</a><span style={{display: 'none'}}>text={text}, linkText={linkText}, url={url}</span></span>);
     }
     return "";
 }
