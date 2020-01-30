@@ -10,7 +10,10 @@ function ESVLink(props) {
 
     var url = "http://esv.to/" + text.replace(/†.*$/, "").trim();
     if (url !== "") {
-        return (<span><a href={ url } target="_blank" rel="noopener noreferrer">{ linkText }</a><span style={{display: 'none'}}>text={text}, linkText={linkText}, url={url}</span></span>);
+        return React.createElement('span', null, 
+            React.createElement('a', {href: url, target: "_blank"}, linkText),
+            React.createElement('span', {style: {display: 'none'}}, `text=${text}, linkText=${linkText}, url=${url}`)
+        );
     }
     return "";
 }
