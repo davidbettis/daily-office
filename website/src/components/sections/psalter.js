@@ -26,7 +26,7 @@ export class Psalter extends React.PureComponent {
         }
 
         var psalmRef = "Psalm+" + psalm;
-        var psalmLinkText = "(Psalm " + psalm + " from the ESV)";
+        var psalmLinkText = "(ESV)";
 
         return (
             <div>
