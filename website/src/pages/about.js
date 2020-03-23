@@ -1,12 +1,7 @@
 import React from 'react'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-
 const AboutPage = () => (
-  <Layout>
-    <SEO title="About" keywords={[`daily`, `office`, `prayer`, `christian`, `spirituality`]} />
-
+  <div>
     <h1>What is the daily office?</h1>
 
     <p>The Daily Office is an historic Christian practice: a structured way of reading the Bible and praying at set times during the day. Another way of describing it would be a <i>liturgical devotional</i>.</p>
@@ -31,7 +26,7 @@ const AboutPage = () => (
 
     <p>Scripture quotations from the Apocrypha are from the New Revised Standard Version Bible, copyright © 1989 National Council of the Churches of Christ in the United States of America. Used by permission. All rights reserved worldwide.</p>
 
-  </Layout>
+  </div>
 )
 
 export default AboutPage

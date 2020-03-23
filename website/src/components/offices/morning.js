@@ -14,6 +14,8 @@ import MissionPrayer from '../sections/mission-prayer'
 import Prayer from '../sections/prayer'
 import Psalter from '../sections/psalter'
 
+import { ESVLink } from '../esv-link'
+
 export class MorningComponent extends React.Component {
 
     constructor(props) {

@@ -1,15 +1,7 @@
 import React from 'react'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-
 import ComplineComponent from '../components/offices/compline'
 
-const Compline = () => (
-  <Layout>
-    <SEO title="Night Prayer" keywords={[`daily`, `office`, `night`, `prayer`, `christian`, `spirituality`, `acna`, `anglican`]} />
-    <ComplineComponent date={new Date()} />
-  </Layout>
+export default () => (
+  <ComplineComponent date={new Date()} />
 )
-
-export default Compline

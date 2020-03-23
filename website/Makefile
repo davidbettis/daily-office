@@ -1,22 +1,18 @@
 default: release
 
-release: test build
+release: build
 
 build:
-	gatsby build --prefix-paths
+	yarn build
 
 clean:
-	rm -rf public
-
-test:
-	npm test
+	rm -rf public dist
 
 server:
-	gatsby develop
+	yarn start
 
-# if the DOM structure changes a lot, run this command
-update-snapshot:
-	npm test -- --updateSnapshot
+deploy: clean release
+	aws s3 sync dist ${DAILYOFFICE_S3}
 
-deploy: release
-	aws s3 sync public ${DAILYOFFICE_S3}
+local-deploy: clean release
+	sudo rm -rf /Library/WebServer/Documents/daily-office/* && sudo cp -R dist/* /Library/WebServer/Documents/daily-office

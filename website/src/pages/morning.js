@@ -1,15 +1,8 @@
 import React from 'react'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-
 import MorningComponent from '../components/offices/morning'
+import ESVLink from '../components/esv-link'
 
-const Morning = () => (
-  <Layout>
-    <SEO title="Morning Prayer" keywords={[`daily`, `office`, `morning`, `prayer`, `christian`, `spirituality`, `acna`, `anglican`]} />
-    <MorningComponent date={new Date()} /> 
-  </Layout>
+export default () => (
+  <MorningComponent date={new Date()} /> 
 )
-
-export default Morning
