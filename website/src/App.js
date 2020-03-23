@@ -25,16 +25,7 @@ function App() {
             padding: `1.45rem 1.0875rem`,
           }}
         >
-          <h1 style={{ margin: 0 }}>
-            <Link
-              to="/"
-              style={{
-                color: `black`,
-                textDecoration: `none`,
-              }}
-            >Daily Office
-            </Link>
-          </h1>
+          <h1 style={{ margin: 0 }}>Daily Office</h1>
           <div className="navigation">
             <ul>
               <li><Link to="/daily-office/morning">Morning</Link></li>
