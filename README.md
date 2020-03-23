@@ -13,7 +13,7 @@ point to provide web-enabled editions of Christian liturgies.
 
 `website/`
 
-The web site is written in React. It uses Gatsby, a static site generator.
+The web site is written in React. It uses react-static to generate the scaffolding for a static site.
 
 Check out the Makefile for a variety of developer convenience targets.
 
@@ -22,7 +22,7 @@ Check out the Makefile for a variety of developer convenience targets.
 * test: runs automated unit tests
 * update-snapshot: React caches a skeleton of the DOM structure to run unit tests against; update that template
 * clean: removes old build artifacts
-* server: runs a local development server on port 8000 (Gatsby default)
+* server: runs a local development server on port 3000 (react-static default)
 * deploy: push the contents of "public" to an S3 bucket defined in the environment variable DAILYOFFICE_S3; to use run "DAILYOFFICE_S3='s3://my.bucket/dir' make deploy"
 
 ## Scripture Service
@@ -67,11 +67,11 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 ## Initial setup
 
 * Install Node: https://nodejs.org/en/download/
-* Install gatsby: npm -g install gatsby
-* Install dependencies: cd website; npm install
+* Install react-static: yarn install global react-static
+* Install dependencies: cd website; yarn install
 
 ## Ongoing development
 
-To start a development server, run: gatsby develop
+To start a development server, run: make server
 
 To configure credentials for the scripture service: cd scripture-service; mv credentials.EDITME credentials.py
