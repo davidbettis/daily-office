@@ -1,6 +1,9 @@
 import React from 'react';
+
 import Seasons from '../../helpers/seasons'
 import ESV from '../../helpers/esv'
+import ScriptureService from '../../helpers/scripture-service'
+
 import ESVLink from '../esv-link'
 
 import MorningLectionary from '../../data/morning-lectionary.json'
@@ -8,7 +11,7 @@ import EveningLectionary from '../../data/evening-lectionary.json'
 
 // Lesson is a set of scripture chunks to read as part of the office.
 //
-// Constructor params:
+// Props:
 //      props.lectionary: lectionary to use for the two readings (see LECTIONARY options below)
 //      props.postFirstReading: after the first reading (see POST_READING options below)
 //      props.postSecondReading: after the second reading (see POST_READING options below)
@@ -16,7 +19,7 @@ import EveningLectionary from '../../data/evening-lectionary.json'
 //
 // LECTIONARY: morning, evening
 // POST_READING: te-deum-laudamus, benedictus, benedictus-es-domine, magnificat, nunc-dimittis, none
-export class Lesson extends React.Component {
+class Lesson extends React.Component {
     constructor(props) {
         super(props);
 
@@ -40,27 +43,8 @@ export class Lesson extends React.Component {
         return lectionaryMap[month][day];
     }
 
-    // Returns the Y-M-D version of the provided date (Date object).
-    ymd(date) {
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1; // month, 1-12
-        var day = date.getDate(); // day, 1-31
-
-        return year + '-' + String(month).padStart(2, '0') + '-' + String(day).padStart(2, '0');
-    }
-
-    scriptureServiceEndpoint(date, office) {
-        // TODO make this configurable
-        return 'https://pd0vgs56hb.execute-api.us-east-1.amazonaws.com'
-            + '/default/daily-office-get-scripture?'
-            + 'date=' + date + '&office=' + office;
-    }
-
     componentDidMount() {
-        fetch(this.scriptureServiceEndpoint(this.ymd(this.state.date), this.state.lectionary), {
-            method: "GET",
-            credentials: "same-origin"
-        }).then(results => {
+        ScriptureService.getScriptureForOffice(this.state.lectionary, this.state.date).then(results => {
             return results.json();
         }).then(data => {
             if (this.state.lectionary === 'morning') {

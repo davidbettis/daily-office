@@ -1,40 +1,99 @@
 import React from 'react';
 import ESVLink from '../esv-link'
+import ScriptureService from '../../helpers/scripture-service'
 
 import MorningPsalmLectionary from '../../data/psalms-morning-lectionary.json'
 import EveningPsalmLectionary from '../../data/psalms-evening-lectionary.json'
 
-// Psalter prints out a psalm to read according to the current day and the series provided
-function Psalter(props) {
-    if (!(props.date instanceof Date)) {
-        throw new Error("Psalter error: date must be a Date object");
+// Psalter fetches the psalm(s) appointed for the day and renders them for
+// reading. Each psalm includes a link to the ESV website.
+//
+// Props:
+//      date: Javascript date object for the daily office day in question
+//      lectionary: lectionary to use for the readings (see LECTIONARY options below)
+//
+// LECTIONARY: morning, evening
+
+class Psalter extends React.Component {
+
+    constructor(props) {
+        super(props);
+        if (!(props.date instanceof Date)) {
+            throw new Error("Lesson error: date must be a Date object");
+        }
+
+        this.state = {
+            date: props.date,
+            lectionary: props.lectionary,
+            psalms: []
+        };
     }
 
-    var month = props.date.getMonth() + 1; // month, 1-12
-    var day = props.date.getDate(); // day, 1-31
+    // Get the readings in lectionaryMap at the provided date.
+    getReadingReferences(lectionaryMap, date) {
+        var month = date.getMonth() + 1; // month, 1-12
+        var day = date.getDate(); // day, 1-31
 
-    var psalms;
-    if (props.series === 'morning') {
-        psalms = MorningPsalmLectionary[month][day];
-    } else if (props.series === 'evening') {
-        psalms = EveningPsalmLectionary[month][day];
-    } else {
-        throw new Error("Psalter error: series must specify one of ['morning','evening']");
+        return lectionaryMap[month][day];
     }
 
-    var psalmRef = "Psalm+" + psalms.join(',');
-    var psalmLinkText = "(ESV)";
+    componentDidMount() {
+        ScriptureService.getScriptureForOffice(this.state.lectionary, this.state.date).then(results => {
+            return results.json();
+        }).then(data => {
+            if (this.state.lectionary === 'morning') {
+                this.setState({
+                    psalms: data.body['morning-psalms']
+                });
+            }
+            if (this.state.lectionary === 'evening') {
+                this.setState({
+                    psalms: data.body['evening-psalms']
+                });
+            }
+        })
+    }
 
-    return (
-        <div>
-          <p className="section">Psalms Appointed</p>
-          <p>Psalm { psalms.join(', ') } <ESVLink scriptureText={psalmRef} linkText={psalmLinkText} /></p>
-          <p>
-            <span className="officiant">☩ Glory be to the Father, and to the Son, and to the Holy Spirit; *</span><br/>
-            <span className="people">As it was in the beginning, is now, and ever shall be, world without end. Amen.</span><br/>
-          </p>
-        </div>
-    );
+    componentWillReceiveProps(newProps) {
+        this.setState({
+            date: newProps.date,
+            lectionary: newProps.lectionary,
+            psalms: []
+        });
+    }
+
+    getLectionaryMap() {
+        var lectionaryMap;
+        if (this.state.lectionary === 'morning') {
+            lectionaryMap = MorningPsalmLectionary;
+        } else if (this.state.lectionary === 'evening') {
+            lectionaryMap = EveningPsalmLectionary;
+        } else {
+            throw new Error("Psalter error: lectionary must be one of ['morning','evening']");
+        }
+        return lectionaryMap;
+    }
+
+    render() {
+        var lectionaryMap = this.getLectionaryMap();
+        var psalms = this.getReadingReferences(lectionaryMap, this.props.date);
+
+        return (
+            <div>
+              <p className="section">Psalms Appointed</p>
+              {this.state.psalms.map(psalm => (
+                <div key={psalm['psalm_section'].replace(/:.*$/, '')}>
+                  <p>Psalm { psalm['psalm_section'] } <ESVLink scriptureText={'Psalm+' + psalm['psalm_section']} linkText="(ESV)" /></p> 
+                  <p>{ psalm['psalm_text'] }</p>
+                </div>
+              ))}
+              <p>
+                <span className="officiant">☩ Glory be to the Father, and to the Son, and to the Holy Spirit; *</span><br/>
+                <span className="people">As it was in the beginning, is now, and ever shall be, world without end. Amen.</span><br/>
+              </p>
+            </div>
+        );
+    }
 }
 
 export default Psalter;

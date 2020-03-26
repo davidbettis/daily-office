@@ -44,7 +44,7 @@ export class EveningComponent extends React.Component {
       <Intro texts='evening' />
       <Confession intro="long" after="long" />
       <Invitatory texts="evening" />
-      <Psalter series='evening' date={this.props.date} />
+      <Psalter lectionary='evening' date={this.props.date} />
       <Lesson lectionary='evening'
               postFirstReading={this.state.brevity === 'short' ? 'none' : 'magnificat'}
               postSecondReading={this.state.brevity === 'short' ? 'none' : 'nunc-dimittis'}
