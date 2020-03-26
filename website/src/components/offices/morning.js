@@ -59,10 +59,6 @@ export class MorningComponent extends React.Component {
       { this.state.brevity === 'long' ? <GeneralThanksgiving /> : null }
       <Closing />
   </div>
-
-  <p className="footnote">
-    <a href='http://anglicanchurch.net/?/main/texts_for_common_prayer'>The Daily Office</a> as established by the <a href='http://anglicanchurch.net'>Anglican Church in North America (ACNA)</a>. Last revised 9/26/18.
-  </p>
 </div>
         );
     }
