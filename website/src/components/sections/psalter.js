@@ -58,7 +58,16 @@ class Psalter extends React.Component {
               {this.props.psalms.map(psalm => (
                 <div key={psalm['psalm_section'].replace(/:.*$/, '')}>
                   <p>Psalm { psalm['psalm_section'] } <ESVLink scriptureText={'Psalm+' + psalm['psalm_section']} linkText="(ESV)" /></p> 
-                  <p>{ psalm['psalm_text'] }</p>
+                  <p>
+                  {psalm.psalm_verses.map(psalm_verse => (
+                    <span key={psalm_verse.verse}>
+                      <span className="verse">{ psalm_verse.verse }</span>
+                      {psalm_verse.text.map(line => (
+                        <span className="text">{ line }<br/></span>
+                      ))}
+                    </span>
+                  ))}
+                  </p>
                 </div>
               ))}
               <p>
