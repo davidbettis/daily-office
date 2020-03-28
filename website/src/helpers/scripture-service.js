@@ -5,7 +5,6 @@
 
 export class ScriptureService {
 
-    static SCRIPTURE_SERVICE_CACHE = {}
     static SCRIPTURE_SERVICE_ENDPOINT = 'https://pd0vgs56hb.execute-api.us-east-1.amazonaws.com/default/';
 
     // Gets the lessons and psalms for the provided office/date combo.
@@ -14,31 +13,15 @@ export class ScriptureService {
 
         var dateYmd = ScriptureService.ymd(date);
 
-        // Check the in-memory cache and return a successful response, if present
-        var cacheKey = office + '#' + dateYmd;
-        var cacheEntry = ScriptureService.SCRIPTURE_SERVICE_CACHE[cacheKey];
-        if (cacheEntry) {
-            return Promise.resolve(new Response(new Blob([cacheEntry])));
-        }
-
-        // Otherwise, fetch the contents
+        // Fetch the contents
         var webServiceFullEndpoint = ScriptureService.SCRIPTURE_SERVICE_ENDPOINT + 'daily-office-get-scripture?'
                     + 'date=' + dateYmd + '&office=' + office;
 
-        var promise = fetch(webServiceFullEndpoint, {
+        return fetch(webServiceFullEndpoint, {
             method: "GET",
             // TODO eliminate this
             credentials: "same-origin"
         });
-
-        // ... and cache it, on success
-        promise.then(result => {
-            ScriptureService.SCRIPTURE_SERVICE_CACHE[key] = result;
-            return result;
-        });
-
-        // Finally, return the original request for final processing by the client.
-        return promise;
     }
 
     // Returns the Y-M-D version of the provided date (Date object).

@@ -15,7 +15,6 @@ import EveningPsalmLectionary from '../../data/psalms-evening-lectionary.json'
 // LECTIONARY: morning, evening
 
 class Psalter extends React.Component {
-
     constructor(props) {
         super(props);
         if (!(props.date instanceof Date)) {
@@ -37,31 +36,6 @@ class Psalter extends React.Component {
         return lectionaryMap[month][day];
     }
 
-    componentDidMount() {
-        ScriptureService.getScriptureForOffice(this.state.lectionary, this.state.date).then(results => {
-            return results.json();
-        }).then(data => {
-            if (this.state.lectionary === 'morning') {
-                this.setState({
-                    psalms: data.body['morning-psalms']
-                });
-            }
-            if (this.state.lectionary === 'evening') {
-                this.setState({
-                    psalms: data.body['evening-psalms']
-                });
-            }
-        })
-    }
-
-    componentWillReceiveProps(newProps) {
-        this.setState({
-            date: newProps.date,
-            lectionary: newProps.lectionary,
-            psalms: []
-        });
-    }
-
     getLectionaryMap() {
         var lectionaryMap;
         if (this.state.lectionary === 'morning') {
@@ -81,7 +55,7 @@ class Psalter extends React.Component {
         return (
             <div>
               <p className="section">Psalms Appointed</p>
-              {this.state.psalms.map(psalm => (
+              {this.props.psalms.map(psalm => (
                 <div key={psalm['psalm_section'].replace(/:.*$/, '')}>
                   <p>Psalm { psalm['psalm_section'] } <ESVLink scriptureText={'Psalm+' + psalm['psalm_section']} linkText="(ESV)" /></p> 
                   <p>{ psalm['psalm_text'] }</p>

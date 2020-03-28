@@ -12,27 +12,20 @@ import EveningLectionary from '../../data/evening-lectionary.json'
 // Lesson is a set of scripture chunks to read as part of the office.
 //
 // Props:
+//      props.date: Date object for the lesson (keyed to particular day)
 //      props.lectionary: lectionary to use for the two readings (see LECTIONARY options below)
+//      props.lessons: array of scripture text for the first and second readings
 //      props.postFirstReading: after the first reading (see POST_READING options below)
 //      props.postSecondReading: after the second reading (see POST_READING options below)
-//      props.date: Date object for the lesson (keyed to particular day)
 //
 // LECTIONARY: morning, evening
 // POST_READING: te-deum-laudamus, benedictus, benedictus-es-domine, magnificat, nunc-dimittis, none
 class Lesson extends React.Component {
     constructor(props) {
         super(props);
-
         if (!(props.date instanceof Date)) {
             throw new Error("Lesson error: date must be a Date object");
         }
-
-        this.state = {
-            date: props.date,
-            lectionary: props.lectionary,
-            postFirstReading: props.postFirstReading,
-            postSecondReading: props.postSecondReading
-        };
     }
 
     // Get the readings in lectionaryMap at the provided date.
@@ -43,39 +36,11 @@ class Lesson extends React.Component {
         return lectionaryMap[month][day];
     }
 
-    componentDidMount() {
-        ScriptureService.getScriptureForOffice(this.state.lectionary, this.state.date).then(results => {
-            return results.json();
-        }).then(data => {
-            if (this.state.lectionary === 'morning') {
-                this.setState({
-                    firstReading: data.body.morning[0],
-                    secondReading: data.body.morning[1]
-                });
-            }
-            if (this.state.lectionary === 'evening') {
-                this.setState({
-                    firstReading: data.body.evening[0],
-                    secondReading: data.body.evening[1]
-                });
-            }
-        })
-    }
-
-    componentWillReceiveProps(newProps) {
-        this.setState({
-            date: newProps.date,
-            lectionary: newProps.lectionary,
-            postFirstReading: newProps.postFirstReading,
-            postSecondReading: newProps.postSecondReading
-        });
-    }
-
     getLectionaryMap() {
         var lectionaryMap;
-        if (this.state.lectionary === 'morning') {
+        if (this.props.lectionary === 'morning') {
             lectionaryMap = MorningLectionary;
-        } else if (this.state.lectionary === 'evening') {
+        } else if (this.props.lectionary === 'evening') {
             lectionaryMap = EveningLectionary;
         } else {
             throw new Error("Lesson error: lectionary must be one of ['morning','evening']");
@@ -85,17 +50,17 @@ class Lesson extends React.Component {
 
     render() {
         var lectionaryMap = this.getLectionaryMap();
-        var references = this.getReadingReferences(lectionaryMap, this.state.date);
+        var references = this.getReadingReferences(lectionaryMap, this.props.date);
         var firstScriptureRef = references[0];
         var secondScriptureRef = references[1];
 
         return (
             <div>
                 <p className="section">The Lessons</p>
-                <Reading text={firstScriptureRef} fullText={this.state.firstReading} />
-                <PostReading reading={this.state.postFirstReading} />
-                <Reading text={secondScriptureRef} fullText={this.state.secondReading} />
-                <PostReading reading={this.state.postSecondReading} />
+                <Reading text={firstScriptureRef} fullText={this.props.lessons[0]} />
+                <PostReading reading={this.props.postFirstReading} />
+                <Reading text={secondScriptureRef} fullText={this.props.lessons[1]} />
+                <PostReading reading={this.props.postSecondReading} />
             </div>
         );
     }

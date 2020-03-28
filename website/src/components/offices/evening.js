@@ -14,17 +14,42 @@ import MissionPrayer from '../sections/mission-prayer'
 import Prayer from '../sections/prayer'
 import Psalter from '../sections/psalter'
 
-export class EveningComponent extends React.Component {
+import ScriptureService from '../../helpers/scripture-service'
+
+class EveningComponent extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             brevity: 'short',
+            psalms: [],
+            lessons: []
         };
     }
 
     updateBrevity(brevity) {
         this.setState({brevity: brevity});
+    }
+
+    componentDidMount() {
+        this.fetchScripture(this.props.date);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.date !== prevProps.date) {
+            this.fetchScripture(this.props.date);
+        }
+    }
+
+    fetchScripture(date) {
+        ScriptureService.getScriptureForOffice('evening', date).then(results => {
+            return results.json();
+        }).then(data => {
+            this.setState({
+                psalms: data.body['evening-psalms'],
+                lessons: data.body['evening']
+            });
+        })
     }
 
     render() {
@@ -44,11 +69,11 @@ export class EveningComponent extends React.Component {
       <Intro texts='evening' />
       <Confession intro="long" after="long" />
       <Invitatory texts="evening" />
-      <Psalter lectionary='evening' date={this.props.date} />
+      <Psalter lectionary='evening' date={this.props.date} psalms={this.state.psalms} />
       <Lesson lectionary='evening'
               postFirstReading={this.state.brevity === 'short' ? 'none' : 'magnificat'}
               postSecondReading={this.state.brevity === 'short' ? 'none' : 'nunc-dimittis'}
-              date={this.props.date} />
+              date={this.props.date} lessons={this.state.lessons} />
       { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
       { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
       <DailyCollect collects='evening' />

@@ -14,19 +14,44 @@ import MissionPrayer from '../sections/mission-prayer'
 import Prayer from '../sections/prayer'
 import Psalter from '../sections/psalter'
 
+import ScriptureService from '../../helpers/scripture-service'
+
 import { ESVLink } from '../esv-link'
 
-export class MorningComponent extends React.Component {
+class MorningComponent extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             brevity: 'short',
+            psalms: [],
+            lessons: []
         };
     }
 
     updateBrevity(brevity) {
         this.setState({brevity: brevity});
+    }
+
+    componentDidMount() {
+        this.fetchScripture(this.props.date)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.date !== prevProps.date) {
+            this.fetchScripture(this.props.date);
+        }
+    }
+
+    fetchScripture(date) {
+        ScriptureService.getScriptureForOffice('morning', date).then(results => {
+            return results.json();
+        }).then(data => {
+            this.setState({
+                psalms: data.body['morning-psalms'],
+                lessons: data.body['morning']
+            });
+        })
     }
 
     render() {
@@ -46,11 +71,11 @@ export class MorningComponent extends React.Component {
       <Intro texts='morning' />
       <Confession intro="short" after="short" />
       <Invitatory texts="morning" />
-      <Psalter lectionary='morning' date={this.props.date} />
+      <Psalter date={this.props.date} lectionary='morning' psalms={this.state.psalms} />
       <Lesson lectionary='morning'
               postFirstReading={this.state.brevity === 'short' ? 'none' : 'te-deum-laudamus'}
               postSecondReading={this.state.brevity === 'short' ? 'none' : 'benedictus'}
-              date={this.props.date} />
+              date={this.props.date} lessons={this.state.lessons} />
       { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
       { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
       <DailyCollect collects='morning' />
