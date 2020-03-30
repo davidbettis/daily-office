@@ -5,7 +5,7 @@
 
 export class ScriptureService {
 
-    static SCRIPTURE_SERVICE_ENDPOINT = 'https://pd0vgs56hb.execute-api.us-east-1.amazonaws.com/default/';
+    static SCRIPTURE_SERVICE_ENDPOINT = 'https://daily-office.api.davidbettis.com/'
 
     // Gets the lessons and psalms for the provided office/date combo.
     // @return a promise with the results of the service call
