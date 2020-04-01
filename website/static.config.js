@@ -12,6 +12,12 @@ export default {
     require.resolve('react-static-plugin-reach-router'),
     require.resolve('react-static-plugin-sitemap'),
   ],
+  getRoutes: () => [
+      {
+        path: '/',
+        template: 'src/pages/now',
+      }
+  ],
   //siteRoot: 'http://localhost:3000',
   basePath: 'daily-office',
   devBasePath: 'daily-office',
