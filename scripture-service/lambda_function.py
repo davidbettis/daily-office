@@ -1,16 +1,15 @@
-#!/usr/bin/python
+#!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 
 # TODO: parse apocrphya reference
 
-from botocore.vendored import requests
+import credentials
 import json
 import logging
 import pprint
 import re
+import requests
 import sys
-
-import credentials
 
 LOGGER = logging.getLogger()
 LOGGER.setLevel(logging.INFO)
@@ -40,14 +39,14 @@ def get_esv_text(passage):
 
 # Is the reference part of the apocrphya?
 def is_apocrypha(ref):
-    return ref.startsWith("Baruch") or ref.startsWith("Wisdom") or ref.startsWith("Judith") or ref.startsWith("Susanna") or ref.startsWith("1 Macc") or ref.startsWith("2 Macc")
+    return ref.startswith("Baruch") or ref.startswith("Wisdom") or ref.startswith("Judith") or ref.startswith("Susanna") or ref.startswith("1 Macc") or ref.startswith("2 Macc")
 
 # Get texts for the lectionary entry on the provided month and day
 #
 # lectionary, a hash of month -> day -> [array of scripture references of size 2]
 # month, the month to query
 # day, the day to query
-def get_texts(lectionary, month, day):
+def get_lesson_texts(lectionary, month, day):
     texts = []
     for ref in lectionary[month][day]:
         full_ref = re.sub('†.*$', '', ref)
@@ -56,6 +55,19 @@ def get_texts(lectionary, month, day):
         else:
             texts.append(get_esv_text(full_ref))
     return texts
+
+# Get texts for the psalms lectionary entry on the provided month and day
+# lectionary, a hash of month -> day -> ,-separated string of psalm references
+# month, the month to query
+# day, the day to query
+def get_psalm_texts(lectionary, month, day):
+    texts = []
+    psalms = lectionary[month][day]
+    for psalm_chapter in psalms:
+        full_ref = 'Psalm+' + psalm_chapter
+        texts.append({'psalm_section': psalm_chapter, 'psalm_text': get_esv_text(full_ref)})
+    return texts
+    
 
 # Main hook for where Lambda gets run. event is the input to the function
 #
@@ -91,10 +103,14 @@ def lambda_handler(event, context):
 
     if office == 'morning':
         with open('morning-lectionary.json') as f:
-            body['morning'] = get_texts(json.load(f), month, day)
+            body['morning'] = get_lesson_texts(json.load(f), month, day)
+        with open('psalms-morning-lectionary.json') as f:
+            body['morning-psalms'] = get_psalm_texts(json.load(f), month, day)
     elif office == 'evening':
         with open('evening-lectionary.json') as f:
-            body['evening'] = get_texts(json.load(f), month, day)
+            body['evening'] = get_lesson_texts(json.load(f), month, day)
+        with open('psalms-evening-lectionary.json') as f:
+            body['evening-psalms'] = get_psalm_texts(json.load(f), month, day)
     else:
         LOGGER.info('Unknown office type: ' + office)
         return {'statusCode': 404}
@@ -107,3 +123,8 @@ def lambda_handler(event, context):
         'body': body
     }
 
+# To test locally:
+#print(lambda_handler({'date': '2019-03-01', 'office': 'morning'}, None))
+#print(lambda_handler({'date': '2019-03-04', 'office': 'morning'}, None))
+#print(lambda_handler({'date': '2019-03-01', 'office': 'evening'}, None))
+#print(lambda_handler({'date': '2019-03-04', 'office': 'evening'}, None))
