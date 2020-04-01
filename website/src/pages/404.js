@@ -1,7 +1,7 @@
 import React from 'react'
 
-import TimelyOffice from '../components/offices/timely-office'
-
 export default () => (
-  <TimelyOffice date={new Date()} />
+  <div>
+    <i>Sorry, we can't find that page.</i>
+  </div>
 )
