@@ -25,7 +25,7 @@ function App() {
           }}
         >
           <h1 style={{ margin: 0 }}>
-            <Link to="/daily-office/now" style={{ color: `black`, textDecoration: `none` }}>
+            <Link to="/daily-office/" style={{ color: `black`, textDecoration: `none` }}>
               Daily Office
             </Link>
           </h1>

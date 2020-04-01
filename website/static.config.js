@@ -18,8 +18,8 @@ export default {
         template: 'src/containers/now',
       },
       {
-        path: '/now',
-        template: 'src/containers/now',
+        path: '/about',
+        template: 'src/containers/about',
       },
       {
         path: '/morning',
