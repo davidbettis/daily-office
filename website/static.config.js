@@ -15,8 +15,24 @@ export default {
   getRoutes: () => [
       {
         path: '/',
-        template: 'src/pages/now',
-      }
+        template: 'src/containers/now',
+      },
+      {
+        path: '/now',
+        template: 'src/containers/now',
+      },
+      {
+        path: '/morning',
+        template: 'src/containers/morning',
+      },
+      {
+        path: '/evening',
+        template: 'src/containers/evening',
+      },
+      {
+        path: '/compline',
+        template: 'src/containers/compline',
+      },
   ],
   //siteRoot: 'http://localhost:3000',
   basePath: 'daily-office',
