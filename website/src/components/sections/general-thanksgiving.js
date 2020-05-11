@@ -1,10 +1,10 @@
 import React from 'react'
 
 const GeneralThanksgiving = () => (
+  <div>
+    <p className="section">The General Thanksgiving</p>
+    <p className="instructions">Officiant and People</p>
     <div>
-      <p className="section">The General Thanksgiving</p>
-      <p className="instructions">Officiant and People</p>
-      <div>
         Almighty God, Father of all mercies,<br/>
         we your unworthy servants give you humble thanks<br/>
         for all your goodness and loving-kindness<br/>
@@ -23,8 +23,8 @@ const GeneralThanksgiving = () => (
         Through Jesus Christ our Lord,<br/>
         to whom, with you and the Holy Spirit,<br/>
         be honor and glory throughout all ages. Amen.<br/><br/>
-      </div>
     </div>
-);
+  </div>
+)
 
-export default GeneralThanksgiving;
+export default GeneralThanksgiving

@@ -17,75 +17,74 @@ import Psalter from '../sections/psalter'
 import ScriptureService from '../../helpers/scripture-service'
 
 class EveningComponent extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            brevity: 'short',
-            psalms: [],
-            lessons: []
-        };
+  constructor (props) {
+    super(props)
+    this.state = {
+      brevity: 'short',
+      psalms: [],
+      lessons: []
     }
+  }
 
-    updateBrevity(brevity) {
-        this.setState({brevity: brevity});
+  updateBrevity (brevity) {
+    this.setState({ brevity: brevity })
+  }
+
+  componentDidMount () {
+    this.fetchScripture(this.props.date)
+  }
+
+  componentDidUpdate (prevProps) {
+    if (this.props.date !== prevProps.date) {
+      this.fetchScripture(this.props.date)
     }
+  }
 
-    componentDidMount() {
-        this.fetchScripture(this.props.date);
-    }
+  fetchScripture (date) {
+    ScriptureService.getScriptureForOffice('evening', date).then(results => {
+      return results.json()
+    }).then(data => {
+      this.setState({
+        psalms: data.body['evening-psalms'],
+        lessons: data.body.evening
+      })
+    })
+  }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.date !== prevProps.date) {
-            this.fetchScripture(this.props.date);
-        }
-    }
+  render () {
+    return (
+      <div>
+        <div style={{ float: 'right' }}>
+          <span className={this.state.brevity === 'short' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('short')}>Short (~15 min)</span><br/>
+          <span className={this.state.brevity === 'medium' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('medium')}>Medium (~30 min)</span><br/>
+          <span className={this.state.brevity === 'long' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('long')}>Long (~45 min)</span>
+        </div>
 
-    fetchScripture(date) {
-        ScriptureService.getScriptureForOffice('evening', date).then(results => {
-            return results.json();
-        }).then(data => {
-            this.setState({
-                psalms: data.body['evening-psalms'],
-                lessons: data.body['evening']
-            });
-        })
-    }
+        <h1>Evening Prayer</h1>
 
-    render() {
-        return (
-<div>
-  <div style={{float: 'right'}}>
-    <span className={this.state.brevity === "short" ? "duration-selected" : "duration"} onClick={() => this.updateBrevity('short')}>Short (~15 min)</span><br/>
-    <span className={this.state.brevity === "medium" ? "duration-selected" : "duration"} onClick={() => this.updateBrevity('medium')}>Medium (~30 min)</span><br/>
-    <span className={this.state.brevity === "long" ? "duration-selected" : "duration"} onClick={() => this.updateBrevity('long')}>Long (~45 min)</span>
-  </div>
+        <DateComponent date={this.props.date} />
 
-  <h1>Evening Prayer</h1>
+        <div className="prayer">
+          <Intro texts='evening' />
+          <Confession intro="long" after="long" />
+          <Invitatory texts="evening" />
+          <Psalter lectionary='evening' date={this.props.date} psalms={this.state.psalms} />
+          <Lesson lectionary='evening'
+            postFirstReading={this.state.brevity === 'short' ? 'none' : 'magnificat'}
+            postSecondReading={this.state.brevity === 'short' ? 'none' : 'nunc-dimittis'}
+            date={this.props.date} lessons={this.state.lessons} />
+          { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
+          { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
+          <DailyCollect collects='evening' />
+          { this.state.brevity === 'long' ? <MissionPrayer /> : null }
+          <FreePrayer />
+          { this.state.brevity === 'long' ? <GeneralThanksgiving /> : null }
+          <Closing />
+        </div>
 
-  <DateComponent date={this.props.date} /> 
-
-  <div className="prayer">
-      <Intro texts='evening' />
-      <Confession intro="long" after="long" />
-      <Invitatory texts="evening" />
-      <Psalter lectionary='evening' date={this.props.date} psalms={this.state.psalms} />
-      <Lesson lectionary='evening'
-              postFirstReading={this.state.brevity === 'short' ? 'none' : 'magnificat'}
-              postSecondReading={this.state.brevity === 'short' ? 'none' : 'nunc-dimittis'}
-              date={this.props.date} lessons={this.state.lessons} />
-      { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
-      { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
-      <DailyCollect collects='evening' />
-      { this.state.brevity === 'long' ? <MissionPrayer /> : null }
-      <FreePrayer />
-      { this.state.brevity === 'long' ? <GeneralThanksgiving /> : null }
-      <Closing />
-  </div>
-
-</div>
-        );
-    }
+      </div>
+    )
+  }
 }
 
-export default EveningComponent;
+export default EveningComponent

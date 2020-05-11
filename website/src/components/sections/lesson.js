@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import Seasons from '../../helpers/seasons'
 import ESV from '../../helpers/esv'
@@ -21,103 +21,103 @@ import EveningLectionary from '../../data/evening-lectionary.json'
 // LECTIONARY: morning, evening
 // POST_READING: te-deum-laudamus, benedictus, benedictus-es-domine, magnificat, nunc-dimittis, none
 class Lesson extends React.Component {
-    constructor(props) {
-        super(props);
-        if (!(props.date instanceof Date)) {
-            throw new Error("Lesson error: date must be a Date object");
-        }
+  constructor (props) {
+    super(props)
+    if (!(props.date instanceof Date)) {
+      throw new Error('Lesson error: date must be a Date object')
     }
+  }
 
-    // Get the readings in lectionaryMap at the provided date.
-    getReadingReferences(lectionaryMap, date) {
-        var month = date.getMonth() + 1; // month, 1-12
-        var day = date.getDate(); // day, 1-31
+  // Get the readings in lectionaryMap at the provided date.
+  getReadingReferences (lectionaryMap, date) {
+    var month = date.getMonth() + 1 // month, 1-12
+    var day = date.getDate() // day, 1-31
 
-        return lectionaryMap[month][day];
-    }
+    return lectionaryMap[month][day]
+  }
 
-    getLectionaryMap() {
-        var lectionaryMap;
-        if (this.props.lectionary === 'morning') {
-            lectionaryMap = MorningLectionary;
-        } else if (this.props.lectionary === 'evening') {
-            lectionaryMap = EveningLectionary;
-        } else {
-            throw new Error("Lesson error: lectionary must be one of ['morning','evening']");
-        }
-        return lectionaryMap;
-    }
-
-    render() {
-        var lectionaryMap = this.getLectionaryMap();
-        var references = this.getReadingReferences(lectionaryMap, this.props.date);
-        var firstScriptureRef = references[0];
-        var secondScriptureRef = references[1];
-
-        return (
-            <div>
-                <p className="section">The Lessons</p>
-                <Reading text={firstScriptureRef} fullText={this.props.lessons[0]} />
-                <PostReading reading={this.props.postFirstReading} />
-                <Reading text={secondScriptureRef} fullText={this.props.lessons[1]} />
-                <PostReading reading={this.props.postSecondReading} />
-            </div>
-        );
-    }
-}
-
-function Reading(props) {
-    var text = props.text;
-    var fullText = props.fullText;
-
-    var after = "";
-    if (!ESV.isApocryphal(text)) {
-        after = (
-            <p>
-              <span className="officiant">The Word of the Lord.</span><br/>
-              <span className="people">Thanks be to God.</span>
-            </p>
-        );
-    }
-
-    return (
-        <div>
-            <p>A reading from { text }. <ESVLink scriptureText={text} linkText="(ESV)" /></p>
-            <p>{ fullText }</p>
-            { after }
-        </div>
-    );
-}
-
-function PostReading(props) {
-    var reading = props.reading;
-    if (reading === 'te-deum-laudamus') {
-        if (Seasons.inLent(new Date().getTime())) {
-            return (<BenedictusEsDomine />);
-        } else {
-            return (<TeDeumLaudamus />);
-        }
-    } else if (reading === 'benedictus') {
-        return (<Benedictus />);
-    } else if (reading === 'benedictus-es-domine') {
-        return (<BenedictusEsDomine />);
-    } else if (reading === 'magnificat') {
-        return (<Magnificat />);
-    } else if (reading === 'nunc-dimittis') {
-        return (<NuncDimittis />);
-    } else if (reading === 'none') {
-        return (<div/>);
+  getLectionaryMap () {
+    var lectionaryMap
+    if (this.props.lectionary === 'morning') {
+      lectionaryMap = MorningLectionary
+    } else if (this.props.lectionary === 'evening') {
+      lectionaryMap = EveningLectionary
     } else {
-        throw new Error("Lesson error: reading " + reading + " not found");
+      throw new Error("Lesson error: lectionary must be one of ['morning','evening']")
     }
+    return lectionaryMap
+  }
+
+  render () {
+    var lectionaryMap = this.getLectionaryMap()
+    var references = this.getReadingReferences(lectionaryMap, this.props.date)
+    var firstScriptureRef = references[0]
+    var secondScriptureRef = references[1]
+
+    return (
+      <div>
+        <p className="section">The Lessons</p>
+        <Reading text={firstScriptureRef} fullText={this.props.lessons[0]} />
+        <PostReading reading={this.props.postFirstReading} />
+        <Reading text={secondScriptureRef} fullText={this.props.lessons[1]} />
+        <PostReading reading={this.props.postSecondReading} />
+      </div>
+    )
+  }
 }
 
-function TeDeumLaudamus(props) {
-    return (
-        <div>
-        <b>Te Deum Laudamus</b> <i>We Praise You, O God</i><br/>
-        <i>Psalm 95:1-7; 8-11</i><br/>
-        <p>
+function Reading (props) {
+  var text = props.text
+  var fullText = props.fullText
+
+  var after = ''
+  if (!ESV.isApocryphal(text)) {
+    after = (
+      <p>
+        <span className="officiant">The Word of the Lord.</span><br/>
+        <span className="people">Thanks be to God.</span>
+      </p>
+    )
+  }
+
+  return (
+    <div>
+      <p>A reading from { text }. <ESVLink scriptureText={text} linkText="(ESV)" /></p>
+      <p>{ fullText }</p>
+      { after }
+    </div>
+  )
+}
+
+function PostReading (props) {
+  var reading = props.reading
+  if (reading === 'te-deum-laudamus') {
+    if (Seasons.inLent(new Date().getTime())) {
+      return (<BenedictusEsDomine />)
+    } else {
+      return (<TeDeumLaudamus />)
+    }
+  } else if (reading === 'benedictus') {
+    return (<Benedictus />)
+  } else if (reading === 'benedictus-es-domine') {
+    return (<BenedictusEsDomine />)
+  } else if (reading === 'magnificat') {
+    return (<Magnificat />)
+  } else if (reading === 'nunc-dimittis') {
+    return (<NuncDimittis />)
+  } else if (reading === 'none') {
+    return (<div/>)
+  } else {
+    throw new Error('Lesson error: reading ' + reading + ' not found')
+  }
+}
+
+function TeDeumLaudamus (props) {
+  return (
+    <div>
+      <b>Te Deum Laudamus</b> <i>We Praise You, O God</i><br/>
+      <i>Psalm 95:1-7; 8-11</i><br/>
+      <p>
         We praise you, O God, we acclaim you as Lord; *<br/>
          all creation worships you, the Father everlasting.<br/>
         To you all angels, all the powers of heaven, *<br/>
@@ -143,15 +143,15 @@ function TeDeumLaudamus(props) {
         bought with the price of your own blood,<br/>
         and bring us with your saints *<br/>
         to glory everlasting.
-        </p>
-        </div>
-    );
+      </p>
+    </div>
+  )
 }
 
-function Benedictus(props) {
-    return (
-        <div>
-        <p>
+function Benedictus (props) {
+  return (
+    <div>
+      <p>
         <b>Benedictus</b> <i>The Song of Zechariah</i><br/>
         <i> Luke 1:68-79</i><br/>
         Blessed be the Lord, the God of Israel; *<br/>
@@ -178,15 +178,15 @@ function Benedictus(props) {
         and to guide our feet into the way of peace.<br/>
         Glory be to the Father, and to the Son, and to the Holy Spirit; *<br/>
         as it was in the beginning, is now, and ever shall be, world without end. Amen.
-        </p>
-        </div>
-    );
+      </p>
+    </div>
+  )
 }
 
-function BenedictusEsDomine(props) {
-    return (
-        <div>
-        <p>
+function BenedictusEsDomine (props) {
+  return (
+    <div>
+      <p>
         <b>Benedictus es, Domine</b> <i>A Song of Praise</i><br/>
         <i>Song of the Three Young Men, 29-34</i><br/>
         Glory to you, Lord God of our fathers; *<br/>
@@ -201,15 +201,15 @@ function BenedictusEsDomine(props) {
         in the high vault of heaven, glory to you.<br/>
         Glory to you, Father, Son, and Holy Spirit; *<br/>
         we will praise you and highly exalt you for ever.<br/>
-        </p>
-        </div>
-    );
+      </p>
+    </div>
+  )
 }
 
-function Magnificat(props) {
-    return (
-        <div>
-        <p>
+function Magnificat (props) {
+  return (
+    <div>
+      <p>
         <b>Magnificat</b> <i>The Song of Mary</i><br/>
         <i>Luke 1:46-55</i><br/>
         My soul magnifies the Lord, *<br/>
@@ -232,15 +232,15 @@ function Magnificat(props) {
         as he promised to our fathers, Abraham and his seed for ever.<br/>
         Glory be to the Father, and to the Son, and to the Holy Spirit; *<br/>
         as it was in the beginning, is now, and ever shall be, world without end. Amen.<br/>
-        </p>
-        </div>
-    );
+      </p>
+    </div>
+  )
 }
 
-function NuncDimittis(props) {
-    return (
-        <div>
-        <p>
+function NuncDimittis (props) {
+  return (
+    <div>
+      <p>
         <b>Nunc dimittis</b> <i>The Song of Simeon</i><br/>
         <i>Luke 2:29-32</i><br/>
         Lord, now let your servant depart in peace, *<br/>
@@ -251,9 +251,9 @@ function NuncDimittis(props) {
         and to be the glory of your people Israel.<br/>
         Glory be to the Father, and to the Son, and to the Holy Spirit; *<br/>
         as it was in the beginning, is now, and ever shall be, world without end. Amen.<br/>
-        </p>
-        </div>
-    );
+      </p>
+    </div>
+  )
 }
 
-export default Lesson;
+export default Lesson

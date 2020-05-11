@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ApostlesCreed = () => (
-    <div>
+  <div>
     <p className="section">The Apostles’ Creed</p>
 
     <p className="instructions">Officiant and People together, all standing</p>
@@ -26,7 +26,7 @@ const ApostlesCreed = () => (
     the resurrection of the body,<br/>
     and the life everlasting. Amen.
     </p>
-    </div>
-);
+  </div>
+)
 
-export default ApostlesCreed;
+export default ApostlesCreed

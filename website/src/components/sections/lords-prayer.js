@@ -1,7 +1,7 @@
 import React from 'react'
 
 const LordsPrayer = () => (
-    <div>
+  <div>
     <p className="instructions">Officiant and People</p>
     Our Father, who art in heaven,<br/>
     hallowed be thy Name,<br/>
@@ -17,7 +17,7 @@ const LordsPrayer = () => (
     For thine is the kingdom,<br/>
     and the power, and the glory<br/>
     for ever and ever. Amen.<br/><br/>
-    </div>
-);
+  </div>
+)
 
-export default LordsPrayer;
+export default LordsPrayer
