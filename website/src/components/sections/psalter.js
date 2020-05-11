@@ -15,9 +15,6 @@ import ESVLink from '../esv-link'
 class Psalter extends React.Component {
   constructor (props) {
     super(props)
-    if (!(props.date instanceof Date)) {
-      throw new Error('Lesson error: date must be a Date object')
-    }
   }
 
   render () {
@@ -49,9 +46,9 @@ class Psalter extends React.Component {
 }
 
 Psalter.propTypes = {
-  date: PropTypes.string,
-  lectionary: PropTypes.string,
-  psalms: PropTypes.array
+  date: PropTypes.instanceOf(Date).isRequired,
+  lectionary: PropTypes.string.isRequired,
+  psalms: PropTypes.array.isRequired
 }
 
 export default Psalter

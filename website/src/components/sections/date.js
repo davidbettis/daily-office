@@ -15,7 +15,7 @@ function DateComponent (props) {
 }
 
 DateComponent.propTypes = {
-  date: PropTypes.string
+  date: PropTypes.instanceOf(Date).isRequired
 }
 
 export default DateComponent

@@ -8,28 +8,10 @@ import * as dayOfYear from 'day-of-year'
 export class Invitatory extends React.Component {
   constructor (props) {
     super(props)
-
-    this.state = {
-      antiphons: [
-        {
-          call: 'The earth is the Lord\'s for he made it:',
-          response: 'O come let us adore him.'
-        },
-        {
-          call: 'Worship the Lord in the beauty of holiness:',
-          response: 'O come let us adore him.'
-        },
-        {
-          call: 'The mercy of the Lord is everlasting:',
-          response: 'O come let us adore him.'
-        }
-      ],
-      texts: props.texts
-    }
   }
 
   antiphon (i) {
-    var antiphon = this.state.antiphons[i % this.state.antiphons.length]
+    var antiphon = Invitatory.antiphons[i % Invitatory.antiphons.length]
     return (
       <div>
         <p>
@@ -41,6 +23,7 @@ export class Invitatory extends React.Component {
   }
 
   forLent () {
+    // FIXME pass in the date via props and use that instead
     if (Seasons.inLent(new Date().getTime())) {
       return (
         <p>
@@ -140,9 +123,9 @@ export class Invitatory extends React.Component {
   }
 
   psalm () {
-    if (this.state.texts === 'morning') {
+    if (this.props.texts === 'morning') {
       return this.morning()
-    } else if (this.state.texts === 'evening') {
+    } else if (this.props.texts === 'evening') {
       return this.evening()
     } else {
       throw Error("Error: texts not defined; must be one of 'morning' or 'evening'")
@@ -172,8 +155,23 @@ export class Invitatory extends React.Component {
   }
 }
 
+Invitatory.antiphons = [
+    {
+      call: 'The earth is the Lord\'s for he made it:',
+      response: 'O come let us adore him.'
+    },
+    {
+      call: 'Worship the Lord in the beauty of holiness:',
+      response: 'O come let us adore him.'
+    },
+    {
+      call: 'The mercy of the Lord is everlasting:',
+      response: 'O come let us adore him.'
+    }
+]
+
 Invitatory.propTypes = {
-  texts: PropTypes.string
+  texts: PropTypes.string.isRequired
 }
 
 export default Invitatory

@@ -89,7 +89,7 @@ class EveningComponent extends React.Component {
 }
 
 EveningComponent.propTypes = {
-  date: PropTypes.string
+  date: PropTypes.instanceOf(Date).isRequired
 }
 
 export default EveningComponent

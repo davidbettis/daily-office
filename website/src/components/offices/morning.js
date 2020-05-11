@@ -88,7 +88,7 @@ class MorningComponent extends React.Component {
 }
 
 MorningComponent.propTypes = {
-  date: PropTypes.string
+  date: PropTypes.instanceOf(Date).isRequired
 }
 
 export default MorningComponent

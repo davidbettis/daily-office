@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import MorningComponent from './morning'
 import EveningComponent from './evening'
@@ -19,6 +20,10 @@ function TimelyOffice (props) {
   } else {
     return (<MorningComponent date={props.date} />)
   }
+}
+
+TimelyOffice.propTypes = {
+  date: PropTypes.instanceOf(Date).isRequired
 }
 
 export default TimelyOffice

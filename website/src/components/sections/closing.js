@@ -2,7 +2,7 @@ import React from 'react'
 
 // Closing prints out a closing verse of scripture
 function Closing (props) {
-  var texts = [
+  const texts = [
     {
       text: 'The grace of our Lord Jesus Christ, and the love of God, and the fellowship of the Holy Spirit, be with us all evermore.',
       scripture: '2 Corinthians 13:14'
@@ -17,8 +17,8 @@ function Closing (props) {
     }
   ]
 
-  var day = new Date().getDate() // day of the month
-  var selected = texts[day % texts.length]
+  const day = new Date().getDate() // day of the month
+  const selected = texts[day % texts.length]
   return (
     <div>
       <p className="section">Closing</p>

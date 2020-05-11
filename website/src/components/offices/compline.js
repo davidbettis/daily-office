@@ -465,7 +465,7 @@ The almighty and merciful Lord, Father, Son, and Holy Spirit, bless us and keep 
 }
 
 ComplineComponent.propTypes = {
-  date: PropTypes.string
+  date: PropTypes.instanceOf(Date).isRequired
 }
 
 export default ComplineComponent

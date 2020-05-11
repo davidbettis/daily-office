@@ -49,7 +49,7 @@ function DailyCollect (props) {
 }
 
 DailyCollect.propTypes = {
-  collects: PropTypes.string
+  collects: PropTypes.string.isRequired
 }
 
 export default DailyCollect

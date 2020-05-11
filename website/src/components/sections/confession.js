@@ -81,8 +81,8 @@ function Confession (props) {
 }
 
 Confession.propTypes = {
-  intro: PropTypes.string,
-  after: PropTypes.string
+  intro: PropTypes.string.isRequired,
+  after: PropTypes.string.isRequired
 }
 
 export default Confession

@@ -23,9 +23,6 @@ import EveningLectionary from '../../data/evening-lectionary.json'
 class Lesson extends React.Component {
   constructor (props) {
     super(props)
-    if (!(props.date instanceof Date)) {
-      throw new Error('Lesson error: date must be a Date object')
-    }
   }
 
   // Get the readings in lectionaryMap at the provided date.
@@ -67,11 +64,11 @@ class Lesson extends React.Component {
 }
 
 Lesson.propTypes = {
-  date: PropTypes.string,
-  lectionary: PropTypes.string,
-  lessons: PropTypes.array,
-  postFirstReading: PropTypes.string,
-  postSecondReading: PropTypes.string
+  date: PropTypes.instanceOf(Date).isRequired,
+  lectionary: PropTypes.string.isRequired,
+  lessons: PropTypes.array.isRequired,
+  postFirstReading: PropTypes.string.isRequired,
+  postSecondReading: PropTypes.string.isRequired
 }
 
 function Reading (props) {
@@ -98,8 +95,8 @@ function Reading (props) {
 }
 
 Reading.propTypes = {
-  text: PropTypes.string,
-  fullText: PropTypes.string
+  text: PropTypes.string.isRequired,
+  fullText: PropTypes.string // optional, is initialized after the service call is complete
 }
 
 function PostReading (props) {
@@ -126,7 +123,7 @@ function PostReading (props) {
 }
 
 PostReading.propTypes = {
-  reading: PropTypes.string
+  reading: PropTypes.string.isRequired
 }
 
 function TeDeumLaudamus (props) {
