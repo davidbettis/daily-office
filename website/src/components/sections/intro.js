@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as dayOfYear from 'day-of-year'
 
 // Intro prints out a verse of scripture to open the office
@@ -62,6 +63,10 @@ export class Intro extends React.Component {
         </p>
       </div>)
   }
+}
+
+Intro.propTypes = {
+  texts: PropTypes.string
 }
 
 export default Intro

@@ -34,7 +34,7 @@ function App () {
               <li><Link to="/daily-office/morning">Morning</Link></li>
               <li><Link to="/daily-office/evening">Evening</Link></li>
               <li><Link to="/daily-office/compline">Night</Link></li>
-              <li><Link to="/daily-office/about">What's this all about?</Link></li>
+              <li><Link to="/daily-office/about">What&#39;s this all about?</Link></li>
             </ul>
           </div>
         </div>

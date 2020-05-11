@@ -1,6 +1,9 @@
 default: release
 
-release: build
+release: check build
+
+check:
+	eslint src
 
 build:
 	yarn build

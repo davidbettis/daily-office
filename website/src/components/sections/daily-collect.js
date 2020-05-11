@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // DailyCollect prints out a collect for the current day of the week
 //      props.collects: 'morning' or 'evening'
@@ -45,6 +46,10 @@ function DailyCollect (props) {
   var day = new Date().getDay() // day of the week; 0=Sunday, 1=Monday, ...
   var selectedCollect = collects[day]
   return (<div><p className="section">Daily Collect</p><p>{ selectedCollect }</p></div>)
+}
+
+DailyCollect.propTypes = {
+  collects: PropTypes.string
 }
 
 export default DailyCollect

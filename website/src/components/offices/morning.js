@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import ApostlesCreed from '../sections/apostles-creed'
 import Closing from '../sections/closing'
@@ -15,8 +16,6 @@ import Prayer from '../sections/prayer'
 import Psalter from '../sections/psalter'
 
 import ScriptureService from '../../helpers/scripture-service'
-
-import { ESVLink } from '../esv-link'
 
 class MorningComponent extends React.Component {
   constructor (props) {
@@ -86,6 +85,10 @@ class MorningComponent extends React.Component {
       </div>
     )
   }
+}
+
+MorningComponent.propTypes = {
+  date: PropTypes.string
 }
 
 export default MorningComponent

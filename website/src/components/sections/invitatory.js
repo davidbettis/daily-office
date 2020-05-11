@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Seasons from '../../helpers/seasons'
 import * as dayOfYear from 'day-of-year'
 
@@ -169,6 +170,10 @@ export class Invitatory extends React.Component {
       </div>
     )
   }
+}
+
+Invitatory.propTypes = {
+  texts: PropTypes.string
 }
 
 export default Invitatory

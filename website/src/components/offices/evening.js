@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import ApostlesCreed from '../sections/apostles-creed'
 import Closing from '../sections/closing'
@@ -85,6 +86,10 @@ class EveningComponent extends React.Component {
       </div>
     )
   }
+}
+
+EveningComponent.propTypes = {
+  date: PropTypes.string
 }
 
 export default EveningComponent

@@ -21,6 +21,9 @@ module.exports = {
   plugins: [
     'react'
   ],
+  // TODO: wire up a test framework and remove this
+  ignorePatterns: ["**/__tests__/*.js"],
   rules: {
+    "react/display-name": 0
   }
 }

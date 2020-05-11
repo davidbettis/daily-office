@@ -9,7 +9,7 @@ function ESVLink (props) {
 
   var url = 'http://esv.to/' + scriptureText.replace(/†.*$/, '').trim()
   if (url !== '') {
-    return (<span><a href={url} target="_blank">{ linkText }</a></span>)
+    return (<span><a href={url} target="_blank" rel="noopener noreferrer">{ linkText }</a></span>)
   }
   return ''
 }

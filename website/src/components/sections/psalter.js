@@ -1,9 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ESVLink from '../esv-link'
-import ScriptureService from '../../helpers/scripture-service'
-
-import MorningPsalmLectionary from '../../data/psalms-morning-lectionary.json'
-import EveningPsalmLectionary from '../../data/psalms-evening-lectionary.json'
 
 // Psalter fetches the psalm(s) appointed for the day and renders them for
 // reading. Each psalm includes a link to the ESV website.
@@ -11,6 +8,7 @@ import EveningPsalmLectionary from '../../data/psalms-evening-lectionary.json'
 // Props:
 //      date: Javascript date object for the daily office day in question
 //      lectionary: lectionary to use for the readings (see LECTIONARY options below)
+//      psalms: array of psalms to display
 //
 // LECTIONARY: morning, evening
 
@@ -20,38 +18,9 @@ class Psalter extends React.Component {
     if (!(props.date instanceof Date)) {
       throw new Error('Lesson error: date must be a Date object')
     }
-
-    this.state = {
-      date: props.date,
-      lectionary: props.lectionary,
-      psalms: []
-    }
-  }
-
-  // Get the readings in lectionaryMap at the provided date.
-  getReadingReferences (lectionaryMap, date) {
-    var month = date.getMonth() + 1 // month, 1-12
-    var day = date.getDate() // day, 1-31
-
-    return lectionaryMap[month][day]
-  }
-
-  getLectionaryMap () {
-    var lectionaryMap
-    if (this.state.lectionary === 'morning') {
-      lectionaryMap = MorningPsalmLectionary
-    } else if (this.state.lectionary === 'evening') {
-      lectionaryMap = EveningPsalmLectionary
-    } else {
-      throw new Error("Psalter error: lectionary must be one of ['morning','evening']")
-    }
-    return lectionaryMap
   }
 
   render () {
-    var lectionaryMap = this.getLectionaryMap()
-    var psalms = this.getReadingReferences(lectionaryMap, this.props.date)
-
     return (
       <div>
         <p className="section">Psalms Appointed</p>
@@ -59,11 +28,11 @@ class Psalter extends React.Component {
           <div key={psalm.psalm_section.replace(/:.*$/, '')}>
             <p>Psalm { psalm.psalm_section } <ESVLink scriptureText={'Psalm+' + psalm.psalm_section} linkText="(ESV)" /></p>
             <p>
-              {psalm.psalm_verses.map(psalm_verse => (
-                <span key={psalm_verse.verse}>
-                  <span className="verse">{ psalm_verse.verse }</span>
-                  {psalm_verse.text.map(line => (
-                    <span className="text">{ line }<br/></span>
+              {psalm.psalm_verses.map(psalmVerse => (
+                <span key={psalmVerse.verse}>
+                  <span className="verse">{ psalmVerse.verse }</span>
+                  {psalmVerse.text.map((line, index) => (
+                    <span className="text" key={index}>{ line }<br/></span>
                   ))}
                 </span>
               ))}
@@ -77,6 +46,12 @@ class Psalter extends React.Component {
       </div>
     )
   }
+}
+
+Psalter.propTypes = {
+  date: PropTypes.string,
+  lectionary: PropTypes.string,
+  psalms: PropTypes.array
 }
 
 export default Psalter

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function ConfessionIntroShort (props) {
   return (<p>Let us humbly confess our sins to Almighty God.</p>)
@@ -77,6 +78,11 @@ function Confession (props) {
 
     </div>
   )
+}
+
+Confession.propTypes = {
+  intro: PropTypes.string,
+  after: PropTypes.string
 }
 
 export default Confession

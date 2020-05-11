@@ -1,8 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Seasons from '../../helpers/seasons'
 import ESV from '../../helpers/esv'
-import ScriptureService from '../../helpers/scripture-service'
 
 import ESVLink from '../esv-link'
 
@@ -66,6 +66,14 @@ class Lesson extends React.Component {
   }
 }
 
+Lesson.propTypes = {
+  date: PropTypes.string,
+  lectionary: PropTypes.string,
+  lessons: PropTypes.array,
+  postFirstReading: PropTypes.string,
+  postSecondReading: PropTypes.string
+}
+
 function Reading (props) {
   var text = props.text
   var fullText = props.fullText
@@ -89,6 +97,11 @@ function Reading (props) {
   )
 }
 
+Reading.propTypes = {
+  text: PropTypes.string,
+  fullText: PropTypes.string
+}
+
 function PostReading (props) {
   var reading = props.reading
   if (reading === 'te-deum-laudamus') {
@@ -110,6 +123,10 @@ function PostReading (props) {
   } else {
     throw new Error('Lesson error: reading ' + reading + ' not found')
   }
+}
+
+PostReading.propTypes = {
+  reading: PropTypes.string
 }
 
 function TeDeumLaudamus (props) {

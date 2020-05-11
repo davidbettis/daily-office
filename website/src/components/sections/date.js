@@ -1,24 +1,21 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export class DateComponent extends React.Component {
-  constructor (props) {
-    super(props)
-
-    var dateOptions = {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    }
-
-    this.state = {
-      date: props.date.toLocaleString('en-US', dateOptions)
-    }
+function DateComponent (props) {
+  const dateOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
   }
 
-  render () {
-    return (<h2>{ this.state.date }</h2>)
-  }
+  const date = props.date.toLocaleString('en-US', dateOptions)
+
+  return (<h2>{ date }</h2>)
+}
+
+DateComponent.propTypes = {
+  date: PropTypes.string
 }
 
 export default DateComponent
