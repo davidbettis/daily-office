@@ -1,8 +1,6 @@
 #!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 
-# TODO: parse apocrphya reference
-
 import credentials
 import json
 import logging
@@ -32,7 +30,6 @@ def get_esv_text(passage):
         'include-short-copyright': False,
         'include-passage-references': False
     }
-
     headers = {
         'Authorization': 'Token %s' % credentials.API_KEY
     }
@@ -41,9 +38,61 @@ def get_esv_text(passage):
     passages = response.json()['passages']
     return passages[0].strip() if passages else 'Error: Passage not found'
 
-# Is the reference part of the apocrphya?
+# Note, not all the apocrphya books, but the ones that are in the ACNA Daily Office.
+APOCRYPHA_BOOKS = [
+    'Baruch',
+    'Wisdom',
+    'Judith',
+    'Susanna',
+    '1 Macc',
+    '2 Macc',
+    'Ecclesiasticus'
+]
+
+# Query the local JSON file to retrieve the apocrypha texts.
+#
+# Parameters:
+#   passage, string describing the passage including the book name and a chapter, e.g. "Susanna", "1 Macc 1"
+#   NOTE: does not support verses or verse ranges
+def get_apocrypha_text(passage):
+    # Eliminate duplicate spaces and trim leading/trailing whitespace
+    passage = ' '.join(passage.split()).strip().lower()
+
+    # Extract the book and the chapter number
+    pieces = passage.split(' ')
+    num_pieces = len(pieces)
+
+    book = None
+    chapter = None
+    if num_pieces == 1:
+        book = pieces[0]
+    elif num_pieces == 2:
+        book = pieces[0]
+        chapter = pieces[1]
+    elif num_pieces == 3:
+        book = pieces[0] + ' ' + pieces[1]
+        chapter = pieces[2]
+    else:
+        LOGGER.info('Could not parse apocrypha passage: \'' + passage + '\'')
+        return None
+    
+    with open('apocrypha.json', 'r') as json_file:
+        data = json.load(json_file)
+        if chapter is None:
+            if book in data:
+                return data[book]
+        else:
+            if (book in data) and (chapter in data[book]):
+                return data[book][chapter]
+    return None
+
+# Is the reference part of the apocrypha?
 def is_apocrypha(ref):
-    return ref.startswith("Baruch") or ref.startswith("Wisdom") or ref.startswith("Judith") or ref.startswith("Susanna") or ref.startswith("1 Macc") or ref.startswith("2 Macc")
+    ref = ref.lower()
+    for book in APOCRYPHA_BOOKS:
+        if ref.startswith(book.lower()):
+            return True
+    return False
 
 # Split a 'str' that has verses formatted in square brackets into the logical representation with verses as keys in a hash.
 #
@@ -100,9 +149,8 @@ def get_lesson_texts(lectionary, month, day):
     texts = []
     for ref in lectionary[month][day]:
         full_ref = re.sub('†.*$', '', ref)
-        if (is_apocrypha(ref)):
-            # TODO query apocrphya.json and extract this
-            texts.append("apocrypha text")
+        if (is_apocrypha(full_ref)):
+            texts.append(get_apocrypha_text(full_ref))
         else:
             texts.append(get_esv_text(full_ref))
     return texts
