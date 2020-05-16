@@ -13,10 +13,6 @@ import ESVLink from '../esv-link'
 // LECTIONARY: morning, evening
 
 class Psalter extends React.Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     return (
       <div>

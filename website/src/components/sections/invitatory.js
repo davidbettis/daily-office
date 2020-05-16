@@ -6,10 +6,6 @@ import * as dayOfYear from 'day-of-year'
 // TODO:
 // - Add Jubliate?
 export class Invitatory extends React.Component {
-  constructor (props) {
-    super(props)
-  }
-
   antiphon (i) {
     var antiphon = Invitatory.antiphons[i % Invitatory.antiphons.length]
     return (
@@ -156,18 +152,18 @@ export class Invitatory extends React.Component {
 }
 
 Invitatory.antiphons = [
-    {
-      call: 'The earth is the Lord\'s for he made it:',
-      response: 'O come let us adore him.'
-    },
-    {
-      call: 'Worship the Lord in the beauty of holiness:',
-      response: 'O come let us adore him.'
-    },
-    {
-      call: 'The mercy of the Lord is everlasting:',
-      response: 'O come let us adore him.'
-    }
+  {
+    call: 'The earth is the Lord\'s for he made it:',
+    response: 'O come let us adore him.'
+  },
+  {
+    call: 'Worship the Lord in the beauty of holiness:',
+    response: 'O come let us adore him.'
+  },
+  {
+    call: 'The mercy of the Lord is everlasting:',
+    response: 'O come let us adore him.'
+  }
 ]
 
 Invitatory.propTypes = {

@@ -11,7 +11,7 @@ function DateComponent (props) {
 
   const date = props.date.toLocaleString('en-US', dateOptions)
 
-  return (<h2>{ date }</h2>)
+  return (<span>{ date }</span>)
 }
 
 DateComponent.propTypes = {

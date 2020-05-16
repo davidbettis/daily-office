@@ -8,9 +8,13 @@ import DateComponent from '../sections/date'
 function ComplineComponent (props) {
   return (
     <div>
-      <h1>Night Prayer</h1>
+      <h2>
+        <span>&#10218;</span>
+        <DateComponent date={props.date} />
+        <span>&#10219;</span>
+      </h2>
 
-      <DateComponent date={props.date} />
+      <h1>Night Prayer</h1>
 
       <div className="prayer">
 

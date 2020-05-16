@@ -38,7 +38,7 @@ def get_esv_text(passage):
     passages = response.json()['passages']
     return passages[0].strip() if passages else 'Error: Passage not found'
 
-# Note, not all the apocrphya books, but the ones that are in the ACNA Daily Office.
+# Note, not all the apocrypha books, but the ones that are in the ACNA Daily Office.
 APOCRYPHA_BOOKS = [
     'Baruch',
     'Wisdom',

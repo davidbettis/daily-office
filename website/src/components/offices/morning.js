@@ -17,13 +17,16 @@ import Psalter from '../sections/psalter'
 
 import ScriptureService from '../../helpers/scripture-service'
 
+const ONE_DAY_MS = 86400000
+
 class MorningComponent extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       brevity: 'short',
       psalms: [],
-      lessons: []
+      lessons: [],
+      date: props.date
     }
   }
 
@@ -31,14 +34,35 @@ class MorningComponent extends React.Component {
     this.setState({ brevity: brevity })
   }
 
+  rewindByOneDay () {
+    const minusOneDay = this.state.date.getTime() - ONE_DAY_MS
+    const date = new Date()
+    date.setTime(minusOneDay)
+
+    this.updateDate(date)
+  }
+
+  fastForwardByOneDay () {
+    const plusOneDay = this.state.date.getTime() + ONE_DAY_MS
+    const date = new Date()
+    date.setTime(plusOneDay)
+
+    this.updateDate(date)
+  }
+
   componentDidMount () {
-    this.fetchScripture(this.props.date)
+    this.updateDate(this.props.date)
   }
 
   componentDidUpdate (prevProps) {
     if (this.props.date !== prevProps.date) {
-      this.fetchScripture(this.props.date)
+      this.updateDate(this.props.date)
     }
+  }
+
+  updateDate (date) {
+    this.setState({ date: date })
+    this.fetchScripture(date)
   }
 
   fetchScripture (date) {
@@ -61,19 +85,23 @@ class MorningComponent extends React.Component {
           <span className={this.state.brevity === 'long' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('long')}>Long (~45 min)</span>
         </div>
 
-        <h1>Morning Prayer</h1>
+        <h2>
+          <span className="date-rewind" onClick={() => this.rewindByOneDay()}>&#10218;</span>
+          <DateComponent date={this.state.date} />
+          <span className="date-fast-forward" onClick={() => this.fastForwardByOneDay()}>&#10219;</span>
+        </h2>
 
-        <DateComponent date={this.props.date} />
+        <h1>Morning Prayer</h1>
 
         <div className="prayer">
           <Intro texts='morning' />
           <Confession intro="short" after="short" />
           <Invitatory texts="morning" />
-          <Psalter date={this.props.date} lectionary='morning' psalms={this.state.psalms} />
+          <Psalter date={this.state.date} lectionary='morning' psalms={this.state.psalms} />
           <Lesson lectionary='morning'
             postFirstReading={this.state.brevity === 'short' ? 'none' : 'te-deum-laudamus'}
             postSecondReading={this.state.brevity === 'short' ? 'none' : 'benedictus'}
-            date={this.props.date} lessons={this.state.lessons} />
+            date={this.state.date} lessons={this.state.lessons} />
           { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
           { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
           <DailyCollect collects='morning' />

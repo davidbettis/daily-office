@@ -21,10 +21,6 @@ import EveningLectionary from '../../data/evening-lectionary.json'
 // LECTIONARY: morning, evening
 // POST_READING: te-deum-laudamus, benedictus, benedictus-es-domine, magnificat, nunc-dimittis, none
 class Lesson extends React.Component {
-  constructor (props) {
-    super(props)
-  }
-
   // Get the readings in lectionaryMap at the provided date.
   getReadingReferences (lectionaryMap, date) {
     var month = date.getMonth() + 1 // month, 1-12
