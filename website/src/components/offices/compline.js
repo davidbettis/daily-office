@@ -9,9 +9,9 @@ function ComplineComponent (props) {
   return (
     <div>
       <h2>
-        <span>&#10218;</span>
+        <span className="date-rewind">&#10218;</span>
         <DateComponent date={props.date} />
-        <span>&#10219;</span>
+        <span className="date-fast-forward">&#10219;</span>
       </h2>
 
       <h1>Night Prayer</h1>

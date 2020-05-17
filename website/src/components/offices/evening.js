@@ -86,9 +86,9 @@ class EveningComponent extends React.Component {
         </div>
 
         <h2>
-          <span onClick={() => this.rewindByOneDay()}>&#10218;</span>
+          <span className="date-rewind" onClick={() => this.rewindByOneDay()}>&#10218;</span>
           <DateComponent date={this.state.date} />
-          <span onClick={() => this.fastForwardByOneDay()}>&#10219;</span>
+          <span className="date-fast-forward" onClick={() => this.fastForwardByOneDay()}>&#10219;</span>
         </h2>
 
         <h1>Evening Prayer</h1>
@@ -97,11 +97,11 @@ class EveningComponent extends React.Component {
           <Intro texts='evening' />
           <Confession intro="long" after="long" />
           <Invitatory texts="evening" />
-          <Psalter lectionary='evening' date={this.props.date} psalms={this.state.psalms} />
+          <Psalter lectionary='evening' date={this.state.date} psalms={this.state.psalms} />
           <Lesson lectionary='evening'
             postFirstReading={this.state.brevity === 'short' ? 'none' : 'magnificat'}
             postSecondReading={this.state.brevity === 'short' ? 'none' : 'nunc-dimittis'}
-            date={this.props.date} lessons={this.state.lessons} />
+            date={this.state.date} lessons={this.state.lessons} />
           { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
           { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
           <DailyCollect collects='evening' />
