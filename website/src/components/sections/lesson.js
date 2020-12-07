@@ -71,8 +71,12 @@ function Reading (props) {
   var text = props.text
   var fullText = props.fullText
 
+  var esvLink = ''
   var after = ''
   if (!ESV.isApocryphal(text)) {
+    esvLink = (
+      <ESVLink scriptureText={text} linkText="(ESV)" />
+    )
     after = (
       <p>
         <span className="officiant">The Word of the Lord.</span><br/>
@@ -83,7 +87,7 @@ function Reading (props) {
 
   return (
     <div>
-      <p>A reading from { text }. <ESVLink scriptureText={text} linkText="(ESV)" /></p>
+      <p>A reading from { text }. { esvLink }</p>
       <p>{ fullText }</p>
       { after }
     </div>

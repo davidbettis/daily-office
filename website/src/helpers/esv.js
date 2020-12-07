@@ -9,7 +9,7 @@ export class ESV {
             book.startsWith('Susanna') ||
             book.startsWith('1 Macc') ||
             book.startsWith('2 Macc') ||
-            book.starstWith('Ecclesiasticus')
+            book.startsWith('Ecclesiasticus')
   }
 
   // Makes a link using esv.to to the provided scripture.
