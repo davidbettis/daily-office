@@ -8,7 +8,8 @@ export class ESV {
             book.startsWith('Judith') ||
             book.startsWith('Susanna') ||
             book.startsWith('1 Macc') ||
-            book.startsWith('2 Macc')
+            book.startsWith('2 Macc') ||
+            book.starstWith('Ecclesiasticus')
   }
 
   // Makes a link using esv.to to the provided scripture.
