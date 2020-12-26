@@ -6,10 +6,7 @@ import json
 import logging
 import pprint
 import re
-# Uncomment to run in Python 3.8 - also need to 'pip3 install requests'
-# TODO Bundle up a Python runtime environment and automatically deploy to Lambda...
-#import requests
-from botocore.vendored import requests
+import requests
 import sys
 
 LOGGER = logging.getLogger()
