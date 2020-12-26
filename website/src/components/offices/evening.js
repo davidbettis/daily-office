@@ -70,8 +70,8 @@ class EveningComponent extends React.Component {
       return results.json()
     }).then(data => {
       this.setState({
-        psalms: data.body['evening-psalms'],
-        lessons: data.body.evening
+        psalms: data['evening-psalms'],
+        lessons: data.evening
       })
     })
   }

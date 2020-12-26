@@ -9,7 +9,7 @@ export class ScriptureService {
     var dateYmd = ScriptureService.ymd(date)
 
     // Fetch the contents
-    var webServiceFullEndpoint = ScriptureService.ENDPOINT + 'daily-office-get-scripture?' +
+    var webServiceFullEndpoint = ScriptureService.ENDPOINT + 'scripture?' +
           'date=' + dateYmd + '&office=' + office
 
     return fetch(webServiceFullEndpoint, {
@@ -29,6 +29,6 @@ export class ScriptureService {
   }
 }
 
-ScriptureService.ENDPOINT = 'https://daily-office.api.davidbettis.com/'
+ScriptureService.ENDPOINT = 'https://daily-office-v2.api.davidbettis.com/'
 
 export default ScriptureService
