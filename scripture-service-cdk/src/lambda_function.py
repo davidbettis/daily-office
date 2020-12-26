@@ -223,9 +223,13 @@ def lambda_handler(event, context):
     # TODO cache these on Elasticache
 
     return {
-        "statusCode": 200,
-        "headers": {},
-        "body": json.dumps(body),
-        "isBase64Encoded": False
+        'statusCode': 200,
+        'body': json.dumps(body),
+        'headers': {
+            # TODO vary stage-specific config for development
+            #'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Origin': 'https://davidbettis.com'
+        },
+        'isBase64Encoded': False
     }
 

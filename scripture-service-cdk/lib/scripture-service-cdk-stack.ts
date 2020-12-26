@@ -40,15 +40,17 @@ export class ScriptureServiceCdkStack extends cdk.Stack {
     const apigw = new apigateway.LambdaRestApi(this, "daily-office-get-scripture-v2-API", {
       domainName: domain,
       handler: fn,
-      proxy: false,
-      defaultCorsPreflightOptions: {
-        allowOrigins: [ 'https://localhost', 'https://davidbettis.com' ]
-      }
+      proxy: false
     });
+
 
     // add REST endpoints
     const scripture = apigw.root.addResource('scripture');
-    scripture.addMethod('GET'); // GET /scripture
+    scripture.addMethod('GET');
+    scripture.addCorsPreflight({
+        allowOrigins: ['http://localhost:3000', 'https://davidbettis.com'],
+        allowMethods: ['GET']
+    });
 
     // TODO move the domain name out into config
     // TODO infer zone from hostname
