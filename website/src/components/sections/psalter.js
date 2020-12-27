@@ -6,8 +6,6 @@ import ESVLink from '../esv-link'
 // reading. Each psalm includes a link to the ESV website.
 //
 // Props:
-//      date: Javascript date object for the daily office day in question
-//      lectionary: lectionary to use for the readings (see LECTIONARY options below)
 //      psalms: array of psalms to display
 //
 // LECTIONARY: morning, evening
@@ -42,8 +40,6 @@ class Psalter extends React.Component {
 }
 
 Psalter.propTypes = {
-  date: PropTypes.instanceOf(Date).isRequired,
-  lectionary: PropTypes.string.isRequired,
   psalms: PropTypes.array.isRequired
 }
 

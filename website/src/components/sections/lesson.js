@@ -6,14 +6,10 @@ import ESV from '../../helpers/esv'
 
 import ESVLink from '../esv-link'
 
-import MorningLectionary from '../../data/morning-lectionary.json'
-import EveningLectionary from '../../data/evening-lectionary.json'
-
 // Lesson is a set of scripture chunks to read as part of the office.
 //
 // Props:
-//      props.date: Date object for the lesson (keyed to particular day)
-//      props.lectionary: lectionary to use for the two readings (see LECTIONARY options below)
+//      props.references: array of scripture references for the first and second readings
 //      props.lessons: array of scripture text for the first and second readings
 //      props.postFirstReading: after the first reading (see POST_READING options below)
 //      props.postSecondReading: after the second reading (see POST_READING options below)
@@ -21,38 +17,20 @@ import EveningLectionary from '../../data/evening-lectionary.json'
 // LECTIONARY: morning, evening
 // POST_READING: te-deum-laudamus, benedictus, benedictus-es-domine, magnificat, nunc-dimittis, none
 class Lesson extends React.Component {
-  // Get the readings in lectionaryMap at the provided date.
-  getReadingReferences (lectionaryMap, date) {
-    var month = date.getMonth() + 1 // month, 1-12
-    var day = date.getDate() // day, 1-31
-
-    return lectionaryMap[month][day]
-  }
-
-  getLectionaryMap () {
-    var lectionaryMap
-    if (this.props.lectionary === 'morning') {
-      lectionaryMap = MorningLectionary
-    } else if (this.props.lectionary === 'evening') {
-      lectionaryMap = EveningLectionary
-    } else {
-      throw new Error("Lesson error: lectionary must be one of ['morning','evening']")
-    }
-    return lectionaryMap
-  }
-
   render () {
-    var lectionaryMap = this.getLectionaryMap()
-    var references = this.getReadingReferences(lectionaryMap, this.props.date)
-    var firstScriptureRef = references[0]
-    var secondScriptureRef = references[1]
-
+    if (typeof this.props.references[0] === 'undefined' ||
+        typeof this.props.references[1] === 'undefined' ||
+        typeof this.props.lessons[0] === 'undefined' ||
+        typeof this.props.lessons[1] === 'undefined') {
+      return (<div />)
+    }
+ 
     return (
       <div>
         <p className="section">The Lessons</p>
-        <Reading text={firstScriptureRef} fullText={this.props.lessons[0]} />
+        <Reading text={this.props.references[0]} fullText={this.props.lessons[0]} />
         <PostReading reading={this.props.postFirstReading} />
-        <Reading text={secondScriptureRef} fullText={this.props.lessons[1]} />
+        <Reading text={this.props.references[1]} fullText={this.props.lessons[1]} />
         <PostReading reading={this.props.postSecondReading} />
       </div>
     )
@@ -60,8 +38,7 @@ class Lesson extends React.Component {
 }
 
 Lesson.propTypes = {
-  date: PropTypes.instanceOf(Date).isRequired,
-  lectionary: PropTypes.string.isRequired,
+  references: PropTypes.array.isRequired,
   lessons: PropTypes.array.isRequired,
   postFirstReading: PropTypes.string.isRequired,
   postSecondReading: PropTypes.string.isRequired

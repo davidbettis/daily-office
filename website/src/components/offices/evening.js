@@ -25,6 +25,7 @@ class EveningComponent extends React.Component {
     this.state = {
       brevity: 'short',
       psalms: [],
+      references: [],
       lessons: [],
       date: props.date
     }
@@ -71,6 +72,7 @@ class EveningComponent extends React.Component {
     }).then(data => {
       this.setState({
         psalms: data['evening-psalms'],
+        references: data['evening-references'],
         lessons: data.evening
       })
     })
@@ -97,11 +99,12 @@ class EveningComponent extends React.Component {
           <Intro texts='evening' />
           <Confession intro="long" after="long" />
           <Invitatory texts="evening" />
-          <Psalter lectionary='evening' date={this.state.date} psalms={this.state.psalms} />
-          <Lesson lectionary='evening'
+          <Psalter psalms={this.state.psalms} />
+          <Lesson 
             postFirstReading={this.state.brevity === 'short' ? 'none' : 'magnificat'}
             postSecondReading={this.state.brevity === 'short' ? 'none' : 'nunc-dimittis'}
-            date={this.state.date} lessons={this.state.lessons} />
+            references={this.state.references}
+            lessons={this.state.lessons} />
           { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
           { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
           <DailyCollect collects='evening' />
