@@ -47,7 +47,10 @@ export class ScriptureServiceCdkStack extends cdk.Stack {
       const apigw = new apigateway.LambdaRestApi(this, 'daily-office-get-scripture-v2-API-' + stage, {
         domainName: domain,
         handler: fn,
-        proxy: false
+        proxy: false,
+        deployOptions: {
+          stageName: stage
+        }
       });
 
       // add REST endpoints

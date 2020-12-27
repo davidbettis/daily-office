@@ -3,7 +3,7 @@ default:
 	cp credentials.py lambda_function.py ./build
 	mkdir -p build/data
 	cp ../../website/src/data/*.json ./build/data/
-	cp apocrypha.json ./build/data/
+	cp data/*.json ./build/data/
 	pip install --target ./build requests
 
 unit-tests:

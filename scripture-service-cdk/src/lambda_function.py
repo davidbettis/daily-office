@@ -222,14 +222,17 @@ def lambda_handler(event, context):
     # TODO cache these on disk
     # TODO cache these on Elasticache
 
+    # Restrict CORS
+    headers = {}
+    if event['requestContext']['stage'] == 'test':
+      headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    else:
+      headers['Access-Control-Allow-Origin'] = 'https://davidbettis.com'
+
     return {
         'statusCode': 200,
         'body': json.dumps(body),
-        'headers': {
-            # TODO vary stage-specific config for development
-            #'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Origin': 'https://davidbettis.com'
-        },
+        'headers': headers,
         'isBase64Encoded': False
     }
 
