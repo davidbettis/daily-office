@@ -1,6 +1,5 @@
 default: build
 
-# TODO build src
 build: 
 	(cd src; make)
 	npm run build
