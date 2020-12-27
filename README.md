@@ -37,7 +37,6 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 
 ## Website
 
-* Eliminate dependency on the lectionary files; strictly use output from the service instead
 * Opening sentences of scripture that vary according to the church calendar
 * use the Cloverdale psalter for psalms
 * (Morning Prayer) "From Easter Day through the Day of Pentecost “Alleluia, alleluia” may be added to the preceding versicle and response."
@@ -46,7 +45,6 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 
 ## Service
 
-* Create a test stage for development purposes
 * Cache the ESV API's response on disk, so warm Lambda containers don't have to hit api.esv.org again
 * Cache the ESV API's response in Elasticache to prevent the ESV service from being overloaded; key will be the day of the year
 * Add support for different lectionaries
@@ -54,6 +52,7 @@ written in Python and intended to be used on AWS Lambda. It queries the ESV API
 
 # Release Notes
 
+* 2020-12-27: removed JSON file dependency from website
 * 2020-12-26: launched scripture-service API V2 managed by AWS CDK, programmatic CloudFormation
 * 2020-11-25: fixed a bug: added the morning office readings of Eccleasticus to the apocrypha
 * 2019-08-04: added abbreviated versions of the office (short/medium/long)
