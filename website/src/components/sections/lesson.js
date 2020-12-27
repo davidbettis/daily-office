@@ -24,7 +24,6 @@ class Lesson extends React.Component {
         typeof this.props.lessons[1] === 'undefined') {
       return (<div />)
     }
- 
     return (
       <div>
         <p className="section">The Lessons</p>

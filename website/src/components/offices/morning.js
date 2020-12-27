@@ -100,7 +100,7 @@ class MorningComponent extends React.Component {
           <Confession intro="short" after="short" />
           <Invitatory texts="morning" />
           <Psalter psalms={this.state.psalms} />
-          <Lesson 
+          <Lesson
             postFirstReading={this.state.brevity === 'short' ? 'none' : 'te-deum-laudamus'}
             postSecondReading={this.state.brevity === 'short' ? 'none' : 'benedictus'}
             references={this.state.references}
