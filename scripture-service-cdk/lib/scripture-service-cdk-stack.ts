@@ -11,9 +11,6 @@ export class ScriptureServiceCdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // TODO move out into config
-    const hostname = 'daily-office-v2.api.davidbettis.com'
-
     // Lambda function to get the scripture text
     const fn = new lambda.Function(this, "daily-office-get-scripture-v2", {
       runtime: lambda.Runtime.PYTHON_3_7,
@@ -29,39 +26,41 @@ export class ScriptureServiceCdkStack extends cdk.Stack {
       'arn:aws:acm:us-east-1:934587002178:certificate/7734d6b5-96b3-4e68-8b4c-88bdd5ceba80'
     );
 
-    // custom domain to use
-    const domain: apigateway.DomainNameOptions = {
-      certificate: certificate,
-      domainName: hostname,
-      securityPolicy: apigateway.SecurityPolicy.TLS_1_2
-    };
-
-    // the endpoint
-    const apigw = new apigateway.LambdaRestApi(this, "daily-office-get-scripture-v2-API", {
-      domainName: domain,
-      handler: fn,
-      proxy: false
-    });
-
-
-    // add REST endpoints
-    const scripture = apigw.root.addResource('scripture');
-    scripture.addMethod('GET');
-    scripture.addCorsPreflight({
-        allowOrigins: ['http://localhost:3000', 'https://davidbettis.com'],
-        allowMethods: ['GET']
-    });
-
     // TODO move the domain name out into config
     // TODO infer zone from hostname
     // the zone for davidbettis.com
     const zone = route53.HostedZone.fromLookup(this, 'Zone', { domainName: "davidbettis.com" });
 
-    // map a DNS record to the endpoint
-    const dns = new route53.ARecord(this, 'daily-office-api-record', {
-      zone: zone,
-      target: route53.RecordTarget.fromAlias(new targets.ApiGateway(apigw)),
-      recordName: hostname
+    ['test', 'prod'].map(stage => {
+      // TODO move out into config
+
+      const hostname = 'daily-office-v2-' + stage + '.api.davidbettis.com'
+
+      // Custom domain to use
+      const domain: apigateway.DomainNameOptions = {
+        certificate: certificate,
+        domainName: hostname,
+        securityPolicy: apigateway.SecurityPolicy.TLS_1_2
+      };
+
+      // the endpoint
+      const apigw = new apigateway.LambdaRestApi(this, 'daily-office-get-scripture-v2-API-' + stage, {
+        domainName: domain,
+        handler: fn,
+        proxy: false
+      });
+
+      // add REST endpoints
+      const scripture = apigw.root.addResource('scripture');
+      scripture.addMethod('GET');
+
+      // map a DNS record to the endpoint
+      const dns = new route53.ARecord(this, 'daily-office-api-record-' + stage, {
+        zone: zone,
+        target: route53.RecordTarget.fromAlias(new targets.ApiGateway(apigw)),
+        recordName: hostname
+      });
     });
+
   }
 }
