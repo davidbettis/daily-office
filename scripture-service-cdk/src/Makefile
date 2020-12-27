@@ -1,10 +1,8 @@
 default:
-	mkdir -p build
-	cp credentials.py lambda_function.py ./build
 	mkdir -p build/data
-	cp ../../website/src/data/*.json ./build/data/
-	cp data/*.json ./build/data/
 	pip install --target ./build requests
+	cp data/*.json ./build/data/
+	cp credentials.py lambda_function.py ./build
 
 unit-tests:
 	python3 unit_tests.py
