@@ -29,6 +29,11 @@ export default {
         path: '/evening',
         template: 'src/containers/evening',
       },
+      // Morning liturgy with evening readings - for D&J
+      {
+        path: '/morevening',
+        template: 'src/containers/morevening',
+      },
       {
         path: '/compline',
         template: 'src/containers/compline',
