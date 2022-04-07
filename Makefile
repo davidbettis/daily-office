@@ -1,21 +1,23 @@
+OUTPUT_DIR=out
+
 default: release
 
-release: check build
+release: build
 
 check:
 	eslint src
 
 build:
-	yarn build
+	npm run build 
 
 clean:
-	rm -rf public dist
+	rm -rf ${OUTPUT_DIR}
 
 server:
-	yarn start
+	npm run dev
 
 deploy: clean release
-	aws s3 sync dist ${DAILYOFFICE_S3}
+	aws s3 sync ${OUTPUT_DIR} ${DAILYOFFICE_S3}
 
 local-deploy: clean release
-	sudo rm -rf /Library/WebServer/Documents/daily-office/* && sudo cp -R dist/* /Library/WebServer/Documents/daily-office
+	sudo rm -rf /Library/WebServer/Documents/daily-office/* && sudo cp -R ${OUTPUT_DIR}/* /Library/WebServer/Documents/daily-office
