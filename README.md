@@ -9,18 +9,17 @@ point to provide web-enabled editions of Christian liturgies.
 
 # Technical Overview
 
-The web site is written in React. It uses react-static to generate the scaffolding for a static site.
+The web site is written in React. It uses next.js to generate the scaffolding for a static site.
 
 The website has a dependency on the Daily Office Scripture web service. Please see https://github.com/davidbettis/daily-office-scripture
 
 Check out the Makefile for a variety of developer convenience targets.
 
-* no arguments or 'release' - runs tests and builds the project; output to upload is in "public"
-* build: generates the output for the static site; output to upload is in "public"
+* no arguments or 'release' - runs tests and builds the project; output to upload is in "out"
+* build: generates the output for the static site; output to upload is in "out"
 * test: runs automated unit tests
-* update-snapshot: React caches a skeleton of the DOM structure to run unit tests against; update that template
 * clean: removes old build artifacts
-* server: runs a local development server on port 3000 (react-static default)
+* server: runs a local development server on port 3000 (next.js default)
 * deploy: push the contents of "public" to an S3 bucket defined in the environment variable DAILYOFFICE_S3; to use run "DAILYOFFICE_S3='s3://my.bucket/dir' make deploy"
 
 # TODO List
@@ -33,6 +32,8 @@ Check out the Makefile for a variety of developer convenience targets.
 
 # Release Notes
 
+* 2022-04-06: migrated from react-static to next.js
+* 2020-12-27: removed JSON file dependency from website
 * 2020-12-27: removed JSON file dependency from website
 * 2020-12-26: launched scripture-service API V2 managed by AWS CDK, programmatic CloudFormation
 * 2020-11-25: fixed a bug: added the morning office readings of Eccleasticus to the apocrypha
@@ -50,7 +51,7 @@ Check out the Makefile for a variety of developer convenience targets.
 ## Initial setup
 
 * Install Node: https://nodejs.org/en/download/
-* Install react-static: yarn install global react-static
+* Install Next.js: yarn install next 
 * Install dependencies: cd website; yarn install
 
 ## Ongoing development
