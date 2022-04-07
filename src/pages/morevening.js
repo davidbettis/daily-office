@@ -2,6 +2,8 @@ import React from 'react'
 
 import MoreveningComponent from '../components/offices/morevening'
 
-export default () => (
+const MoreveningPage = () => (
   <MoreveningComponent date={new Date()} />
 )
+
+export default MoreveningPage

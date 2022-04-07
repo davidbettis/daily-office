@@ -2,10 +2,10 @@ OUTPUT_DIR=out
 
 default: release
 
-release: build
+release: check build
 
 check:
-	eslint src
+	npm run lint
 
 build:
 	npm run build 

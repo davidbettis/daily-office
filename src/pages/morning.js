@@ -2,6 +2,8 @@ import React from 'react'
 
 import MorningComponent from '../components/offices/morning'
 
-export default () => (
+const MorningPage = () => (
   <MorningComponent date={new Date()} />
 )
+
+export default MorningPage

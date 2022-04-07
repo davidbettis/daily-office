@@ -29,6 +29,6 @@ export class ScriptureService {
   }
 }
 
-ScriptureService.ENDPOINT = 'https://daily-office-v2-prod.api.davidbettis.com/'
+ScriptureService.ENDPOINT = 'https://daily-office-v2-test.api.davidbettis.com/'
 
 export default ScriptureService

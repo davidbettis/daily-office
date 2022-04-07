@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import TimelyOffice from '../components/offices/timely-office'
 
-export default () => (
+const DefaultPage = () => (
   <TimelyOffice date={new Date()} />
 )
+
+export default DefaultPage
