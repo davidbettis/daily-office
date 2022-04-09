@@ -97,7 +97,7 @@ class EveningComponent extends React.Component {
 
         <div className="prayer">
           <Intro texts='evening' />
-          <Confession intro="long" after="long" />
+          <Confession intro="short" />
           <Invitatory texts="evening" />
           <Psalter psalms={this.state.psalms} />
           <Lesson
