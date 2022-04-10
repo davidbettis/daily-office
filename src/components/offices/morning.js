@@ -1,7 +1,9 @@
 import React from 'react'
+import { withRouter } from 'next/router';
 import PropTypes from 'prop-types'
 
 import ApostlesCreed from '../sections/apostles-creed'
+import Brevity from '../../helpers/brevity'
 import Closing from '../sections/closing'
 import Confession from '../sections/confession'
 import DateComponent from '../sections/date'
@@ -22,8 +24,9 @@ const ONE_DAY_MS = 86400000
 class MorningComponent extends React.Component {
   constructor (props) {
     super(props)
+
     this.state = {
-      brevity: 'short',
+      brevity: undefined,
       psalms: [],
       references: [],
       lessons: [],
@@ -32,7 +35,11 @@ class MorningComponent extends React.Component {
   }
 
   updateBrevity (brevity) {
+    if (!Brevity.VALID_BREVITY.includes(brevity)) {
+        throw new Error('Invalid brevity: ' + brevity)
+    }
     this.setState({ brevity: brevity })
+    this.props.router.replace('?brevity=' + brevity)
   }
 
   rewindByOneDay () {
@@ -79,12 +86,24 @@ class MorningComponent extends React.Component {
   }
 
   render () {
+    if (!this.props.router.query) {
+        return <></>
+    }
+
+    let brevity = this.state.brevity
+    if (brevity === undefined) {
+        brevity = this.props.router.query.brevity
+    }
+    if (brevity === undefined) {
+        brevity = Brevity.DEFAULT_BREVITY
+    }
+
     return (
       <div>
         <div style={{ float: 'right' }}>
-          <span className={this.state.brevity === 'short' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('short')}>Short (~15 min)</span><br/>
-          <span className={this.state.brevity === 'medium' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('medium')}>Medium (~30 min)</span><br/>
-          <span className={this.state.brevity === 'long' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('long')}>Long (~45 min)</span>
+          <span className={brevity === 'short' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('short')}>Short (~15 min)</span><br/>
+          <span className={brevity === 'medium' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('medium')}>Medium (~30 min)</span><br/>
+          <span className={brevity === 'long' ? 'duration-selected' : 'duration'} onClick={() => this.updateBrevity('long')}>Long (~45 min)</span>
         </div>
 
         <h2>
@@ -101,16 +120,16 @@ class MorningComponent extends React.Component {
           <Invitatory texts="morning" />
           <Psalter psalms={this.state.psalms} />
           <Lesson
-            postFirstReading={this.state.brevity === 'short' ? 'none' : 'te-deum-laudamus'}
-            postSecondReading={this.state.brevity === 'short' ? 'none' : 'benedictus'}
+            postFirstReading={brevity === 'short' ? 'none' : 'te-deum-laudamus'}
+            postSecondReading={brevity === 'short' ? 'none' : 'benedictus'}
             references={this.state.references}
             lessons={this.state.lessons} />
-          { this.state.brevity === 'long' ? <ApostlesCreed /> : null }
-          { this.state.brevity === 'medium' || this.state.brevity === 'long' ? <Prayer /> : null }
+          { brevity === 'long' ? <ApostlesCreed /> : null }
+          { brevity === 'medium' || brevity === 'long' ? <Prayer /> : null }
           <DailyCollect collects='morning' />
-          { this.state.brevity === 'long' ? <MissionPrayer /> : null }
+          { brevity === 'long' ? <MissionPrayer /> : null }
           <FreePrayer />
-          { this.state.brevity === 'long' ? <GeneralThanksgiving /> : null }
+          { brevity === 'long' ? <GeneralThanksgiving /> : null }
           <Closing />
         </div>
       </div>
@@ -122,4 +141,4 @@ MorningComponent.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired
 }
 
-export default MorningComponent
+export default withRouter(MorningComponent)
