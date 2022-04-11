@@ -27,8 +27,6 @@ Check out the Makefile for a variety of developer convenience targets.
 * Opening sentences of scripture that vary according to the church calendar
 * use the Cloverdale psalter for psalms
 * (Morning Prayer) "From Easter Day through the Day of Pentecost “Alleluia, alleluia” may be added to the preceding versicle and response."
-* remember the brevity chosen in a cookie and default to that length
-* Add option for traditional / contemporary Lord's prayer
 
 # Release Notes
 
