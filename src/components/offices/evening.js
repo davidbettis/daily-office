@@ -79,7 +79,7 @@ class EveningComponent extends React.Component {
       this.setState({
         psalms: data['evening-psalms'],
         references: data['evening-references'],
-        lessons: data.evening
+        lessons: data['evening-with-verses']
       })
     })
   }

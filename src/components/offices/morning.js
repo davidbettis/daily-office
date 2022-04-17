@@ -80,7 +80,7 @@ class MorningComponent extends React.Component {
       this.setState({
         psalms: data['morning-psalms'],
         references: data['morning-references'],
-        lessons: data.morning
+        lessons: data['morning-with-verses']
       })
     })
   }

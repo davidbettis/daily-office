@@ -45,7 +45,7 @@ Lesson.propTypes = {
 
 function Reading (props) {
   var text = props.text
-  var fullText = props.fullText
+  var fullText = props.fullText // array of {key/text} hashes
 
   var esvLink = ''
   var after = ''
@@ -64,7 +64,7 @@ function Reading (props) {
   return (
     <div>
       <p>A reading from { text }. { esvLink }</p>
-      <p>{ fullText }</p>
+      <p>{ fullText.map((obj, i) => { return <span key={i}><span className="verse">{obj.verse}</span>{obj.text}</span> })  }</p>
       { after }
     </div>
   )
