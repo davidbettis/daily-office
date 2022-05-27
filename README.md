@@ -1,3 +1,7 @@
+# NOTICE
+
+In light of Anglican House Publishing sponsoring https://www.dailyoffice2019.com/, effective May 28, 2022, this project is no longer maintained.I commend the new project to you! This contents are here for posterity only.
+
 # Summary
 
 The Daily Office is an historic Christian devotional, according to the Anglican tradition.
